@@ -43,7 +43,12 @@ export class LoginComponent implements OnInit {
       const email = this.loginForm.get('email').value;
       const password = this.loginForm.get('password').value;
 
-      this.authService.login(email, password).subscribe(
+      this.authService.login(
+        {
+          email,
+          password
+        }
+      ).subscribe(
         () => {
           console.log('User is logged in');
           this.router.navigateByUrl('/'); }
