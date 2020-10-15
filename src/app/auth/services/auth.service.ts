@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import {LoginCredentials} from './login/login-credentials';
 import {Observable, of} from 'rxjs';
 import {catchError, mapTo, tap} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
-import {config} from './config';
-import {Tokens} from './models/tokens';
+import {config} from '../../config';
+import {Tokens} from '../models/tokens';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +23,7 @@ export class AuthService {
         tap(tokens => this.doLoginUser(user.email, tokens)),
         mapTo(true),
         catchError(error => {
-          alert(error.error);
+          alert(error.error.message);
           return of(false);
         }));
   }
