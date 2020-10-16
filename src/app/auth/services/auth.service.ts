@@ -38,4 +38,8 @@ export class AuthService {
     localStorage.setItem(this.ACCESS_TOKEN, tokens.accessToken);
     localStorage.setItem(this.REFRESH_TOKEN, tokens.refreshToken);
   }
+
+  getAccessToken(): string {
+    return localStorage.getItem(this.ACCESS_TOKEN);
+  }
 }

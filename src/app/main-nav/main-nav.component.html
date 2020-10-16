@@ -4,18 +4,11 @@
       <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
     </button>
     <h1>SCManagement</h1>
-    <span class="menu-spacer"></span>
-    <div>
-      <a mat-button [routerLink]="'/accounts'"> Accounts </a>
-      <a mat-button [routerLink]="'/create-account'"> Create Account </a>
-      <a mat-button [routerLink]="'/contacts'"> Contacts </a>
-      <a mat-button [routerLink]="'/create-contact'"> Create Contact </a>
-      <a mat-button [routerLink]="'/activities'"> Activities </a>
-      <a mat-button [routerLink]="'/create-activity'"> Create Activity </a>
-
+    <div class="tool-bar-button">
+      <a mat-button [routerLink]="'/accounts'">
+        <span class="material-icons">power_settings_new</span></a>
     </div>
   </mat-toolbar-row>
-
   <mat-toolbar-row>
     <span style="font-size: 12px;">SCManagement helps you easily manage your jobs</span>
   </mat-toolbar-row>
@@ -31,7 +24,7 @@
       <a mat-list-item [routerLink]="'/create-contact'"> Create Contact </a>
       <a mat-list-item [routerLink]="'/activities'"> Activities </a>
       <a mat-list-item [routerLink]="'/create-activity'"> Create Activity </a>
-      <a mat-list-item (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+      <a mat-list-item (click)="sidenav.toggle()" href="">Close</a>
 
     </mat-nav-list>
   </mat-sidenav>
