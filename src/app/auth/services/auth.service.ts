@@ -17,7 +17,6 @@ export class AuthService {
   constructor(private http: HttpClient) {
   }
 
-
   login(user: { email: string, password: string }): Observable<boolean> {
     return this.http.post<any>(`${config.apiUrl}/authenticate`, user)
       .pipe(
@@ -29,6 +28,9 @@ export class AuthService {
         }));
   }
 
+  isLoggedIn(): boolean{
+    return !!this.getAccessToken();
+  }
 
   private doLoginUser(email: string, tokens: Tokens): void {
     this.loggedUser = email;
