@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {catchError, mapTo, tap} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
@@ -14,7 +14,8 @@ export class AuthService {
   private readonly REFRESH_TOKEN = 'REFRESH_TOKEN';
   private loggedUser: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
 
   login(user: { email: string, password: string }): Observable<boolean> {
@@ -42,4 +43,20 @@ export class AuthService {
   getAccessToken(): string {
     return localStorage.getItem(this.ACCESS_TOKEN);
   }
+
+  private getRefreshToken(): string {
+    return localStorage.getItem(this.REFRESH_TOKEN);
+  }
+
+  private storeAccessToken(accessToken: string): void {
+    localStorage.setItem(this.ACCESS_TOKEN, accessToken);
+  }
+
+
+  refreshToken(): Observable<any> {
+    return this.http.post<any>(`${config.apiUrl}/refresh`, {
+      refreshToken: this.getRefreshToken()
+    }).pipe(tap((tokens: Tokens) => this.storeAccessToken(tokens.accessToken)));
+  }
+
 }
