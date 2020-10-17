@@ -51,7 +51,8 @@ export class LoginComponent implements OnInit {
       ).subscribe(
         () => {
           console.log('User is logged in');
-          this.router.navigateByUrl('/'); }
+          this.router.navigate(['home']);
+        }
       );
     }
   }

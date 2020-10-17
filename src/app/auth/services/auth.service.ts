@@ -28,6 +28,29 @@ export class AuthService {
         }));
   }
 
+  logout(): Observable<boolean> {
+    return this.http.post<any>(`${config.apiUrl}/logout`, {
+      refreshToken: this.getRefreshToken()
+    }).pipe(
+      tap(() => this.doLogoutUser()),
+      mapTo(true),
+      catchError(error => {
+        alert(error.message);
+        return of(false);
+      })
+    );
+  }
+
+  refreshToken(): Observable<any> {
+    return this.http.post<any>(`${config.apiUrl}/refresh`, {
+      refreshToken: this.getRefreshToken()
+    }).pipe(tap((tokens: Tokens) => this.storeAccessToken(tokens.accessToken)));
+  }
+
+  getAccessToken(): string {
+    return localStorage.getItem(this.ACCESS_TOKEN);
+  }
+
   isLoggedIn(): boolean{
     return !!this.getAccessToken();
   }
@@ -36,14 +59,14 @@ export class AuthService {
     this.loggedUser = email;
     this.storeTokens(tokens);
   }
+  private doLogoutUser(): void {
+    this.loggedUser = null;
+    this.removeTokens();
+  }
 
   private storeTokens(tokens: Tokens): void {
     localStorage.setItem(this.ACCESS_TOKEN, tokens.accessToken);
     localStorage.setItem(this.REFRESH_TOKEN, tokens.refreshToken);
-  }
-
-  getAccessToken(): string {
-    return localStorage.getItem(this.ACCESS_TOKEN);
   }
 
   private getRefreshToken(): string {
@@ -53,12 +76,9 @@ export class AuthService {
   private storeAccessToken(accessToken: string): void {
     localStorage.setItem(this.ACCESS_TOKEN, accessToken);
   }
-
-
-  refreshToken(): Observable<any> {
-    return this.http.post<any>(`${config.apiUrl}/refresh`, {
-      refreshToken: this.getRefreshToken()
-    }).pipe(tap((tokens: Tokens) => this.storeAccessToken(tokens.accessToken)));
+  private removeTokens(): void {
+    localStorage.removeItem(this.ACCESS_TOKEN);
+    localStorage.removeItem(this.REFRESH_TOKEN);
   }
 
 }
