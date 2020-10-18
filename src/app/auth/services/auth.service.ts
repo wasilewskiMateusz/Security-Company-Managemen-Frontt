@@ -29,13 +29,13 @@ export class AuthService {
   }
 
   logout(): Observable<boolean> {
-    return this.http.post<any>(`${config.apiUrl}/logout`, {
+    return this.http.post<any>(`${config.apiUrl}/removeToken`, {
       refreshToken: this.getRefreshToken()
     }).pipe(
       tap(() => this.doLogoutUser()),
       mapTo(true),
       catchError(error => {
-        alert(error.message);
+        console.log(error);
         return of(false);
       })
     );

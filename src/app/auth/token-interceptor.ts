@@ -21,7 +21,6 @@ export class TokenInterceptor implements HttpInterceptor {
       req = this.addToken(req, this.authService.getAccessToken());
     }
 
-
     return next.handle(req).pipe(
       catchError(error => {
         if (error instanceof HttpErrorResponse && error.status === 401) {
@@ -53,12 +52,11 @@ export class TokenInterceptor implements HttpInterceptor {
           return next.handle(this.addToken(req, token.accessToken));
         })
       );
-    }
-    else {
+    } else {
       return this.refreshTokenSubject.pipe(
         filter(token => token != null),
         take(1),
-        switchMap( accessToken => {
+        switchMap(accessToken => {
           return next.handle(this.addToken(req, accessToken));
         })
       );
