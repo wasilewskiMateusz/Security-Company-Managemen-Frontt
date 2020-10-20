@@ -1,0 +1,48 @@
+<mat-card>
+  <mat-card-content>
+    <form [formGroup]="registerForm">
+      <h2>Register</h2>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="pat@example.com" formControlName="email" required>
+        <mat-error *ngIf="registerForm.controls.email.invalid">{{getEmailErrorMessage()}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="'password'" formControlName="password" required>
+        <mat-error *ngIf="registerForm.controls.password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Repeat your password</mat-label>
+        <input matInput [type]="'password'" formControlName="repeatedPassword" required>
+        <mat-error *ngIf="registerForm.controls.repeatedPassword.invalid">{{getRepeatedPasswordErrorMessage()}}</mat-error>
+      </mat-form-field>
+
+      <div class="personal-data-input-container">
+        <mat-form-field appearance="fill">
+          <mat-label>First name</mat-label>
+          <input matInput formControlName="firstName" required>
+          <mat-error *ngIf="registerForm.controls.firstName.invalid">{{getFirstNameErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Last name</mat-label>
+          <input matInput formControlName="lastName" required>
+          <mat-error *ngIf="registerForm.controls.lastName.invalid">{{getLastNameErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Telephone</mat-label>
+        <input matInput placeholder="111 222 333" formControlName="phoneNumber" required>
+        <mat-error *ngIf="registerForm.controls.phoneNumber.invalid">{{getPhoneNumberErrorMessage()}}</mat-error>
+      </mat-form-field>
+
+      <mat-error class="api-error" *ngIf="registerApiError">{{"Użytkownik o podanym emailu już istnieje"}}</mat-error>
+      <button mat-raised-button color="primary" (click)="onSubmit()">Register</button>
+    </form>
+  </mat-card-content>
+</mat-card>

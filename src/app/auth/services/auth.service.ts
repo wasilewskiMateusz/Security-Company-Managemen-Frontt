@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
+import {Observable, of, throwError} from 'rxjs';
 import {catchError, mapTo, tap} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {config} from '../../config';
@@ -22,8 +22,18 @@ export class AuthService {
       .pipe(
         tap(tokens => this.doLoginUser(user.email, tokens)),
         mapTo(true),
-        catchError(error => {
-          alert(error.error.message);
+        catchError(() => {
+          return of(false);
+        }));
+  }
+
+  register(userRegister: { email: string, password: string,
+    rePassword: string, firstName: string, lastName: string,
+    phoneNumber: string }): Observable<boolean> {
+    return this.http.post<any>(`${config.apiUrl}/register`, userRegister)
+      .pipe(
+        mapTo(true),
+        catchError(() => {
           return of(false);
         }));
   }

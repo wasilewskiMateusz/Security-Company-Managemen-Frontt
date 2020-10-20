@@ -9,6 +9,29 @@ mat-form-field{
   margin-bottom: 1em;
 }
 
+.api-error{
+  margin-bottom: 1em;
+  margin-top: -0.5em;
+}
+
+
+.buttons-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttons-container button {
+  width: 60%;
+  border-radius: 20px;
+}
+
+.register-link{
+  margin-top: 5em;
+  color: #909090;
+}
+
+
 
 
 

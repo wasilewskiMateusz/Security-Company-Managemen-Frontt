@@ -16,20 +16,23 @@ export class TokenInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
+    if (this.authService.getAccessToken() !== null) {
 
-    if (this.authService.getAccessToken()) {
-      req = this.addToken(req, this.authService.getAccessToken());
+        req = this.addToken(req, this.authService.getAccessToken());
+
+        return next.handle(req).pipe(
+        catchError(error => {
+          if (error instanceof HttpErrorResponse && error.status === 401) {
+            return this.handle401Error(req, next);
+          } else {
+            return throwError(error);
+          }
+        })
+      ) as Observable<HttpEvent<any>>;
     }
-
-    return next.handle(req).pipe(
-      catchError(error => {
-        if (error instanceof HttpErrorResponse && error.status === 401) {
-          return this.handle401Error(req, next);
-        } else {
-          return throwError(error);
-        }
-      })
-    ) as Observable<HttpEvent<any>>;
+    else {
+      return next.handle(req);
+    }
   }
 
   private addToken(req: HttpRequest<any>, token: string): any {
