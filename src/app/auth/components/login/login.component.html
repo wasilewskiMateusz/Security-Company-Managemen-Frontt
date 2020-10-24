@@ -19,8 +19,6 @@
         <mat-error *ngIf="loginForm.controls.password.invalid">{{getPasswordErrorMessage()}}</mat-error>
       </mat-form-field>
 
-      <mat-error class="api-error" *ngIf="loginApiError">{{"Błędny login lub hasło"}}</mat-error>
-
       <div class="buttons-container">
         <button mat-raised-button color="primary" (click)="onSubmit()">Login</button>
         <a class="register-link" mat-button [routerLink]="'/register'">

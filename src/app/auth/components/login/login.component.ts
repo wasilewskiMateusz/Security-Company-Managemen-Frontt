@@ -12,7 +12,6 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   hide = true;
-  loginApiError = false;
 
   constructor(private authService: AuthService, private router: Router) {
   }
@@ -52,9 +51,7 @@ export class LoginComponent implements OnInit {
       ).subscribe(
         next => {
           this.router.navigate(['home']);
-          this.loginApiError = !next;
-        }
-      );
+        });
     }
   }
 

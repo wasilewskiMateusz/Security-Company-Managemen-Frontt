@@ -41,7 +41,6 @@
         <mat-error *ngIf="registerForm.controls.phoneNumber.invalid">{{getPhoneNumberErrorMessage()}}</mat-error>
       </mat-form-field>
 
-      <mat-error class="api-error" *ngIf="registerApiError">{{"Użytkownik o podanym emailu już istnieje"}}</mat-error>
       <button mat-raised-button color="primary" (click)="onSubmit()">Register</button>
     </form>
   </mat-card-content>

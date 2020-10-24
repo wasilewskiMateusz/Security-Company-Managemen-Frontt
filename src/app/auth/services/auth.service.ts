@@ -4,6 +4,8 @@ import {catchError, mapTo, tap} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {config} from '../../config';
 import {Tokens} from '../models/tokens';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {ErrorHandlerService} from '../../share/error-handler';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +16,7 @@ export class AuthService {
   private readonly REFRESH_TOKEN = 'REFRESH_TOKEN';
   private loggedUser: string;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private errorHandlerService: ErrorHandlerService) {
   }
 
   login(user: { email: string, password: string }): Observable<boolean> {
@@ -22,20 +24,19 @@ export class AuthService {
       .pipe(
         tap(tokens => this.doLoginUser(user.email, tokens)),
         mapTo(true),
-        catchError(() => {
-          return of(false);
-        }));
+        catchError((err) => this.errorHandlerService.handleError(err)));
   }
 
-  register(userRegister: { email: string, password: string,
+  register(userRegister: {
+    email: string, password: string,
     rePassword: string, firstName: string, lastName: string,
-    phoneNumber: string }): Observable<boolean> {
+    phoneNumber: string
+  }): Observable<boolean> {
     return this.http.post<any>(`${config.apiUrl}/register`, userRegister)
       .pipe(
         mapTo(true),
-        catchError(() => {
-          return of(false);
-        }));
+        catchError((err) => this.errorHandlerService.handleError(err)
+        ));
   }
 
   logout(): Observable<boolean> {
@@ -61,7 +62,7 @@ export class AuthService {
     return localStorage.getItem(this.ACCESS_TOKEN);
   }
 
-  isLoggedIn(): boolean{
+  isLoggedIn(): boolean {
     return !!this.getAccessToken();
   }
 
@@ -69,6 +70,7 @@ export class AuthService {
     this.loggedUser = email;
     this.storeTokens(tokens);
   }
+
   private doLogoutUser(): void {
     this.loggedUser = null;
     this.removeTokens();
@@ -86,6 +88,7 @@ export class AuthService {
   private storeAccessToken(accessToken: string): void {
     localStorage.setItem(this.ACCESS_TOKEN, accessToken);
   }
+
   private removeTokens(): void {
     localStorage.removeItem(this.ACCESS_TOKEN);
     localStorage.removeItem(this.REFRESH_TOKEN);

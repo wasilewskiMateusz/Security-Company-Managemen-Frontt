@@ -11,7 +11,6 @@ import {Router} from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup;
-  registerApiError = false;
 
   constructor(private authService: AuthService, private router: Router) {
   }
@@ -94,12 +93,12 @@ export class RegisterComponent implements OnInit {
           lastName,
           phoneNumber
         }
-      ).subscribe(
-        next => {
-          this.router.navigate(['login']);
-          this.registerApiError = !next;
+      ).subscribe( next => {
+        if (next === true) {
+        this.router.navigate(['login']);
         }
-      );
+      });
+
     }
   }
 
