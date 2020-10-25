@@ -71,7 +71,7 @@ export class AuthService {
     this.storeTokens(tokens);
   }
 
-  private doLogoutUser(): void {
+  public doLogoutUser(): void {
     this.loggedUser = null;
     this.removeTokens();
   }

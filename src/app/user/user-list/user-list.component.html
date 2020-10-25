@@ -22,9 +22,9 @@
   </ng-container>
 
 
-  <ng-container matColumnDef="details">
-    <th mat-header-cell *matHeaderCellDef> Details </th>
-    <td mat-cell *matCellDef="let element"> <button>LOL</button></td>
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef> Action </th>
+    <td mat-cell *matCellDef="let element"> <button (click)="goToEdit(element.id)">Edit</button></td>
   </ng-container>
 
 
