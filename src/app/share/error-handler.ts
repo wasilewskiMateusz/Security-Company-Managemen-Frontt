@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
+import {Observable, of, throwError} from 'rxjs';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Injectable({
@@ -11,7 +11,7 @@ export class ErrorHandlerService {
   constructor(private snackBar: MatSnackBar) {
   }
 
-  public handleError(error): Observable<boolean> {
+  public handleError(error): Observable<any> {
 
     let errorMessage = '';
 
@@ -35,7 +35,7 @@ export class ErrorHandlerService {
       panelClass: ['error-snackbar']
     });
 
-    return of(false);
+    return throwError(error);
 
   }
 }

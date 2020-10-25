@@ -7,7 +7,6 @@ import {AppComponent} from './app.component';
 import {AuthModule} from './auth/auth.module';
 import {ShareModule} from './share/share.module';
 import {HomeModule} from './home/home.module';
-import {ErrorHandlerService} from './share/error-handler';
 
 
 @NgModule({
@@ -23,7 +22,6 @@ import {ErrorHandlerService} from './share/error-handler';
     MatSnackBarModule,
   ],
   providers: [
-    ErrorHandlerService
   ],
   bootstrap: [AppComponent]
 })

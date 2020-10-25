@@ -17,3 +17,7 @@
 .tool-bar-button{
   margin-left: auto;
 }
+
+mat-sidenav-container{
+  height: 100%;
+}

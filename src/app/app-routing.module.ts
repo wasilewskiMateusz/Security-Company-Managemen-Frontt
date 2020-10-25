@@ -5,6 +5,7 @@ import {HomeComponent} from './home/home.component';
 import {AuthGuard} from './auth/guards/auth-guard';
 import {HomeGuard} from './auth/guards/home-guard';
 import {RegisterComponent} from './auth/components/register/register.component';
+import {UserListComponent} from './user/user-list/user-list.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -19,7 +20,9 @@ const routes: Routes = [
   },
   {
     path: 'home', component: HomeComponent, canActivate: [HomeGuard],
-    children: []
+    children: [
+      {path: 'users', component: UserListComponent}
+    ]
   }
 ];
 

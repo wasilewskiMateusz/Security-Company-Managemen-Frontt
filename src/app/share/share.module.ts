@@ -14,12 +14,20 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {ErrorHandlerService} from './error-handler';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+
+
 
 
 
 
 
 @NgModule({
+  providers: [
+    ErrorHandlerService
+  ],
   declarations: [],
   imports: [
     CommonModule,
@@ -36,6 +44,9 @@ import {ErrorHandlerService} from './error-handler';
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
 
   ],
   exports: [
@@ -53,6 +64,9 @@ import {ErrorHandlerService} from './error-handler';
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
 })
 export class ShareModule { }
