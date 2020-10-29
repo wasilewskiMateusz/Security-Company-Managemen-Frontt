@@ -5,6 +5,7 @@ import {User} from '../models/user';
 import {Observable} from 'rxjs';
 import {config} from '../../config';
 import {catchError, map, mapTo, tap} from 'rxjs/operators';
+import {UserEdit} from '../models/user-edit';
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,12 @@ export class UserService {
     return this.http.get<any>(`${config.apiUrl}/users/${id}`)
       .pipe(
         catchError((err) => this.errorHandlerService.handleError(err)));
+  }
+
+  editUser(userEdit: UserEdit, id: number): Observable<User> {
+    return this.http.put<any>(`${config.apiUrl}/users/${id}`, userEdit)
+      .pipe(
+        catchError((err) => this.errorHandlerService.handleError(err)
+        ));
   }
 }

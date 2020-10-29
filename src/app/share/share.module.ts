@@ -14,6 +14,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {ErrorHandlerService} from './error-handler';
+import {SuccessHandler} from './success-handler';
 
 
 
@@ -24,6 +25,7 @@ import {ErrorHandlerService} from './error-handler';
 @NgModule({
   providers: [
     ErrorHandlerService,
+    SuccessHandler,
   ],
   declarations: [],
   imports: [

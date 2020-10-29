@@ -15,3 +15,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background: #790604;
   color: white;
 }
+.success-snackbar {
+  background: #006400;
+  color: white;
+}
