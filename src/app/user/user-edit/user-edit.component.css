@@ -1,0 +1,29 @@
+mat-card {
+  max-width: 400px;
+  margin: 8em auto;
+  text-align: center;
+}
+
+mat-form-field{
+  display: block;
+  margin-bottom: 1em;
+}
+
+.personal-data-input-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.personal-data-input-container mat-form-field {
+  width: 49%;
+}
+
+.api-error{
+  margin-bottom: 1em;
+  margin-top: -0.5em;
+}
+
+
+
+
+

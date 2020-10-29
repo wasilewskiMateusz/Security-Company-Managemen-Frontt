@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule} from '@angular/router';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import {LayoutModule} from '@angular/cdk/layout';
@@ -23,7 +23,7 @@ import {ErrorHandlerService} from './error-handler';
 
 @NgModule({
   providers: [
-    ErrorHandlerService
+    ErrorHandlerService,
   ],
   declarations: [],
   imports: [
@@ -32,6 +32,7 @@ import {ErrorHandlerService} from './error-handler';
     HttpClientModule,
     BrowserAnimationsModule,
     LayoutModule,
+    FormsModule,
     // material modules
     MatFormFieldModule,
     MatIconModule,
@@ -50,6 +51,7 @@ import {ErrorHandlerService} from './error-handler';
     BrowserAnimationsModule,
     LayoutModule,
     RouterModule,
+    FormsModule,
     // material modules
     MatFormFieldModule,
     MatIconModule,

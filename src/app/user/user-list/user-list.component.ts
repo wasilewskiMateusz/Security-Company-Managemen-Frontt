@@ -30,6 +30,6 @@ export class UserListComponent implements OnInit {
   }
 
   goToEdit(id: number): void {
-    this.router.navigate(['user-edit', id]);
+    this.router.navigate(['home/users/user-edit', id]);
 }
 }

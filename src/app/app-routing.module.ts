@@ -22,10 +22,8 @@ const routes: Routes = [
   {
     path: 'home', component: HomeComponent, canActivate: [HomeGuard],
     children: [
-      {path: 'users', component: UserListComponent, children: [
-          {path: 'user-edit/:id', component: UserEditComponent}
-        ]},
-
+      {path: 'users', component: UserListComponent},
+      {path: 'users/user-edit/:id', component: UserEditComponent}
     ]
   }
 ];

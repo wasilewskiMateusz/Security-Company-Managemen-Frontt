@@ -4,6 +4,8 @@ import { UserListComponent } from './user-list/user-list.component';
 import {UserService} from './services/user.service';
 import {MatTableModule} from '@angular/material/table';
 import { UserEditComponent } from './user-edit/user-edit.component';
+import {ShareModule} from '../share/share.module';
+import {FormsModule} from '@angular/forms';
 
 
 
@@ -18,8 +20,11 @@ import { UserEditComponent } from './user-edit/user-edit.component';
   imports: [
     CommonModule,
     MatTableModule,
+    ShareModule,
+
   ],
   exports: [
+    UserEditComponent
   ]
 })
 export class UserModule { }

@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {UserService} from '../services/user.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {User} from '../models/user';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AuthService} from '../../auth/services/auth.service';
 
 @Component({
   selector: 'app-user-edit',
@@ -7,9 +12,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserEditComponent implements OnInit {
 
-  constructor() { }
+  user: User = new User(0, '', false, '', '', '');
 
-  ngOnInit(): void {
+  constructor(
+    private route: ActivatedRoute,
+    private userService: UserService) {
   }
 
+  ngOnInit(): void {
+    this.getUser();
+  }
+
+  getUser(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.userService.getUser(id).subscribe(res => {
+        this.user = res;
+      });
+  }
 }

@@ -15,7 +15,7 @@ import {UserModule} from '../user/user.module';
   imports: [
     CommonModule,
     ShareModule,
-    UserModule
+    UserModule,
   ]
 })
 export class HomeModule { }
