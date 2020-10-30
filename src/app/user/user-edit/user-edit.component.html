@@ -1,27 +1,41 @@
 <mat-card>
   <mat-card-content>
-      <h2>Edit user</h2>
+    <h2>Edit user</h2>
 
-      <div class="personal-data-input-container">
-        <mat-form-field appearance="fill">
-          <mat-label>First name</mat-label>
-          <input matInput [(ngModel)]="user.name" #name="ngModel" required>
-          <mat-error [hidden]="name.valid">Field is required</mat-error>
-        </mat-form-field>
-
-        <mat-form-field appearance="fill">
-          <mat-label>Last name</mat-label>
-          <input matInput [(ngModel)]="user.lastName" #lastName="ngModel" required>
-          <mat-error [hidden]="lastName.valid">Field is required</mat-error>
-        </mat-form-field>
-      </div>
-
+    <div class="row-container">
       <mat-form-field appearance="fill">
-        <mat-label>Telephone</mat-label>
-        <input matInput placeholder="111 222 333" [(ngModel)]="user.phoneNumber" #phoneNumber="ngModel" required>
-        <mat-error [hidden]="phoneNumber.valid">Field is required</mat-error>
+        <mat-label>First name</mat-label>
+        <input matInput [(ngModel)]="user.name" #name="ngModel" required>
+        <mat-error [hidden]="name.valid">Field is required</mat-error>
       </mat-form-field>
 
-      <button mat-raised-button color="primary" (click)="editUser()">Edit</button>
+      <mat-form-field appearance="fill">
+        <mat-label>Last name</mat-label>
+        <input matInput [(ngModel)]="user.lastName" #lastName="ngModel" required>
+        <mat-error [hidden]="lastName.valid">Field is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Telephone</mat-label>
+      <input matInput placeholder="111 222 333" [(ngModel)]="user.phoneNumber" #phoneNumber="ngModel" required>
+      <mat-error [hidden]="phoneNumber.valid">Field is required</mat-error>
+    </mat-form-field>
+
+      <button mat-raised-button color="primary" (click)="editUser()">Edit data</button>
+
+    <div class="row-container user-enable-role-container">
+      <mat-slide-toggle [(ngModel)]="user.enabled">Enable</mat-slide-toggle>
+      <mat-form-field appearance="fill">
+        <mat-label>Roles</mat-label>
+        <mat-select [formControl]="userRoles" multiple>
+          <mat-option *ngFor="let role of roles" [value]="role.name">{{role.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <button mat-button color="primary">Cancel</button>
+    <button mat-raised-button color="accent">Edit password</button>
+
   </mat-card-content>
 </mat-card>

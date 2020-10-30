@@ -6,12 +6,14 @@ import {MatTableModule} from '@angular/material/table';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import {ShareModule} from '../share/share.module';
 import {FormsModule} from '@angular/forms';
+import {RoleService} from './services/role.service';
 
 
 
 @NgModule({
   providers: [
     UserService,
+    RoleService,
   ],
   declarations: [
     UserListComponent,

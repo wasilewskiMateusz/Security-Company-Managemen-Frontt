@@ -1,4 +1,8 @@
+import {Role} from './role';
+
 export class User {
+
+  public roles: Role[];
 
   constructor(
     public id: number,
@@ -7,6 +11,7 @@ export class User {
     public name: string,
     public lastName: string,
     public phoneNumber: string,
-    public version: string) {
+    public version: string,
+) {
   }
 }

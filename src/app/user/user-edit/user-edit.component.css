@@ -9,18 +9,21 @@ mat-form-field{
   margin-bottom: 1em;
 }
 
-.personal-data-input-container {
+.row-container {
   display: flex;
   justify-content: space-between;
 }
 
-.personal-data-input-container mat-form-field {
+.row-container mat-form-field {
   width: 49%;
 }
 
-.api-error{
-  margin-bottom: 1em;
-  margin-top: -0.5em;
+.user-enable-role-container{
+  margin-top: 2em;
+}
+
+.user-enable-role-container mat-slide-toggle{
+  margin-top: 1em;
 }
 
 
