@@ -22,20 +22,24 @@
       <mat-error [hidden]="phoneNumber.valid">Field is required</mat-error>
     </mat-form-field>
 
-      <button mat-raised-button color="primary" (click)="editUser()">Edit data</button>
+    <button mat-raised-button class="button-margin" color="primary" (click)="editUser()">Edit data</button>
 
-    <div class="row-container user-enable-role-container">
-      <mat-slide-toggle [(ngModel)]="user.enabled">Enable</mat-slide-toggle>
-      <mat-form-field appearance="fill">
-        <mat-label>Roles</mat-label>
-        <mat-select [formControl]="userRoles" multiple>
-          <mat-option *ngFor="let role of roles" [value]="role.name">{{role.name}}</mat-option>
-        </mat-select>
-      </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Roles</mat-label>
+      <mat-select [formControl]="userRolesForm" multiple>
+        <mat-option *ngFor="let role of roles" [value]="role.name.substring(5)">{{role.name.substring(5)}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button class="button-margin" color="primary">Edit roles</button>
+
+    <div class="row-container button-margin">
+      <mat-slide-toggle (change)="changeAvailability()" [(ngModel)]="user.enabled">Enable</mat-slide-toggle>
+      <button mat-raised-button color="accent">Edit password</button>
     </div>
 
-    <button mat-button color="primary">Cancel</button>
-    <button mat-raised-button color="accent">Edit password</button>
+    <button mat-raised-button color="primary" (click)="backClicked()">Cancel</button>
+
 
   </mat-card-content>
 </mat-card>

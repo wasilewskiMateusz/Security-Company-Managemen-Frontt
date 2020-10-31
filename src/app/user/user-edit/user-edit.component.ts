@@ -1,13 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../services/user.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {User} from '../models/user';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {AuthService} from '../../auth/services/auth.service';
+import {FormControl} from '@angular/forms';
 import {UserEdit} from '../models/user-edit';
 import {SuccessHandler} from '../../share/success-handler';
 import {Role} from '../models/role';
 import {RoleService} from '../services/role.service';
+import { Location } from '@angular/common';
+import {UserAvailability} from '../models/user-availability';
 
 @Component({
   selector: 'app-user-edit',
@@ -17,7 +18,7 @@ import {RoleService} from '../services/role.service';
 export class UserEditComponent implements OnInit {
 
   user: User = new User(0, '', false, '', '', '', '');
-  userRoles = new FormControl();
+  userRolesForm = new FormControl();
   roles: Role[] = [];
   userRolesStringList: string[] = [];
 
@@ -25,11 +26,11 @@ export class UserEditComponent implements OnInit {
     private route: ActivatedRoute,
     private successHandler: SuccessHandler,
     private userService: UserService,
-    private roleService: RoleService) {
+    private roleService: RoleService,
+    private location: Location) {
   }
 
   ngOnInit(): void {
-    //this.userRoles.setValue()
     this.getUser();
     this.loadRoles();
   }
@@ -38,6 +39,7 @@ export class UserEditComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.userService.getUser(id).subscribe(res => {
       this.user = res;
+      this.getUserCurrentRoles();
     });
   }
 
@@ -45,6 +47,11 @@ export class UserEditComponent implements OnInit {
     this.roleService.getRoles().subscribe(res => {
       this.roles = res;
     });
+  }
+
+  getUserCurrentRoles(): void {
+    this.user.roles.forEach(role => this.userRolesStringList.push(role.name.substring(5)));
+    this.userRolesForm.setValue(this.userRolesStringList);
   }
 
   editUser(): void {
@@ -56,5 +63,20 @@ export class UserEditComponent implements OnInit {
         () => {},
         () => this.successHandler.notifyUser('User has been changed')
         );
+  }
+
+  changeAvailability(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.userService.changeAvailability(
+      new UserAvailability(this.user.enabled, this.user.version), id)
+      .subscribe(
+        res => this.user = res,
+        () => {},
+        () => this.successHandler.notifyUser('User availability has been changed')
+      );
+  }
+
+  backClicked(): void {
+    this.location.back();
   }
 }

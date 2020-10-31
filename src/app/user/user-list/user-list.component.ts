@@ -1,7 +1,5 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {UserService} from '../services/user.service';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatTableDataSource} from '@angular/material/table';
 import {User} from '../models/user';
 import {Router} from '@angular/router';
 
@@ -11,9 +9,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  displayedColumns: string[] = ['email', 'name', 'surname', 'enabled', 'action'];
+  displayedColumns: string[] = ['email', 'name', 'surname', 'phoneNumber', 'roles', 'enabled', 'action'];
   users: User[];
-
 
 
   constructor(public userService: UserService, private router: Router) {
