@@ -6,6 +6,7 @@ import {MatTableModule} from '@angular/material/table';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import {ShareModule} from '../share/share.module';
 import {RoleService} from './services/role.service';
+import {UserPasswordEditDialogComponent} from './user-password-edit/user-password-edit.component';
 
 
 
@@ -17,6 +18,7 @@ import {RoleService} from './services/role.service';
   declarations: [
     UserListComponent,
     UserEditComponent,
+    UserPasswordEditDialogComponent
   ],
   imports: [
     CommonModule,

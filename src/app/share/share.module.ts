@@ -17,6 +17,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSelectModule} from '@angular/material/select';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 
 
@@ -50,6 +52,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatListModule,
     MatSlideToggleModule,
     MatSelectModule,
+    MatDialogModule,
 
 
   ],
@@ -71,6 +74,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatListModule,
     MatSlideToggleModule,
     MatSelectModule,
+    MatDialogModule,
   ],
 })
 export class ShareModule { }
