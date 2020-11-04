@@ -8,6 +8,7 @@ import {catchError} from 'rxjs/operators';
 import {UserEdit} from '../models/user-edit';
 import {UserAvailability} from '../models/user-availability';
 import {UserPasswordEdit} from '../models/user-password-edit';
+import {UserRole} from '../models/user-role';
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +47,13 @@ export class UserService {
 
   changePassword(userPasswordEdit: UserPasswordEdit, id: number): Observable<User> {
     return this.http.put<any>(`${config.apiUrl}/users/${id}/password`, userPasswordEdit)
+      .pipe(
+        catchError((err) => this.errorHandlerService.handleError(err)
+        ));
+  }
+
+  changeRoles(userRole: UserRole, id: number): Observable<User> {
+    return this.http.put<any>(`${config.apiUrl}/users/${id}/roles`, userRole)
       .pipe(
         catchError((err) => this.errorHandlerService.handleError(err)
         ));

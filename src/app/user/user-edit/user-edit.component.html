@@ -31,7 +31,7 @@
       </mat-select>
     </mat-form-field>
 
-    <button mat-raised-button class="button-margin" color="primary">Edit roles</button>
+    <button mat-raised-button class="button-margin" color="primary" (click)="changeRoles()">Edit roles</button>
 
     <div class="row-container button-margin">
       <mat-slide-toggle (change)="changeAvailability()" [(ngModel)]="user.enabled">Enable</mat-slide-toggle>

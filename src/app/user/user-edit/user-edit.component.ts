@@ -12,6 +12,7 @@ import {UserAvailability} from '../models/user-availability';
 import {MatDialog} from '@angular/material/dialog';
 import {UserPasswordEditDialogComponent} from '../user-password-edit/user-password-edit.component';
 import {UserPasswordEdit} from '../models/user-password-edit';
+import {UserRole} from '../models/user-role';
 
 @Component({
   selector: 'app-user-edit',
@@ -98,5 +99,23 @@ export class UserEditComponent implements OnInit {
       console.log(result);
       this.user = result;
     });
+  }
+
+  changeRoles(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    const rolesIds = [];
+    this.userRolesForm.value.forEach(roleName => {
+        const role = this.roles.find(obj => obj.name === `ROLE_${roleName}`);
+        rolesIds.push(role.id);
+    });
+
+    this.userService.changeRoles(
+      new UserRole(rolesIds, this.user.version), id)
+      .subscribe(
+        res => this.user = res,
+        () => {
+        },
+        () => this.successHandler.notifyUser('User roles has been changed')
+      );
   }
 }
