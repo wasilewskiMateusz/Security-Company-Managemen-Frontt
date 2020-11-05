@@ -5,6 +5,7 @@ import {BehaviorSubject, Observable, throwError} from 'rxjs';
 import {catchError, filter, switchMap, take} from 'rxjs/operators';
 import {Tokens} from './models/tokens';
 import {Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
@@ -12,7 +13,7 @@ export class TokenInterceptor implements HttpInterceptor {
   private isRefreshing = false;
   private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
-  constructor(public authService: AuthService, private router: Router) {
+  constructor(public authService: AuthService, private router: Router, private snackBar: MatSnackBar) {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -55,7 +56,14 @@ export class TokenInterceptor implements HttpInterceptor {
           this.refreshTokenSubject.next(token.accessToken);
           return next.handle(this.addToken(req, token.accessToken));
         }),
-        catchError(async () => {this.authService.doLogoutUser(); this.router.navigate(['login']); })
+        catchError(async (error) => {
+          this.authService.doLogoutUser();
+          this.router.navigate(['login']);
+          this.snackBar.open(error.error.message, '', {
+            duration: 4000,
+            verticalPosition: 'top',
+            panelClass: ['error-snackbar']
+          });})
       );
     } else {
       return this.refreshTokenSubject.pipe(
