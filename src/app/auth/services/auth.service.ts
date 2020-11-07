@@ -6,6 +6,7 @@ import {config} from '../../config';
 import {Tokens} from '../models/tokens';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {ErrorHandlerService} from '../../share/error-handler';
+import {RoleService} from '../../user/services/role.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +15,10 @@ export class AuthService {
 
   private readonly ACCESS_TOKEN = 'ACCESS_TOKEN';
   private readonly REFRESH_TOKEN = 'REFRESH_TOKEN';
+
   private loggedUser: string;
 
-  constructor(private http: HttpClient, private errorHandlerService: ErrorHandlerService) {
+  constructor(private http: HttpClient, private errorHandlerService: ErrorHandlerService, private roleService: RoleService) {
   }
 
   login(user: { email: string, password: string }): Observable<boolean> {

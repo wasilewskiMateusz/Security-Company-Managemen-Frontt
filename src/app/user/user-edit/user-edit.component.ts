@@ -96,8 +96,7 @@ export class UserEditComponent implements OnInit {
       }
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
-      this.user = result;
+      if (result) { this.user = result; }
     });
   }
 

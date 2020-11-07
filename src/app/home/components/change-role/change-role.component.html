@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Change your current role</h1>
+<div mat-dialog-content>
+  <mat-radio-group
+    aria-labelledby="radio-group-label"
+    class="radio-group"
+    [(ngModel)]="pickedRole">
+    <mat-radio-button class="radio-button" *ngFor="let role of this.roleService.loggedUserRoles" [value]="role">
+      {{role.substring(5)}}
+    </mat-radio-button>
+  </mat-radio-group>
+</div>
+<div class="buttons-container" mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-raised-button color="primary" (click)="changeCurrentRole()" >Change</button>
+</div>

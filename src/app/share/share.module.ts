@@ -18,13 +18,9 @@ import {MatListModule} from '@angular/material/list';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
-
-
-
-
-
-
-
+import {IfRoleDirective} from './if-role.directive';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 
@@ -33,7 +29,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     ErrorHandlerService,
     SuccessHandler,
   ],
-  declarations: [],
+  declarations: [IfRoleDirective],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -53,6 +49,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatSlideToggleModule,
     MatSelectModule,
     MatDialogModule,
+    MatMenuModule,
+    MatRadioModule,
 
 
   ],
@@ -63,6 +61,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     LayoutModule,
     RouterModule,
     FormsModule,
+    IfRoleDirective,
     // material modules
     MatFormFieldModule,
     MatIconModule,
@@ -75,6 +74,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatSlideToggleModule,
     MatSelectModule,
     MatDialogModule,
+    MatMenuModule,
+    MatRadioModule,
   ],
 })
 export class ShareModule { }
