@@ -13,6 +13,7 @@
         </mat-error>
       </mat-form-field>
 
+      <div ngModelGroup="passwords" #passwords="ngModelGroup" appCheckPassword>
       <mat-form-field appearance="fill">
         <mat-label>Enter your password</mat-label>
         <input matInput [type]="'password'" name="password" [(ngModel)]="userRegister.password" #password="ngModel"
@@ -33,6 +34,10 @@
           <div *ngIf="rePassword.errors.minlength">Password must be at least 8 characters long.</div>
         </mat-error>
       </mat-form-field>
+      </div>
+      <mat-error class="password-same-error" *ngIf="password.valid && rePassword.valid && (rePassword.dirty || rePassword.touched)">
+        <div *ngIf="passwords.errors?.passwordCheck">Passwords do not match.</div>
+      </mat-error>
 
       <div class="personal-data-input-container">
         <mat-form-field appearance="fill">

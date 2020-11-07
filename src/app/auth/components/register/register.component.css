@@ -17,6 +17,10 @@ mat-form-field{
 .personal-data-input-container mat-form-field {
   width: 49%;
 }
+.password-same-error{
+  margin: -2em 0 2em 0;
+  font-size: 75%;
+}
 
 
 

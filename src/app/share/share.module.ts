@@ -18,9 +18,10 @@ import {MatListModule} from '@angular/material/list';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
-import {IfRoleDirective} from './if-role.directive';
+import {IfRoleDirective} from './directives/if-role.directive';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatRadioModule} from '@angular/material/radio';
+import { CheckPasswordDirective } from './directives/check-password.directive';
 
 
 
@@ -30,7 +31,7 @@ import {MatRadioModule} from '@angular/material/radio';
     ErrorHandlerService,
     SuccessHandler,
   ],
-  declarations: [IfRoleDirective],
+  declarations: [IfRoleDirective, CheckPasswordDirective],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -63,6 +64,7 @@ import {MatRadioModule} from '@angular/material/radio';
     RouterModule,
     FormsModule,
     IfRoleDirective,
+    CheckPasswordDirective,
     // material modules
     MatFormFieldModule,
     MatIconModule,
