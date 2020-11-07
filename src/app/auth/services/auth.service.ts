@@ -7,6 +7,7 @@ import {Tokens} from '../models/tokens';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {ErrorHandlerService} from '../../share/error-handler';
 import {RoleService} from '../../user/services/role.service';
+import {UserRegister} from '../models/user-register';
 
 @Injectable({
   providedIn: 'root'
@@ -29,11 +30,7 @@ export class AuthService {
         catchError((err) => this.errorHandlerService.handleError(err)));
   }
 
-  register(userRegister: {
-    email: string, password: string,
-    rePassword: string, firstName: string, lastName: string,
-    phoneNumber: string
-  }): Observable<boolean> {
+  register(userRegister: UserRegister): Observable<boolean> {
     return this.http.post<any>(`${config.apiUrl}/register`, userRegister)
       .pipe(
         mapTo(true),

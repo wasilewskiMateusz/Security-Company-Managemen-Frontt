@@ -19,7 +19,7 @@
                  required minlength="3" maxlength="20">
           <mat-error *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
             <div *ngIf="lastName.errors.required">Field is required</div>
-            <div *ngIf="lastName.errors.minlength">Name must be at least 3 characters long.</div>
+            <div *ngIf="lastName.errors.minlength">Last name must be at least 3 characters long.</div>
           </mat-error>
         </mat-form-field>
       </div>
@@ -55,7 +55,7 @@
       <button mat-raised-button (click)="openDialog()" color="accent">Edit password</button>
     </div>
 
-    <button mat-raised-button color="primary" (click)="backClicked()">Cancel</button>
+    <button mat-raised-button color="primary" (click)="backClicked()">Back</button>
 
 
   </mat-card-content>
