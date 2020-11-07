@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {UserService} from '../services/user.service';
 import {ActivatedRoute} from '@angular/router';
 import {User} from '../models/user';
-import {FormControl} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserEdit} from '../models/user-edit';
 import {SuccessHandler} from '../../share/success-handler';
 import {Role} from '../models/role';
