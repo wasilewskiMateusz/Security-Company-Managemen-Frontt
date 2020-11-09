@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {AuthService} from '../../../auth/services/auth.service';
 import {Router} from '@angular/router';
 import {RoleService} from '../../../user/services/role.service';
-import {UserPasswordEditDialogComponent} from '../../../user/user-password-edit/user-password-edit.component';
 import {MatDialog} from '@angular/material/dialog';
 import {ChangeRoleComponent} from '../change-role/change-role.component';
 

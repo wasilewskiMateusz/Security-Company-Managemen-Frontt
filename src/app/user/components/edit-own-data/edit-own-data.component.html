@@ -27,7 +27,7 @@
       <mat-form-field appearance="fill">
         <mat-label>Telephone</mat-label>
         <input matInput placeholder="123456789" name="phoneNumber" [(ngModel)]="user.phoneNumber" #phoneNumber="ngModel"
-               required maxlength="9" pattern="[0-9]+">
+               required maxlength="9" minlength="9" pattern="[0-9]+">
         <mat-error *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)">
           <div *ngIf="phoneNumber.errors.required">Field is required</div>
           <div *ngIf="phoneNumber.errors.minlength">Phone must be 9 characters long.</div>
@@ -36,26 +36,12 @@
       </mat-form-field>
     </form>
 
-    <button mat-raised-button form="changeDataForm" [disabled]="!changeDataForm.valid" class="button-margin"
-            color="primary" (click)="editUser()">Edit data
-    </button>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Roles</mat-label>
-      <mat-select [formControl]="userRolesForm" multiple required>
-        <mat-option *ngFor="let role of roles"
-                    [value]="role.name.substring(5)">{{role.name.substring(5)}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <button mat-raised-button class="button-margin" color="primary" (click)="changeRoles()">Edit roles</button>
-
-    <div class="row-container button-margin">
-      <mat-slide-toggle (change)="changeAvailability()" [(ngModel)]="user.enabled">Enable</mat-slide-toggle>
-      <button mat-raised-button (click)="openDialog()" color="accent">Edit password</button>
+    <div class="buttons-container">
+      <button mat-button color="primary" (click)="backClicked()">Back</button>
+      <button mat-raised-button form="changeDataForm" [disabled]="!changeDataForm.valid" class="button-margin"
+              color="primary" (click)="editUser()">Edit data
+      </button>
     </div>
-
-    <button mat-raised-button color="primary" (click)="backClicked()">Back</button>
 
 
   </mat-card-content>

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Observable, of, throwError} from 'rxjs';
+import {Observable, throwError} from 'rxjs';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Injectable({

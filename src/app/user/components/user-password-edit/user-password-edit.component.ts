@@ -1,10 +1,10 @@
 import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {UserPasswordEdit} from '../models/user-password-edit';
-import {UserAvailability} from '../models/user-availability';
-import {UserService} from '../services/user.service';
-import {User} from '../models/user';
-import {SuccessHandler} from '../../share/success-handler';
+import {UserPasswordEdit} from '../../models/user-password-edit';
+import {UserAvailability} from '../../models/user-availability';
+import {UserService} from '../../services/user.service';
+import {User} from '../../models/user';
+import {SuccessHandler} from '../../../share/success-handler';
 
 @Component({
   selector: 'app-user-password-edit',

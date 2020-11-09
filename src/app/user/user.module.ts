@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserListComponent } from './user-list/user-list.component';
+import { UserListComponent } from './components/user-list/user-list.component';
 import {UserService} from './services/user.service';
 import {MatTableModule} from '@angular/material/table';
-import { UserEditComponent } from './user-edit/user-edit.component';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
 import {ShareModule} from '../share/share.module';
 import {RoleService} from './services/role.service';
-import {UserPasswordEditDialogComponent} from './user-password-edit/user-password-edit.component';
+import {UserPasswordEditDialogComponent} from './components/user-password-edit/user-password-edit.component';
+import { EditOwnDataComponent } from './components/edit-own-data/edit-own-data.component';
 
 
 
@@ -18,7 +19,8 @@ import {UserPasswordEditDialogComponent} from './user-password-edit/user-passwor
   declarations: [
     UserListComponent,
     UserEditComponent,
-    UserPasswordEditDialogComponent
+    UserPasswordEditDialogComponent,
+    EditOwnDataComponent
   ],
   imports: [
     CommonModule,

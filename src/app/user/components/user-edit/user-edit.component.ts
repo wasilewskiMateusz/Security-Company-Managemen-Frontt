@@ -1,18 +1,18 @@
 import {Component, OnInit} from '@angular/core';
-import {UserService} from '../services/user.service';
+import {UserService} from '../../services/user.service';
 import {ActivatedRoute} from '@angular/router';
-import {User} from '../models/user';
+import {User} from '../../models/user';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {UserEdit} from '../models/user-edit';
-import {SuccessHandler} from '../../share/success-handler';
-import {Role} from '../models/role';
-import {RoleService} from '../services/role.service';
+import {UserEdit} from '../../models/user-edit';
+import {SuccessHandler} from '../../../share/success-handler';
+import {Role} from '../../models/role';
+import {RoleService} from '../../services/role.service';
 import {Location} from '@angular/common';
-import {UserAvailability} from '../models/user-availability';
+import {UserAvailability} from '../../models/user-availability';
 import {MatDialog} from '@angular/material/dialog';
 import {UserPasswordEditDialogComponent} from '../user-password-edit/user-password-edit.component';
-import {UserPasswordEdit} from '../models/user-password-edit';
-import {UserRole} from '../models/user-role';
+import {UserPasswordEdit} from '../../models/user-password-edit';
+import {UserRole} from '../../models/user-role';
 
 @Component({
   selector: 'app-user-edit',
