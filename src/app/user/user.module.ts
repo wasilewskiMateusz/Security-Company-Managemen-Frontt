@@ -8,6 +8,7 @@ import {ShareModule} from '../share/share.module';
 import {RoleService} from './services/role.service';
 import {UserPasswordEditDialogComponent} from './components/user-password-edit/user-password-edit.component';
 import { EditOwnDataComponent } from './components/edit-own-data/edit-own-data.component';
+import { EditOwnPasswordComponent } from './components/edit-own-password/edit-own-password.component';
 
 
 
@@ -20,7 +21,8 @@ import { EditOwnDataComponent } from './components/edit-own-data/edit-own-data.c
     UserListComponent,
     UserEditComponent,
     UserPasswordEditDialogComponent,
-    EditOwnDataComponent
+    EditOwnDataComponent,
+    EditOwnPasswordComponent
   ],
   imports: [
     CommonModule,

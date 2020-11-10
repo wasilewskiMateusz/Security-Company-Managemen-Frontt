@@ -3,7 +3,6 @@ import { AbstractControl, FormGroup, NG_VALIDATORS, ValidationErrors, Validator,
 
 function validatePassword(): ValidatorFn {
   return (control: AbstractControl) => {
-    console.log(control)
     let isValid = false;
     if (control && control instanceof FormGroup) {
       const group = control as FormGroup;

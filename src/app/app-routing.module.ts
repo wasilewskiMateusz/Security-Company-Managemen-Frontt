@@ -8,6 +8,7 @@ import {RegisterComponent} from './auth/components/register/register.component';
 import {UserListComponent} from './user/components/user-list/user-list.component';
 import {UserEditComponent} from './user/components/user-edit/user-edit.component';
 import {EditOwnDataComponent} from './user/components/edit-own-data/edit-own-data.component';
+import {EditOwnPasswordComponent} from './user/components/edit-own-password/edit-own-password.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -25,7 +26,8 @@ const routes: Routes = [
     children: [
       {path: 'users', component: UserListComponent},
       {path: 'users/user-edit/:id', component: UserEditComponent},
-      {path: 'edit-own-data', component: EditOwnDataComponent}
+      {path: 'edit-own-data', component: EditOwnDataComponent},
+      {path: 'edit-own-password', component: EditOwnPasswordComponent},
     ]
   }
 ];

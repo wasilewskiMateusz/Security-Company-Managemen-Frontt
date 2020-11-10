@@ -9,6 +9,7 @@ import {UserEdit} from '../models/user-edit';
 import {UserAvailability} from '../models/user-availability';
 import {UserPasswordEdit} from '../models/user-password-edit';
 import {UserRole} from '../models/user-role';
+import {UserOwnPasswordEdit} from '../models/user-own-password-edit';
 
 @Injectable({
   providedIn: 'root'
@@ -47,6 +48,13 @@ export class UserService {
 
   changePassword(userPasswordEdit: UserPasswordEdit, id: number): Observable<User> {
     return this.http.put<any>(`${config.apiUrl}/users/${id}/password`, userPasswordEdit)
+      .pipe(
+        catchError((err) => this.errorHandlerService.handleError(err)
+        ));
+  }
+
+  changeOwnPassword(userOwnPasswordEdit: UserOwnPasswordEdit, id: number): Observable<User> {
+    return this.http.put<any>(`${config.apiUrl}/users/${id}/own-password`, userOwnPasswordEdit)
       .pipe(
         catchError((err) => this.errorHandlerService.handleError(err)
         ));
