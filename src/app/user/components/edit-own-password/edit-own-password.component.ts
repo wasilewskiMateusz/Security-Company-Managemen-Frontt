@@ -40,7 +40,7 @@ export class EditOwnPasswordComponent implements OnInit {
 
     this.userService.changeOwnPassword(this.userOwnPasswordEdit, this.userId)
       .subscribe(
-        () => {
+        res => { this.userOwnPasswordEdit.version = res.version;
         },
         () => {
         },
