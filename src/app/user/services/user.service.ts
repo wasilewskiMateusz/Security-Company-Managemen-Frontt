@@ -10,6 +10,7 @@ import {UserAvailability} from '../models/user-availability';
 import {UserPasswordEdit} from '../models/user-password-edit';
 import {UserRole} from '../models/user-role';
 import {UserOwnPasswordEdit} from '../models/user-own-password-edit';
+import {Workplace} from '../../workplace/models/workplace';
 
 @Injectable({
   providedIn: 'root'
@@ -65,5 +66,11 @@ export class UserService {
       .pipe(
         catchError((err) => this.errorHandlerService.handleError(err)
         ));
+  }
+
+  getUserWorkplaces(id: number): Observable<Workplace[]> {
+    return this.http.get<any>(`${config.apiUrl}/users/${id}/workplaces`)
+      .pipe(
+        catchError((err) => this.errorHandlerService.handleError(err)));
   }
 }

@@ -68,7 +68,7 @@ export class UserEditComponent implements OnInit {
         res => this.user = res,
         () => {
         },
-        () => this.successHandler.notifyUser('User has been changed')
+        () => this.successHandler.notifyUser('User data have been changed')
       );
   }
 

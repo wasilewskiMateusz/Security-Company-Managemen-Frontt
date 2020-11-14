@@ -37,6 +37,10 @@
         <mat-icon>perm_identity</mat-icon>
         <span>Users</span>
       </button>
+      <button mat-menu-item *appIfRole="'ROLE_EMPLOYER'" [routerLink]="'my-workplaces'" (click)="sidenav.toggle()" >
+        <mat-icon>domain</mat-icon>
+        <span>My workplaces</span>
+      </button>
       <a mat-list-item (click)="sidenav.toggle()" href="">Close</a>
     </mat-nav-list>
   </mat-sidenav>

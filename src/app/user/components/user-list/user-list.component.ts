@@ -21,12 +21,12 @@ export class UserListComponent implements OnInit {
   }
 
   loadUser(): void {
-   this.userService.getUsers().subscribe(res => {
+    this.userService.getUsers().subscribe(res => {
       this.users = res;
     });
   }
 
   goToEdit(id: number): void {
     this.router.navigate(['home/users/user-edit', id]);
-}
+  }
 }
