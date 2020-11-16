@@ -31,7 +31,7 @@ export class MyWorkplacesComponent implements OnInit {
   }
 
   goToEdit(id: number): void {
-    this.router.navigate(['home/my-workplaces/workplace-edit', id]);
+    this.router.navigate(['home/my-workplaces/edit-workplace', id]);
   }
 
 }

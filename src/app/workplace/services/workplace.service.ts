@@ -8,6 +8,7 @@ import {catchError, mapTo} from 'rxjs/operators';
 import {CreateWorkplace} from '../models/create-workplace';
 import {UserAvailability} from '../../user/models/user-availability';
 import {User} from '../../user/models/user';
+import {EditWorkplace} from '../models/edit-workplace';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +25,18 @@ export class WorkplaceService {
         mapTo(true),
         catchError((err) => this.errorHandlerService.handleError(err)
         ));
+  }
+
+  editWorkplace(editWorkplace: EditWorkplace, id: number): Observable<Workplace>  {
+    return this.http.put<any>(`${config.apiUrl}/workplaces/${id}`, editWorkplace)
+      .pipe(
+        catchError((err) => this.errorHandlerService.handleError(err)
+        ));
+  }
+
+  getWorkplace(id: number): Observable<Workplace> {
+    return this.http.get<any>(`${config.apiUrl}/workplaces/${id}`)
+      .pipe(
+        catchError((err) => this.errorHandlerService.handleError(err)));
   }
 }

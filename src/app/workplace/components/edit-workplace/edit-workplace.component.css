@@ -1,0 +1,24 @@
+mat-card {
+  max-width: 500px;
+  margin: 8em auto;
+  text-align: center;
+}
+
+mat-form-field{
+  display: block;
+  margin-bottom: 1em;
+}
+
+.localization-input-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.localization-input-container mat-form-field {
+  width: 49%;
+}
+
+
+
+
+
