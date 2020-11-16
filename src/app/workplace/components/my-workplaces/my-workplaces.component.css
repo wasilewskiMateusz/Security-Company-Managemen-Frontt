@@ -1,6 +1,14 @@
 table{
+  width: 100%;
+
+}
+
+.table-container {
   width: 70%;
   margin: 8em auto;
+}
 
+button {
+  margin-bottom: 1em;
 }
 

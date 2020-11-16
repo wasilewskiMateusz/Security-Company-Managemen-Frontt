@@ -4,6 +4,7 @@ import { MyWorkplacesComponent } from './components/my-workplaces/my-workplaces.
 import {ShareModule} from '../share/share.module';
 import {MatTableModule} from '@angular/material/table';
 import {WorkplaceService} from './services/workplace.service';
+import { AddWorkplaceComponent } from './components/add-workplace/add-workplace.component';
 
 
 
@@ -11,7 +12,7 @@ import {WorkplaceService} from './services/workplace.service';
   providers: [
     WorkplaceService
   ],
-  declarations: [MyWorkplacesComponent],
+  declarations: [MyWorkplacesComponent, AddWorkplaceComponent],
   imports: [
     CommonModule,
     MatTableModule,

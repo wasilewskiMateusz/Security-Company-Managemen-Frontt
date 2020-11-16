@@ -10,6 +10,7 @@ import {UserEditComponent} from './user/components/user-edit/user-edit.component
 import {EditOwnDataComponent} from './user/components/edit-own-data/edit-own-data.component';
 import {EditOwnPasswordComponent} from './user/components/edit-own-password/edit-own-password.component';
 import {MyWorkplacesComponent} from './workplace/components/my-workplaces/my-workplaces.component';
+import {AddWorkplaceComponent} from './workplace/components/add-workplace/add-workplace.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -30,6 +31,7 @@ const routes: Routes = [
       {path: 'edit-own-data', component: EditOwnDataComponent},
       {path: 'edit-own-password', component: EditOwnPasswordComponent},
       {path: 'my-workplaces', component: MyWorkplacesComponent},
+      {path: 'my-workplaces/add-workplace', component: AddWorkplaceComponent},
     ]
   }
 ];
