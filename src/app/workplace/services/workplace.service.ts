@@ -39,4 +39,10 @@ export class WorkplaceService {
       .pipe(
         catchError((err) => this.errorHandlerService.handleError(err)));
   }
+
+  getWorkplaces(): Observable<Workplace[]> {
+    return this.http.get<any>(`${config.apiUrl}/workplaces`)
+      .pipe(
+        catchError((err) => this.errorHandlerService.handleError(err)));
+  }
 }

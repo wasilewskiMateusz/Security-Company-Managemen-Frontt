@@ -1,0 +1,13 @@
+.content {
+  padding: 16px;
+  margin-bottom: 3em !important;
+}
+
+.description{
+  height: 100px;
+}
+
+mat-card-actions {
+  text-align: end;
+}
+

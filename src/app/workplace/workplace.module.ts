@@ -6,6 +6,8 @@ import {MatTableModule} from '@angular/material/table';
 import {WorkplaceService} from './services/workplace.service';
 import { AddWorkplaceComponent } from './components/add-workplace/add-workplace.component';
 import { EditWorkplaceComponent } from './components/edit-workplace/edit-workplace.component';
+import { WorkplacesListComponent } from './components/workplaces-list/workplaces-list.component';
+import { WorkplaceDetailsComponent } from './components/workplace-details/workplace-details.component';
 
 
 
@@ -13,7 +15,7 @@ import { EditWorkplaceComponent } from './components/edit-workplace/edit-workpla
   providers: [
     WorkplaceService
   ],
-  declarations: [MyWorkplacesComponent, AddWorkplaceComponent, EditWorkplaceComponent],
+  declarations: [MyWorkplacesComponent, AddWorkplaceComponent, EditWorkplaceComponent, WorkplacesListComponent, WorkplaceDetailsComponent],
   imports: [
     CommonModule,
     MatTableModule,

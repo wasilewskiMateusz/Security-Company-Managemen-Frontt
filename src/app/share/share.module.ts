@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -7,6 +7,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {ErrorHandlerService} from './error-handler';
 import {SuccessHandler} from './success-handler';
 import {LayoutModule} from '@angular/cdk/layout';
+import {CheckPasswordDirective} from './directives/check-password.directive';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
@@ -21,7 +22,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {IfRoleDirective} from './directives/if-role.directive';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatRadioModule} from '@angular/material/radio';
-import { CheckPasswordDirective } from './directives/check-password.directive';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 
 
@@ -39,6 +42,7 @@ import { CheckPasswordDirective } from './directives/check-password.directive';
     BrowserAnimationsModule,
     LayoutModule,
     FormsModule,
+    FlexLayoutModule,
     // material modules
     MatFormFieldModule,
     MatIconModule,
@@ -53,6 +57,8 @@ import { CheckPasswordDirective } from './directives/check-password.directive';
     MatDialogModule,
     MatMenuModule,
     MatRadioModule,
+    MatTooltipModule,
+    MatGridListModule,
 
 
   ],
@@ -65,6 +71,7 @@ import { CheckPasswordDirective } from './directives/check-password.directive';
     FormsModule,
     IfRoleDirective,
     CheckPasswordDirective,
+    FlexLayoutModule,
     // material modules
     MatFormFieldModule,
     MatIconModule,
@@ -79,6 +86,9 @@ import { CheckPasswordDirective } from './directives/check-password.directive';
     MatDialogModule,
     MatMenuModule,
     MatRadioModule,
+    MatTooltipModule,
+    MatGridListModule
   ],
 })
-export class ShareModule { }
+export class ShareModule {
+}
