@@ -5,9 +5,36 @@
 
 .description{
   height: 100px;
+  margin-bottom: 2em;
 }
 
 mat-card-actions {
   text-align: end;
 }
+
+.rate-header-span{
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.rate-span{
+  font-weight: bold;
+  margin-left: 1em;
+}
+
+.star {
+  position: relative;
+  display: inline-block;
+  font-size: 1.3rem;
+  color: #d3d3d3;
+}
+.full {
+  color: #FFC107;
+}
+.half {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  color: #FFC107;
+}
+
 

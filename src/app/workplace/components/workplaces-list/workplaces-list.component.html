@@ -1,14 +1,30 @@
 <div class="content" fxLayout="row wrap" fxLayoutGap="24px grid">
   <div fxFlex="33%" fxFlex.sm="50%" fxFlex.xs="100%" *ngFor="let workplace of workplaces">
-    <mat-card class="mat-elevation-z4" >
+    <mat-card class="mat-elevation-z4">
       <mat-card-header>
+        <div fxLayout="column">
         <mat-card-title>{{workplace.name}}</mat-card-title>
+        <span>{{workplace.city}}, {{workplace.street}}</span>
+        </div>
       </mat-card-header>
       <img mat-card-image src="https://faithdean.co.uk/wp-content/uploads/2017/04/Commercial-Icon-Gray-2.png">
       <mat-card-content>
         <p class="description">
           {{workplace.description}}
         </p>
+        <div fxLayout="column">
+          <span class="rate-header-span">Employee reviews</span>
+          <div>
+            <ngb-rating [max]="5" [(rate)]="workplace.averageRate" [readonly]="true">
+              <ng-template let-fill="fill">
+              <span class="star" [class.full]="fill === 100">
+                 <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+              </span>
+              </ng-template>
+            </ngb-rating>
+            <span class="rate-span">{{workplace.averageRate}} out of 5</span>
+          </div>
+        </div>
       </mat-card-content>
       <mat-card-actions>
         <button mat-button (click)="goToDetails(workplace.id)">Details</button>

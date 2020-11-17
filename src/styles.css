@@ -11,6 +11,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   display: inline-block !important;
 }
 
+*:focus {
+  outline: 0 !important;
+}
+
 .error-snackbar {
   background: #790604;
   color: white;

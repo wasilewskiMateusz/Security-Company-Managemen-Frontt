@@ -25,6 +25,8 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {NgbRatingModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 
 
@@ -43,6 +45,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     LayoutModule,
     FormsModule,
     FlexLayoutModule,
+    NgbRatingModule,
     // material modules
     MatFormFieldModule,
     MatIconModule,
@@ -72,6 +75,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     IfRoleDirective,
     CheckPasswordDirective,
     FlexLayoutModule,
+    NgbRatingModule,
     // material modules
     MatFormFieldModule,
     MatIconModule,

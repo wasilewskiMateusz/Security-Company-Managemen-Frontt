@@ -7,6 +7,7 @@ import {AppComponent} from './app.component';
 import {AuthModule} from './auth/auth.module';
 import {ShareModule} from './share/share.module';
 import {HomeModule} from './home/home.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import {HomeModule} from './home/home.module';
     AuthModule,
     ShareModule,
     MatSnackBarModule,
+    NgbModule,
   ],
   providers: [
   ],
