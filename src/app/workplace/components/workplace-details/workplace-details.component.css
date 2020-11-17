@@ -1,0 +1,77 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 6em;
+}
+.header{
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+.container-row{
+  display: flex;
+}
+
+h1 {
+  font-size: 1.4rem;
+}
+
+.description-container {
+  width: 60%;
+}
+
+.description{
+}
+
+.details{
+  margin-left: 1em;
+}
+
+.address{
+  margin: 1em 0 0 1em;
+}
+
+.name{
+  margin-bottom: 1em;
+}
+.name-container{
+  display: flex;
+  align-items: center;
+}
+
+.name-container span, ngb-rating{
+ margin-right: 0.8rem;
+}
+
+mat-card {
+  height: 100%;
+}
+
+
+.container-column{
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+.star {
+  position: relative;
+  display: inline-block;
+  font-size: 1.3rem;
+  color: #d3d3d3;
+}
+.full {
+  color: #FFC107;
+}
+.half {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  color: #FFC107;
+}
+
+
+
+
+
+
+

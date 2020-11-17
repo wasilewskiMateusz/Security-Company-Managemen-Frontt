@@ -1,1 +1,42 @@
-<p>workplace-details works!</p>
+<div class="container">
+  <div>
+    <mat-card class="name">
+      <mat-card-content class="name-container">
+        <span class="header">{{workplace.name}}</span>
+        <ngb-rating [max]="5" [(rate)]="workplace.averageRate" [readonly]="true">
+          <ng-template let-fill="fill">
+              <span class="star" [class.full]="fill === 100">
+                 <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+              </span>
+          </ng-template>
+        </ngb-rating>
+        <span class="rate-span">{{workplace.averageRate}} out of 5</span>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="container-row">
+    <div class="description-container">
+      <mat-card class="description">
+        <mat-card-content>
+          <h1>Description</h1>
+          <span>{{workplace.description}}</span>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="container-column">
+      <mat-card class="details">
+        <mat-card-content>
+          <h1>Contact</h1>
+          <span>{{workplace.employerData}} Phone: {{workplace.employerPhone}}</span>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="address">
+        <mat-card-content>
+          <h1>Address</h1>
+          <span>{{workplace.city}}, {{workplace.street}}</span>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+

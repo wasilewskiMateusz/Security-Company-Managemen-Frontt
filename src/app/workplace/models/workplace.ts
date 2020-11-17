@@ -10,6 +10,8 @@ export class Workplace {
     public enabled: boolean,
     public averageRate: number,
     public version: string,
+    public employerData: string,
+    public employerPhone: string,
 ) {
   }
 }
