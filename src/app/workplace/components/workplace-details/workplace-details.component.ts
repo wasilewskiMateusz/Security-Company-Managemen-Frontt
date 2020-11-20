@@ -5,6 +5,7 @@ import {WorkplaceService} from '../../services/workplace.service';
 import {SuccessHandler} from '../../../share/success-handler';
 import {ActivatedRoute} from '@angular/router';
 import {Workplace} from '../../models/workplace';
+import {Job} from '../../../job/models/job';
 
 @Component({
   selector: 'app-workplace-details',
@@ -14,6 +15,8 @@ import {Workplace} from '../../models/workplace';
 export class WorkplaceDetailsComponent implements OnInit {
 
   workplace: Workplace = new Workplace(0, '', '', '', '', false, 0, '', '', '');
+  jobs: Job[] = [];
+  displayedColumns: string[] = ['startDate', 'completionDate', 'wage', 'vacancy', 'action'];
 
   constructor(private location: Location,
               private workplaceService: WorkplaceService,
@@ -22,6 +25,7 @@ export class WorkplaceDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getWorkplace();
+    this.getJobsInWorkplace();
   }
 
   getWorkplace(): void {
@@ -30,6 +34,13 @@ export class WorkplaceDetailsComponent implements OnInit {
       this.workplace = res;
     });
   }
+
+  getJobsInWorkplace(): void{
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.workplaceService.getJobsInWorkplace(id).subscribe(res => {
+      this.jobs = res;
+    });
+}
 
   backClicked(): void {
     this.location.back();

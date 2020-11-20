@@ -9,6 +9,7 @@ import {CreateWorkplace} from '../models/create-workplace';
 import {UserAvailability} from '../../user/models/user-availability';
 import {User} from '../../user/models/user';
 import {EditWorkplace} from '../models/edit-workplace';
+import {Job} from '../../job/models/job';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,7 @@ export class WorkplaceService {
         ));
   }
 
-  editWorkplace(editWorkplace: EditWorkplace, id: number): Observable<Workplace>  {
+  editWorkplace(editWorkplace: EditWorkplace, id: number): Observable<Workplace> {
     return this.http.put<any>(`${config.apiUrl}/workplaces/${id}`, editWorkplace)
       .pipe(
         catchError((err) => this.errorHandlerService.handleError(err)
@@ -42,6 +43,12 @@ export class WorkplaceService {
 
   getWorkplaces(): Observable<Workplace[]> {
     return this.http.get<any>(`${config.apiUrl}/workplaces`)
+      .pipe(
+        catchError((err) => this.errorHandlerService.handleError(err)));
+  }
+
+  getJobsInWorkplace(id: number): Observable<Job[]> {
+    return this.http.get<any>(`${config.apiUrl}/workplaces/${id}/jobs`)
       .pipe(
         catchError((err) => this.errorHandlerService.handleError(err)));
   }
