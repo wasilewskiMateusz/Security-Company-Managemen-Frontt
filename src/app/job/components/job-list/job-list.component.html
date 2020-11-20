@@ -1,0 +1,22 @@
+<mat-card *ngFor="let job of jobs">
+  <mat-card-content>
+    <div class="job-info-container">
+      <a class="link-to-workplace" (click)="goToWorkplaceDetails(job.workplace.id)">
+        <div>
+          <span class="job-header">{{job.workplace.name}}</span>
+        </div>
+      </a>
+      <span class="address">{{job.workplace.city}}, {{job.workplace.street}}</span>
+      <span class="date">Start date: {{job.startDate}}</span>
+      <span class="date">Finish date: {{job.completionDate}}</span>
+      <span class="description">{{job.description}}</span>
+    </div>
+    <div class="wage-container">
+      <span class="wage">{{job.wage}} Zl</span>
+      <span class="vacancy">Vacancy: {{job.vacancy}}</span>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="accent">Sign up</button>
+  </mat-card-actions>
+</mat-card>

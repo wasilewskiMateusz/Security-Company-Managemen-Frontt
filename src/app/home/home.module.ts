@@ -6,6 +6,7 @@ import {ShareModule} from '../share/share.module';
 import {UserModule} from '../user/user.module';
 import { ChangeRoleComponent } from './components/change-role/change-role.component';
 import {WorkplaceModule} from '../workplace/workplace.module';
+import {JobModule} from '../job/job.module';
 
 
 
@@ -19,7 +20,8 @@ import {WorkplaceModule} from '../workplace/workplace.module';
     CommonModule,
     ShareModule,
     UserModule,
-    WorkplaceModule
+    WorkplaceModule,
+    JobModule,
   ]
 })
 export class HomeModule { }
