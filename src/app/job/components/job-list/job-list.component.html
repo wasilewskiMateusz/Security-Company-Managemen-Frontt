@@ -17,6 +17,6 @@
     </div>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="accent">Sign up</button>
+    <button *appIfRole="['ROLE_EMPLOYEE']" mat-raised-button color="accent" (click)="signUpToJob(job.id)">Sign up</button>
   </mat-card-actions>
 </mat-card>

@@ -15,12 +15,12 @@ export class IfRoleDirective implements OnInit{
   ) {
   }
 
-  @Input() public appIfRole: string;
+  @Input() public appIfRole: string[];
 
   public ngOnInit(): void {
     this.rolesService.loggedUserCurrentRole.subscribe( role => {
       this.viewContainerRef.clear();
-      if (this.appIfRole === role) {
+      if (this.appIfRole.find(ifRole => ifRole === role)) {
         this.viewContainerRef.createEmbeddedView(this.templateRef);
       } else {
         this.viewContainerRef.clear();

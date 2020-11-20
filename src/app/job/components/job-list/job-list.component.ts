@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Workplace} from '../../../workplace/models/workplace';
 import {WorkplaceService} from '../../../workplace/services/workplace.service';
 import {Router} from '@angular/router';
 import {Job} from '../../models/job';
 import {JobService} from '../../services/job.service';
+import {ContractService} from '../../services/contract.service';
+import {CreateContract} from '../../models/create-contract';
+import {SuccessHandler} from '../../../share/success-handler';
 
 @Component({
   selector: 'app-job-list',
@@ -15,17 +18,25 @@ export class JobListComponent implements OnInit {
   jobs: Job[] = [];
 
   constructor(private jobService: JobService,
-              private router: Router) { }
+              private router: Router,
+              private contractService: ContractService,
+              private successHandler: SuccessHandler) {
+  }
 
   ngOnInit(): void {
     this.loadJobs();
   }
 
   loadJobs(): void {
-    this.jobService.getJobs().subscribe( res => {
+    this.jobService.getJobs().subscribe(res => {
+      const enableJobs = [];
       res.forEach(job => {
-        if (job.enabled === true) { this.jobs.push(job); }
-      });
+          if (job.enabled === true) {
+            enableJobs.push(job);
+          }
+        }
+      );
+      this.jobs = enableJobs;
     });
   }
 
@@ -33,4 +44,12 @@ export class JobListComponent implements OnInit {
     this.router.navigate(['home/workplaces', id]);
   }
 
+  signUpToJob(id: number): void {
+    this.contractService.createContract(new CreateContract(id)).subscribe(next => {
+      if (next === true) {
+        this.ngOnInit();
+        this.successHandler.notifyUser('You have been signed up to job');
+      }
+    });
+  }
 }

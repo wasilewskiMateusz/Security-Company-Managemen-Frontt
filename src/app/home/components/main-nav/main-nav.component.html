@@ -40,11 +40,11 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav>
     <mat-nav-list>
-      <button mat-menu-item *appIfRole="'ROLE_ADMIN'" [routerLink]="'users'" (click)="sidenav.toggle()" >
+      <button mat-menu-item *appIfRole="['ROLE_ADMIN']" [routerLink]="'users'" (click)="sidenav.toggle()" >
         <mat-icon>perm_identity</mat-icon>
         <span>Users</span>
       </button>
-      <button mat-menu-item *appIfRole="'ROLE_EMPLOYER'" [routerLink]="'my-workplaces'" (click)="sidenav.toggle()" >
+      <button mat-menu-item *appIfRole="['ROLE_EMPLOYER']" [routerLink]="'my-workplaces'" (click)="sidenav.toggle()" >
         <mat-icon>domain</mat-icon>
         <span>My workplaces</span>
       </button>
