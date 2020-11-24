@@ -11,6 +11,7 @@
           </ng-template>
         </ngb-rating>
         <span class="rate-span">{{workplace.averageRate}} out of 5</span>
+        <button mat-button *appIfRole="['ROLE_EMPLOYEE']" (click)="openDialog()">Rate us!</button>
       </mat-card-content>
     </mat-card>
   </div>

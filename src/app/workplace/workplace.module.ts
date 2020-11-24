@@ -8,13 +8,21 @@ import {AddWorkplaceComponent} from './components/add-workplace/add-workplace.co
 import {EditWorkplaceComponent} from './components/edit-workplace/edit-workplace.component';
 import {WorkplacesListComponent} from './components/workplaces-list/workplaces-list.component';
 import {WorkplaceDetailsComponent} from './components/workplace-details/workplace-details.component';
+import {RateWorkplaceComponent} from './components/rate-workplace/rate-workplace.component';
 
 
 @NgModule({
   providers: [
-    WorkplaceService
+    WorkplaceService,
   ],
-  declarations: [MyWorkplacesComponent, AddWorkplaceComponent, EditWorkplaceComponent, WorkplacesListComponent, WorkplaceDetailsComponent],
+  declarations: [
+    MyWorkplacesComponent,
+    AddWorkplaceComponent,
+    EditWorkplaceComponent,
+    WorkplacesListComponent,
+    WorkplaceDetailsComponent,
+    RateWorkplaceComponent
+  ],
   imports: [
     CommonModule,
     MatTableModule,
