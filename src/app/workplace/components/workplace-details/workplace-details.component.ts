@@ -6,6 +6,8 @@ import {SuccessHandler} from '../../../share/success-handler';
 import {ActivatedRoute} from '@angular/router';
 import {Workplace} from '../../models/workplace';
 import {Job} from '../../../job/models/job';
+import {CreateContract} from '../../../job/models/create-contract';
+import {ContractService} from '../../../job/services/contract.service';
 
 @Component({
   selector: 'app-workplace-details',
@@ -21,7 +23,8 @@ export class WorkplaceDetailsComponent implements OnInit {
   constructor(private location: Location,
               private workplaceService: WorkplaceService,
               private successHandler: SuccessHandler,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private contractService: ContractService) { }
 
   ngOnInit(): void {
     this.getWorkplace();
@@ -44,6 +47,15 @@ export class WorkplaceDetailsComponent implements OnInit {
 
   backClicked(): void {
     this.location.back();
+  }
+
+  signUpToJob(id: number): void {
+    this.contractService.createContract(new CreateContract(id)).subscribe(next => {
+      if (next === true) {
+        this.ngOnInit();
+        this.successHandler.notifyUser('You have been signed up to job');
+      }
+    });
   }
 
 }

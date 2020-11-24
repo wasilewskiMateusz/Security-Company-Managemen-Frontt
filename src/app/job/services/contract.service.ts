@@ -25,4 +25,12 @@ export class ContractService {
         catchError((err) => this.errorHandlerService.handleError(err)
         ));
   }
+
+  deleteContract(id: number): Observable<boolean> {
+    return this.http.delete<any>(`${config.apiUrl}/contracts/${id}`)
+      .pipe(
+        mapTo(true),
+        catchError((err) => this.errorHandlerService.handleError(err)
+        ));
+  }
 }

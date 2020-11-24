@@ -1,0 +1,21 @@
+<mat-card *ngFor="let contract of contracts">
+  <mat-card-content>
+    <div class="job-info-container">
+      <a class="link-to-workplace" (click)="goToWorkplaceDetails(contract.job.workplace.id)">
+        <div>
+          <span class="job-header">{{contract.job.workplace.name}}</span>
+        </div>
+      </a>
+      <span class="address">{{contract.job.workplace.city}}, {{contract.job.workplace.street}}</span>
+      <span class="date">Start date: {{contract.job.startDate}}</span>
+      <span class="date">Finish date: {{contract.job.completionDate}}</span>
+      <span class="description">{{contract.job.description}}</span>
+    </div>
+    <div class="wage-container">
+      <span class="wage">{{contract.job.wage}} Zl</span>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="accent" (click)="resign(contract.id)">Resign</button>
+  </mat-card-actions>
+</mat-card>

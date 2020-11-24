@@ -15,6 +15,7 @@ import {EditWorkplaceComponent} from './workplace/components/edit-workplace/edit
 import {WorkplacesListComponent} from './workplace/components/workplaces-list/workplaces-list.component';
 import {WorkplaceDetailsComponent} from './workplace/components/workplace-details/workplace-details.component';
 import {JobListComponent} from './job/components/job-list/job-list.component';
+import {MyJobsComponent} from './job/components/my-jobs/my-jobs.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -40,6 +41,7 @@ const routes: Routes = [
       {path: 'my-workplaces/add-workplace', component: AddWorkplaceComponent},
       {path: 'my-workplaces/edit-workplace/:id', component: EditWorkplaceComponent},
       {path: 'jobs', component: JobListComponent},
+      {path: 'my-jobs', component: MyJobsComponent},
 
     ]
   }

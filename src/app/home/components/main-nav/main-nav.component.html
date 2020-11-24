@@ -48,7 +48,10 @@
         <mat-icon>domain</mat-icon>
         <span>My workplaces</span>
       </button>
-      <a mat-list-item (click)="sidenav.toggle()" href="">Close</a>
+      <button mat-menu-item *appIfRole="['ROLE_EMPLOYEE']" [routerLink]="'my-jobs'" (click)="sidenav.toggle()" >
+        <mat-icon>event_note</mat-icon>
+        <span>My jobs</span>
+      </button>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
