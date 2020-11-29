@@ -16,6 +16,7 @@ import {WorkplacesListComponent} from './workplace/components/workplaces-list/wo
 import {WorkplaceDetailsComponent} from './workplace/components/workplace-details/workplace-details.component';
 import {JobListComponent} from './job/components/job-list/job-list.component';
 import {MyJobsComponent} from './job/components/my-jobs/my-jobs.component';
+import {JobEmployeesComponent} from './job/components/job-employees/job-employees.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -37,6 +38,7 @@ const routes: Routes = [
       {path: 'edit-own-password', component: EditOwnPasswordComponent},
       {path: 'workplaces', component: WorkplacesListComponent},
       {path: 'workplaces/:id', component: WorkplaceDetailsComponent},
+      {path: 'workplaces/:id/jobs/:jobId/employees', component: JobEmployeesComponent},
       {path: 'my-workplaces', component: MyWorkplacesComponent},
       {path: 'my-workplaces/add-workplace', component: AddWorkplaceComponent},
       {path: 'my-workplaces/edit-workplace/:id', component: EditWorkplaceComponent},

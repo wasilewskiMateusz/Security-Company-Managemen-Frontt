@@ -1,4 +1,5 @@
 import {Job} from './job';
+import {UserContract} from '../../user/models/user-contract';
 
 export class Contract {
 
@@ -7,6 +8,7 @@ export class Contract {
     public version: string,
     public name: string,
     public job: Job,
+    public user: UserContract,
 ) {
   }
 }

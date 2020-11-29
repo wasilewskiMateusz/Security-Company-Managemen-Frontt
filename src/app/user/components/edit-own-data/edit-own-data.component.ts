@@ -8,11 +8,7 @@ import {SuccessHandler} from '../../../share/success-handler';
 import {UserService} from '../../services/user.service';
 import {RoleService} from '../../services/role.service';
 import {Location} from '@angular/common';
-import {MatDialog} from '@angular/material/dialog';
 import {UserEdit} from '../../models/user-edit';
-import {UserAvailability} from '../../models/user-availability';
-import {UserPasswordEditDialogComponent} from '../user-password-edit/user-password-edit.component';
-import {UserRole} from '../../models/user-role';
 
 @Component({
   selector: 'app-edit-own-data',

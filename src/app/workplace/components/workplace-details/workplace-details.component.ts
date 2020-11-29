@@ -2,7 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Location} from '@angular/common';
 import {WorkplaceService} from '../../services/workplace.service';
 import {SuccessHandler} from '../../../share/success-handler';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Workplace} from '../../models/workplace';
 import {Job} from '../../../job/models/job';
 import {CreateContract} from '../../../job/models/create-contract';
@@ -28,7 +28,8 @@ export class WorkplaceDetailsComponent implements OnInit {
               private successHandler: SuccessHandler,
               private route: ActivatedRoute,
               private contractService: ContractService,
-              private dialog: MatDialog) { }
+              private dialog: MatDialog,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.getWorkplace();
@@ -75,4 +76,8 @@ export class WorkplaceDetailsComponent implements OnInit {
     });
   }
 
+  goToAssignedUsers(jobId: any): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.router.navigate(['home/workplaces/', id, 'jobs', jobId, 'employees']);
+  }
 }

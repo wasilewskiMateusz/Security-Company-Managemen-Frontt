@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {Job} from '../../models/job';
 import {JobService} from '../../services/job.service';
 import {ContractService} from '../../services/contract.service';
 import {SuccessHandler} from '../../../share/success-handler';

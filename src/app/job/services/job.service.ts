@@ -7,6 +7,7 @@ import {catchError} from 'rxjs/operators';
 
 import {Job} from '../models/job';
 import {Contract} from '../models/contract';
+import {User} from '../../user/models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -28,4 +29,11 @@ export class JobService {
       .pipe(
         catchError((err) => this.errorHandlerService.handleError(err)));
   }
+
+  getJobContracts(id: number): Observable<Contract[]> {
+    return this.http.get<any>(`${config.apiUrl}/jobs/${id}/contracts`)
+      .pipe(
+        catchError((err) => this.errorHandlerService.handleError(err)));
+  }
+
 }
