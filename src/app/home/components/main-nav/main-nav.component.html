@@ -50,8 +50,9 @@
       </button>
       <button mat-menu-item *appIfRole="['ROLE_EMPLOYEE']" [routerLink]="'my-jobs'" (click)="sidenav.toggle()" >
         <mat-icon>event_note</mat-icon>
-        <span>My jobs</span>
+        <span>My contracts</span>
       </button>
+      <span class="copy-rights-span">© 2020 Mateusz Wasilewski</span>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
