@@ -25,7 +25,11 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {NgbRatingModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbRatingModule, NgbTimepickerModule} from '@ng-bootstrap/ng-bootstrap';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import {NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule} from '@angular-material-components/datetime-picker';
+
 
 
 
@@ -62,6 +66,11 @@ import {NgbRatingModule} from '@ng-bootstrap/ng-bootstrap';
     MatRadioModule,
     MatTooltipModule,
     MatGridListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    NgxMatDatetimePickerModule,
+    NgxMatNativeDateModule,
+    NgxMatTimepickerModule
 
 
   ],
@@ -91,7 +100,14 @@ import {NgbRatingModule} from '@ng-bootstrap/ng-bootstrap';
     MatMenuModule,
     MatRadioModule,
     MatTooltipModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+
+    NgxMatDatetimePickerModule,
+    NgxMatNativeDateModule,
+    NgxMatTimepickerModule
+
   ],
 })
 export class ShareModule {

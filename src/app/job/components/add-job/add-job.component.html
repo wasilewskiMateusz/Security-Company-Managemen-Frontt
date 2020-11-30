@@ -1,0 +1,64 @@
+<mat-card>
+  <mat-card-content>
+    <form #addWorkplaceForm="ngForm" id="addWorkplaceForm">
+      <h2>Add workplace</h2>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Data of start</mat-label>
+        <input matInput name="start-date" [ngxMatDatetimePicker]="startPicker" placeholder="Data of start" [(ngModel)]="createJob.startDate">
+        <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+        <ngx-mat-datetime-picker #startPicker></ngx-mat-datetime-picker>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Date of completion</mat-label>
+        <input matInput name="completion-date" [ngxMatDatetimePicker]="endPicker" placeholder="Date of completion" [(ngModel)]="createJob.completionDate">
+        <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+        <ngx-mat-datetime-picker #endPicker></ngx-mat-datetime-picker>
+      </mat-form-field>
+
+      <div class="localization-input-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Wage</mat-label>
+          <input type="number" matInput name="wage" [(ngModel)]="createJob.wage" #wage="ngModel"
+                 required min="1">
+          <mat-error *ngIf="wage.invalid && (wage.dirty || wage.touched)">
+            <div *ngIf="wage.errors.required">Field is required</div>
+            <div *ngIf="wage.errors.min">Min value is 0</div>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Vacancies</mat-label>
+          <input type="number" matInput name="vacancies" [(ngModel)]="createJob.vacancy" #vacancy="ngModel"
+                 required maxlength="20">
+          <mat-error *ngIf="vacancy.invalid && (vacancy.dirty || vacancy.touched)">
+            <div *ngIf="vacancy.errors.required">Field is required</div>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput
+                  [(ngModel)]="createJob.description"
+                  name="description"
+                  #description="ngModel"
+                  cdkTextareaAutosize
+                  #autosize="cdkTextareaAutosize"
+                  cdkAutosizeMinRows="3"
+                  maxlength="256"
+                  required></textarea>
+        <mat-error *ngIf="description.invalid && (description.dirty || description.touched)">
+          <div *ngIf="description.errors.required">Field is required</div>
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-button (click)="backClicked()">Cancel</button>
+      <button mat-raised-button color="primary" form="addWorkplaceForm" [disabled]="!addWorkplaceForm.valid"
+              (click)="onSubmit()">
+        Add
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>
