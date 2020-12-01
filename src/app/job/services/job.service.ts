@@ -3,11 +3,11 @@ import {HttpClient} from '@angular/common/http';
 import {ErrorHandlerService} from '../../share/error-handler';
 import {Observable} from 'rxjs';
 import {config} from '../../config';
-import {catchError} from 'rxjs/operators';
+import {catchError, mapTo} from 'rxjs/operators';
 
 import {Job} from '../models/job';
 import {Contract} from '../models/contract';
-import {User} from '../../user/models/user';
+import {CreateJob} from '../models/create-job';
 
 @Injectable({
   providedIn: 'root'
@@ -36,4 +36,11 @@ export class JobService {
         catchError((err) => this.errorHandlerService.handleError(err)));
   }
 
+  createJob(createJob: CreateJob): Observable<boolean> {
+    return this.http.post<any>(`${config.apiUrl}/jobs`, createJob)
+      .pipe(
+        mapTo(true),
+        catchError((err) => this.errorHandlerService.handleError(err)
+        ));
+  }
 }

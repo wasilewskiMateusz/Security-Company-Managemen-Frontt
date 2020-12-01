@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {CreateWorkplace} from '../../../workplace/models/create-workplace';
-import {WorkplaceService} from '../../../workplace/services/workplace.service';
-import {Location} from '@angular/common';
-import {Router} from '@angular/router';
+import {Component} from '@angular/core';
+import {DatePipe, Location} from '@angular/common';
+import {ActivatedRoute, Router} from '@angular/router';
 import {SuccessHandler} from '../../../share/success-handler';
 import {CreateJob} from '../../models/create-job';
+import {JobService} from '../../services/job.service';
 
 @Component({
   selector: 'app-add-job',
@@ -14,19 +13,14 @@ import {CreateJob} from '../../models/create-job';
 export class AddJobComponent{
 
   createJob: CreateJob = new CreateJob(0, new Date(), new Date(), '', 0, 0);
-  minDate: Date;
-  maxDate: Date;
-  time = {hour: 13, minute: 30};
-  myDatePicker: Date;
 
 
-  constructor(private workplaceService: WorkplaceService,
+  constructor(private jobService: JobService,
               private location: Location,
               private router: Router,
-              private successHandler: SuccessHandler) {
-    const currentYear = new Date().getFullYear();
-    this.minDate = new Date(currentYear - 20, 0, 1);
-    this.maxDate = new Date(currentYear + 1, 11, 31);
+              private successHandler: SuccessHandler,
+              private route: ActivatedRoute) {
+    this.createJob.workplaceId = +this.route.snapshot.paramMap.get('id');
   }
 
   backClicked(): void {
@@ -34,13 +28,12 @@ export class AddJobComponent{
   }
 
   onSubmit(): void {
-    //
-    // this.workplaceService.createWorkplace(this.createWorkplace).subscribe( next => {
-    //   if (next === true) {
-    //     this.location.back();
-    //     this.successHandler.notifyUser('Workplace has been added');
-    //   }
-    // });
+    this.jobService.createJob(this.createJob).subscribe( next => {
+      if (next === true) {
+        this.location.back();
+        this.successHandler.notifyUser('Job has been added');
+      }
+    });
 
   }
 
