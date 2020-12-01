@@ -6,7 +6,7 @@ export class Contract {
   constructor(
     public id: number,
     public version: string,
-    public name: string,
+    public status: string,
     public job: Job,
     public user: UserContract,
 ) {

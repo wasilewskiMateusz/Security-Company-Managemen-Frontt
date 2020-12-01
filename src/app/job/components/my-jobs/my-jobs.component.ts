@@ -33,7 +33,7 @@ export class MyJobsComponent implements OnInit {
     this.jobService.getMyContracts(this.userId).subscribe(res => {
       this.contracts = res;
       if (this.contracts.length === 0) {
-        this.snackBar.open('You have no contracts', '', {
+        this.snackBar.open('You have no jobs', '', {
           duration: 4000,
           verticalPosition: 'top',
           panelClass: ['warn-snackbar']
