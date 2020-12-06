@@ -54,4 +54,12 @@ export class MyJobsComponent implements OnInit {
       }
     });
   }
+
+  checkIn(id: number, version: string): void {
+    this.contractService.checkInContract(id, version).subscribe(
+      () => {
+        this.ngOnInit();
+      },
+    );
+  }
 }

@@ -17,6 +17,11 @@
     </div>
   </mat-card-content>
   <mat-card-actions>
+    <button mat-raised-button color="accent"
+            *ngIf="contract.status==='Claimed'"
+            (click)="checkIn(contract.id, contract.version)">
+      Check in
+    </button>
     <button mat-raised-button color="accent" (click)="resign(contract.id)">Resign</button>
   </mat-card-actions>
 </mat-card>
