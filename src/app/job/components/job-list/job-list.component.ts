@@ -28,16 +28,7 @@ export class JobListComponent implements OnInit {
   }
 
   loadJobs(): void {
-    this.jobService.getJobs().subscribe(res => {
-      const enableJobs = [];
-      res.forEach(job => {
-          if (job.enabled === true) {
-            enableJobs.push(job);
-          }
-        }
-      );
-      this.jobs = enableJobs;
-    });
+    this.jobService.getJobs().subscribe(res => this.jobs = res.filter(job => job.enabled));
   }
 
   goToWorkplaceDetails(id: number): void {

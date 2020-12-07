@@ -20,11 +20,8 @@ export class WorkplacesListComponent implements OnInit {
   }
 
   loadWorkplaces(): void {
-    this.workplaceService.getWorkplaces().subscribe( res => {
-      res.forEach(workplace => {
-        if (workplace.enabled === true) { this.workplaces.push(workplace); }
-      });
-    });
+    this.workplaceService.getWorkplaces().subscribe(
+      res => this.workplaces = res.filter(workplace => workplace.enabled));
   }
 
   goToDetails(id: number): void {

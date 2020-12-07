@@ -43,4 +43,10 @@ export class JobService {
         catchError((err) => this.errorHandlerService.handleError(err)
         ));
   }
+
+  disableJob(id: number, version: string): Observable<Job> {
+    return this.http.put<any>(`${config.apiUrl}/jobs/${id}/disability`, {version})
+      .pipe(
+        catchError((err) => this.errorHandlerService.handleError(err)));
+  }
 }

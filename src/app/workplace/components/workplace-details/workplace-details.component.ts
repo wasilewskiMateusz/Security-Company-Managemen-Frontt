@@ -9,6 +9,7 @@ import {CreateContract} from '../../../job/models/create-contract';
 import {ContractService} from '../../../job/services/contract.service';
 import {MatDialog} from '@angular/material/dialog';
 import {RateWorkplaceComponent} from '../rate-workplace/rate-workplace.component';
+import {JobService} from '../../../job/services/job.service';
 
 @Component({
   selector: 'app-workplace-details',
@@ -29,7 +30,8 @@ export class WorkplaceDetailsComponent implements OnInit {
               private route: ActivatedRoute,
               private contractService: ContractService,
               private dialog: MatDialog,
-              private router: Router) { }
+              private router: Router,
+              private jobService: JobService) { }
 
   ngOnInit(): void {
     this.getWorkplace();
@@ -46,7 +48,7 @@ export class WorkplaceDetailsComponent implements OnInit {
   getJobsInWorkplace(): void{
     const id = +this.route.snapshot.paramMap.get('id');
     this.workplaceService.getJobsInWorkplace(id).subscribe(res => {
-      this.jobs = res;
+      this.jobs = res.filter(job => job.enabled);
     });
 }
 
@@ -79,5 +81,11 @@ export class WorkplaceDetailsComponent implements OnInit {
   goToAssignedUsers(jobId: any): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.router.navigate(['home/workplaces/', id, 'jobs', jobId, 'employees']);
+  }
+
+  disable(id: number, version: string): void {
+    this.jobService.disableJob(id, version).subscribe(
+      () => this.ngOnInit()
+    );
   }
 }
