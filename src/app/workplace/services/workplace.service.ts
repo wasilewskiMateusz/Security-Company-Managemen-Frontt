@@ -52,4 +52,10 @@ export class WorkplaceService {
       .pipe(
         catchError((err) => this.errorHandlerService.handleError(err)));
   }
+
+  disableWorkplace(id: number, version: string): Observable<Workplace> {
+    return this.http.put<any>(`${config.apiUrl}/workplaces/${id}/disability`, {version})
+      .pipe(
+        catchError((err) => this.errorHandlerService.handleError(err)));
+  }
 }

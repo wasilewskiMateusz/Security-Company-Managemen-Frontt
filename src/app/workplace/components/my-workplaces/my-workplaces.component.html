@@ -34,6 +34,7 @@
       <td mat-cell *matCellDef="let element">
         <button mat-raised-button color="accent" (click)="goToEdit(element.id)">Edit</button>
         <button mat-raised-button color="accent" class="details-button" (click)="goToDetails(element.id)">Details</button>
+        <button mat-raised-button color="warn" class="details-button" (click)="delete(element.id, element.version)">Delete</button>
       </td>
     </ng-container>
 

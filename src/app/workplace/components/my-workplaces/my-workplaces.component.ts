@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../../user/services/user.service';
 import {Router} from '@angular/router';
 import {Workplace} from '../../models/workplace';
+import {WorkplaceService} from '../../services/workplace.service';
 
 @Component({
   selector: 'app-my-workplaces',
@@ -11,11 +12,13 @@ import {Workplace} from '../../models/workplace';
 export class MyWorkplacesComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'street', 'city', 'averageRate', 'enabled', 'action'];
-  workplaces: Workplace[];
+  workplaces: Workplace[] = [];
   userId: number;
 
 
-  constructor(public userService: UserService, private router: Router) {
+  constructor(public userService: UserService,
+              private router: Router,
+              private workplaceService: WorkplaceService) {
   }
 
   ngOnInit(): void {
@@ -26,7 +29,7 @@ export class MyWorkplacesComponent implements OnInit {
 
   loadWorkplaces(): void {
     this.userService.getUserWorkplaces(this.userId).subscribe(res => {
-      this.workplaces = res;
+      this.workplaces = res.filter(workplace => workplace.enabled);
     });
   }
 
@@ -36,5 +39,11 @@ export class MyWorkplacesComponent implements OnInit {
 
   goToDetails(id: number): void {
     this.router.navigate(['home/workplaces/', id]);
+  }
+
+  delete(id: number, version: string): void {
+    this.workplaceService.disableWorkplace(id, version).subscribe(
+      next => this.ngOnInit()
+    );
   }
 }
