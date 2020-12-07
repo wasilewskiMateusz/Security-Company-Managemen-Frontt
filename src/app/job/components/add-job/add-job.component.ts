@@ -12,7 +12,7 @@ import {JobService} from '../../services/job.service';
 })
 export class AddJobComponent{
 
-  createJob: CreateJob = new CreateJob(0, new Date(), new Date(), '', 0, 0);
+  createJob: CreateJob = new CreateJob(null, new Date(), new Date(), '', null, 0);
 
 
   constructor(private jobService: JobService,
