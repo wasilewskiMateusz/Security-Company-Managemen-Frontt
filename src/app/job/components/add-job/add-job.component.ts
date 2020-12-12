@@ -13,7 +13,7 @@ import {JobService} from '../../services/job.service';
 export class AddJobComponent{
 
   createJob: CreateJob = new CreateJob(null, null, null, '', null, 0);
-
+  minDate: Date = new Date();
 
   constructor(private jobService: JobService,
               private location: Location,
@@ -21,6 +21,7 @@ export class AddJobComponent{
               private successHandler: SuccessHandler,
               private route: ActivatedRoute) {
     this.createJob.workplaceId = +this.route.snapshot.paramMap.get('id');
+    this.minDate.setDate(this.minDate.getDate() + 1);
   }
 
   backClicked(): void {
