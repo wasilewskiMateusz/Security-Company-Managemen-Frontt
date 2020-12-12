@@ -8,7 +8,8 @@ import {MatTableModule} from '@angular/material/table';
 import {AddJobComponent} from './components/add-job/add-job.component';
 import {NGX_MAT_DATE_FORMATS, NgxMatDateAdapter, NgxMatDateFormats} from '@angular-material-components/datetime-picker';
 import {NGX_MAT_MOMENT_DATE_ADAPTER_OPTIONS, NgxMatMomentAdapter} from '@angular-material-components/moment-adapter';
-import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import {MAT_DATE_LOCALE} from '@angular/material/core';
+import { CustomMinDirective } from './util/custom-min.directive';
 
 
 const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
@@ -24,7 +25,12 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
 };
 
 @NgModule({
-  declarations: [JobListComponent, MyJobsComponent, JobEmployeesComponent, AddJobComponent],
+  declarations: [
+    JobListComponent,
+    MyJobsComponent,
+    JobEmployeesComponent,
+    AddJobComponent,
+    CustomMinDirective],
   imports: [
     CommonModule,
     ShareModule,

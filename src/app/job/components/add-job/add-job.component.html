@@ -31,19 +31,20 @@
         <mat-form-field appearance="fill">
           <mat-label>Wage</mat-label>
           <input type="number" matInput name="wage" [(ngModel)]="createJob.wage" #wage="ngModel"
-                 required min="1">
+                 required appCustomMin=1>
           <mat-error *ngIf="wage.invalid && (wage.dirty || wage.touched)">
             <div *ngIf="wage.errors.required">Field is required</div>
-            <div *ngIf="wage.errors.min">Min value is 0</div>
+            <div *ngIf="wage.errors.appCustomMin">Min value is 1</div>
           </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
           <mat-label>Vacancies</mat-label>
           <input type="number" matInput name="vacancies" [(ngModel)]="createJob.vacancy" #vacancy="ngModel"
-                 required maxlength="20">
+                 required appCustomMin=1>
           <mat-error *ngIf="vacancy.invalid && (vacancy.dirty || vacancy.touched)">
             <div *ngIf="vacancy.errors.required">Field is required</div>
+            <div *ngIf="vacancy.errors.appCustomMin">Min value is 1</div>
           </mat-error>
         </mat-form-field>
       </div>
