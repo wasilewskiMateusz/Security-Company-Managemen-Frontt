@@ -6,7 +6,7 @@
       <mat-form-field appearance="fill">
         <mat-label>Data of start</mat-label>
         <input readonly matInput name="start-date" [ngxMatDatetimePicker]="startPicker"
-               placeholder="Data of start" [(ngModel)]="editJob.startDate"
+               placeholder="Data of start" [(ngModel)]="startMoment"
                #startDate="ngModel"  required [min]="minDate" [max]="editJob.completionDate" >
         <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
         <ngx-mat-datetime-picker #startPicker></ngx-mat-datetime-picker>
@@ -19,7 +19,7 @@
         <mat-label>Date of completion</mat-label>
         <input matInput name="completion-date" [ngxMatDatetimePicker]="endPicker"
                placeholder="Date of completion" [min]="editJob.startDate ? editJob.startDate : minDate"
-               [(ngModel)]="editJob.completionDate" #endDate="ngModel" readonly required>
+               [(ngModel)]="completionMoment" #endDate="ngModel" readonly required>
         <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
         <ngx-mat-datetime-picker #endPicker></ngx-mat-datetime-picker>
         <mat-error *ngIf="endDate.invalid && (endDate.dirty || endDate.touched)">

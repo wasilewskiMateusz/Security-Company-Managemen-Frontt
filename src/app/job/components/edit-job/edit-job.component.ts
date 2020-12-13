@@ -4,6 +4,8 @@ import {Location} from '@angular/common';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SuccessHandler} from '../../../share/success-handler';
 import {EditJob} from '../../models/edit-job';
+import {Moment} from 'moment';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-edit-job',
@@ -14,6 +16,8 @@ export class EditJobComponent implements OnInit {
 
   editJob: EditJob = new EditJob(null, null, null, '', null, '');
   minDate: Date = new Date();
+  startMoment: Moment;
+  completionMoment: Moment;
 
   constructor(private jobService: JobService,
               private location: Location,
@@ -31,6 +35,9 @@ export class EditJobComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('jobId');
     this.jobService.getJob(id).subscribe(res => {
       this.editJob = res;
+      this.startMoment = moment(res.startDate);
+      this.completionMoment = moment(res.completionDate);
+
     });
   }
 
@@ -40,6 +47,8 @@ export class EditJobComponent implements OnInit {
 
   onSubmit(): void {
     const id = +this.route.snapshot.paramMap.get('jobId');
+    this.editJob.startDate = new Date(this.startMoment.utcOffset(0, true).format());
+    this.editJob.completionDate = new Date(this.completionMoment.utcOffset(0, true).format());
 
     this.jobService.editJob(this.editJob, id).subscribe(
       res => this.editJob = res,
