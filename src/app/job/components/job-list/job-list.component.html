@@ -7,8 +7,8 @@
         </div>
       </a>
       <span class="address">{{job.workplace.city}}, {{job.workplace.street}}</span>
-      <span class="date">Start date: {{job.startDate}}</span>
-      <span class="date">Finish date: {{job.completionDate}}</span>
+      <span class="date">Start date: {{job.startDate | date: 'dd-MM-yyyy HH:mm'}}</span>
+      <span class="date">Finish date: {{job.completionDate | date: 'dd-MM-yyyy HH:mm'}}</span>
       <span class="description">{{job.description}}</span>
     </div>
     <div class="wage-container">
