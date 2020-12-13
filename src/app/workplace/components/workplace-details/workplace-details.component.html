@@ -70,6 +70,7 @@
         <td mat-cell *matCellDef="let element">
           <button *appIfRole="['ROLE_EMPLOYEE']" mat-raised-button color="accent" (click)="signUpToJob(element.id)" >Sign Up</button>
           <button *appIfRole="['ROLE_EMPLOYER']" mat-raised-button color="accent" class="tab-button" (click)="goToAssignedUsers(element.id)" >Employees</button>
+          <button *appIfRole="['ROLE_EMPLOYER']" mat-raised-button color="accent" class="tab-button" (click)="goToEdit(element.id)" >Edit</button>
           <button *appIfRole="['ROLE_EMPLOYER']" mat-raised-button color="warn" class="tab-button" (click)="disable(element.id, element.version)" >Delete</button>
         </td>
       </ng-container>

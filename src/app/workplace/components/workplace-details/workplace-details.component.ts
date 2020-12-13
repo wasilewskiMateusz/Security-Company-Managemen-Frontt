@@ -78,7 +78,7 @@ export class WorkplaceDetailsComponent implements OnInit {
     });
   }
 
-  goToAssignedUsers(jobId: any): void {
+  goToAssignedUsers(jobId: number): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.router.navigate(['home/workplaces/', id, 'jobs', jobId, 'employees']);
   }
@@ -87,5 +87,10 @@ export class WorkplaceDetailsComponent implements OnInit {
     this.jobService.disableJob(id, version).subscribe(
       () => this.ngOnInit()
     );
+  }
+
+  goToEdit(jobId: number): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.router.navigate(['home/workplaces/', id, 'jobs', jobId, 'edit-job']);
   }
 }

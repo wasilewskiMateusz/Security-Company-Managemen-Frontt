@@ -10,6 +10,7 @@ import {NGX_MAT_DATE_FORMATS, NgxMatDateAdapter, NgxMatDateFormats} from '@angul
 import {NGX_MAT_MOMENT_DATE_ADAPTER_OPTIONS, NgxMatMomentAdapter} from '@angular-material-components/moment-adapter';
 import {MAT_DATE_LOCALE} from '@angular/material/core';
 import { CustomMinDirective } from './util/custom-min.directive';
+import {EditJobComponent} from './components/edit-job/edit-job.component';
 
 
 const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
@@ -30,7 +31,8 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     MyJobsComponent,
     JobEmployeesComponent,
     AddJobComponent,
-    CustomMinDirective],
+    CustomMinDirective,
+    EditJobComponent],
   imports: [
     CommonModule,
     ShareModule,

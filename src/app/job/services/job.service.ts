@@ -8,6 +8,9 @@ import {catchError, mapTo} from 'rxjs/operators';
 import {Job} from '../models/job';
 import {Contract} from '../models/contract';
 import {CreateJob} from '../models/create-job';
+import {EditWorkplace} from '../../workplace/models/edit-workplace';
+import {Workplace} from '../../workplace/models/workplace';
+import {EditJob} from '../models/edit-job';
 
 @Injectable({
   providedIn: 'root'
@@ -49,4 +52,18 @@ export class JobService {
       .pipe(
         catchError((err) => this.errorHandlerService.handleError(err)));
   }
+
+  editJob(editJob: EditJob, id: number): Observable<Job> {
+    return this.http.put<any>(`${config.apiUrl}/jobs/${id}`, editJob)
+      .pipe(
+        catchError((err) => this.errorHandlerService.handleError(err)
+        ));
+  }
+
+  getJob(id: number): Observable<Job> {
+    return this.http.get<any>(`${config.apiUrl}/jobs/${id}`)
+      .pipe(
+        catchError((err) => this.errorHandlerService.handleError(err)));
+  }
+
 }
