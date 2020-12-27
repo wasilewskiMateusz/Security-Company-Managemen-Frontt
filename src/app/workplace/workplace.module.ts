@@ -9,6 +9,7 @@ import {EditWorkplaceComponent} from './components/edit-workplace/edit-workplace
 import {WorkplacesListComponent} from './components/workplaces-list/workplaces-list.component';
 import {WorkplaceDetailsComponent} from './components/workplace-details/workplace-details.component';
 import {RateWorkplaceComponent} from './components/rate-workplace/rate-workplace.component';
+import { UserWorkplacesComponent } from './components/user-workplaces/user-workplaces.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {RateWorkplaceComponent} from './components/rate-workplace/rate-workplace
     EditWorkplaceComponent,
     WorkplacesListComponent,
     WorkplaceDetailsComponent,
-    RateWorkplaceComponent
+    RateWorkplaceComponent,
+    UserWorkplacesComponent
   ],
   imports: [
     CommonModule,

@@ -41,7 +41,7 @@
   </div>
   <div class="table-container">
     <div *appIfRole="['ROLE_EMPLOYER']">
-      <button class="add-button" mat-raised-button [routerLink]="'add-job'">Add job</button>
+      <button class="add-button" *ngIf="userId === workplace.employerId" mat-raised-button [routerLink]="'add-job'">Add job</button>
     </div>
     <table mat-table [dataSource]="jobs" class="mat-elevation-z8">
 
@@ -68,10 +68,20 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef> Action</th>
         <td mat-cell *matCellDef="let element">
-          <button *appIfRole="['ROLE_EMPLOYEE']" mat-raised-button color="accent" (click)="signUpToJob(element.id)" >Sign Up</button>
-          <button *appIfRole="['ROLE_EMPLOYER']" mat-raised-button color="accent" class="tab-button" (click)="goToAssignedUsers(element.id)" >Employees</button>
-          <button *appIfRole="['ROLE_EMPLOYER']" mat-raised-button color="accent" class="tab-button" (click)="goToEdit(element.id)" >Edit</button>
-          <button *appIfRole="['ROLE_EMPLOYER']" mat-raised-button color="warn" class="tab-button" (click)="disable(element.id, element.version)" >Delete</button>
+          <button *appIfRole="['ROLE_EMPLOYEE']" mat-raised-button color="accent" (click)="signUpToJob(element.id)">Sign
+            Up
+          </button>
+          <ng-container *ngIf="userId === workplace.employerId || roleService.loggedUserCurrentRole.getValue() === 'ROLE_ADMIN'">
+            <button *appIfRole="['ROLE_EMPLOYER', 'ROLE_ADMIN']" mat-raised-button color="accent" class="tab-button"
+                    (click)="goToAssignedUsers(element.id)">Employees
+            </button>
+            <button *appIfRole="['ROLE_EMPLOYER', 'ROLE_ADMIN']" mat-raised-button color="accent" class="tab-button"
+                    (click)="goToEdit(element.id)">Edit
+            </button>
+            <button *appIfRole="['ROLE_EMPLOYER', 'ROLE_ADMIN']" mat-raised-button color="warn" class="tab-button"
+                    (click)="disable(element.id, element.version)">Delete
+            </button>
+          </ng-container>
         </td>
       </ng-container>
 

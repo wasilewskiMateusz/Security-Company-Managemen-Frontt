@@ -12,6 +12,7 @@ export class Workplace {
     public version: string,
     public employerData: string,
     public employerPhone: string,
+    public employerId: number,
 ) {
   }
 }

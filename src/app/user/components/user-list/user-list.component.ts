@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../services/user.service';
 import {User} from '../../models/user';
 import {Router} from '@angular/router';
@@ -11,7 +11,6 @@ import {Router} from '@angular/router';
 export class UserListComponent implements OnInit {
   displayedColumns: string[] = ['email', 'name', 'surname', 'phoneNumber', 'roles', 'enabled', 'action'];
   users: User[];
-
 
   constructor(public userService: UserService, private router: Router) {
   }
@@ -28,5 +27,13 @@ export class UserListComponent implements OnInit {
 
   goToEdit(id: number): void {
     this.router.navigate(['home/users/user-edit', id]);
+  }
+
+  check(roles: any): boolean {
+    return roles.some(r => r.name === 'ROLE_EMPLOYER');
+  }
+
+  goToWorkplaces(id: number): void {
+    this.router.navigate(['home/users/', id, 'workplaces']);
   }
 }

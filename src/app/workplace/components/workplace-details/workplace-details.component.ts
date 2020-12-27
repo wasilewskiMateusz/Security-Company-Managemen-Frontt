@@ -10,6 +10,7 @@ import {ContractService} from '../../../job/services/contract.service';
 import {MatDialog} from '@angular/material/dialog';
 import {RateWorkplaceComponent} from '../rate-workplace/rate-workplace.component';
 import {JobService} from '../../../job/services/job.service';
+import {RoleService} from '../../../user/services/role.service';
 
 @Component({
   selector: 'app-workplace-details',
@@ -18,8 +19,9 @@ import {JobService} from '../../../job/services/job.service';
 })
 export class WorkplaceDetailsComponent implements OnInit {
 
-  workplace: Workplace = new Workplace(0, '', '', '', '', false, 0, '', '', '');
+  workplace: Workplace = new Workplace(0, '', '', '', '', false, 0, '', '', '', 0);
   jobs: Job[] = [];
+  userId: number;
   displayedColumns: string[] = ['startDate', 'completionDate', 'wage', 'vacancy', 'action'];
   @ViewChild('rateButton') private rateButton: ElementRef;
 
@@ -31,11 +33,14 @@ export class WorkplaceDetailsComponent implements OnInit {
               private contractService: ContractService,
               private dialog: MatDialog,
               private router: Router,
-              private jobService: JobService) { }
+              private jobService: JobService,
+              public roleService: RoleService) { }
 
   ngOnInit(): void {
     this.getWorkplace();
     this.getJobsInWorkplace();
+    const token = localStorage.getItem('ACCESS_TOKEN');
+    this.userId = JSON.parse(atob(token.split('.')[1])).id;
   }
 
   getWorkplace(): void {

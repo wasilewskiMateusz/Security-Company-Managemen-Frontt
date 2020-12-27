@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from '../../../user/services/user.service';
-import {Router} from '@angular/router';
 import {Workplace} from '../../models/workplace';
+import {UserService} from '../../../user/services/user.service';
+import {ActivatedRoute, Router} from '@angular/router';
 import {WorkplaceService} from '../../services/workplace.service';
 
 @Component({
-  selector: 'app-my-workplaces',
-  templateUrl: './my-workplaces.component.html',
-  styleUrls: ['./my-workplaces.component.css']
+  selector: 'app-user-workplaces',
+  templateUrl: './user-workplaces.component.html',
+  styleUrls: ['./user-workplaces.component.css']
 })
-export class MyWorkplacesComponent implements OnInit {
+export class UserWorkplacesComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'street', 'city', 'averageRate', 'enabled', 'action'];
   workplaces: Workplace[] = [];
@@ -18,12 +18,12 @@ export class MyWorkplacesComponent implements OnInit {
 
   constructor(public userService: UserService,
               private router: Router,
+              private route: ActivatedRoute,
               private workplaceService: WorkplaceService) {
   }
 
   ngOnInit(): void {
-    const token = localStorage.getItem('ACCESS_TOKEN');
-    this.userId = JSON.parse(atob(token.split('.')[1])).id;
+    this.userId = parseInt(this.route.snapshot.paramMap.get('id'), 10);
     this.loadWorkplaces();
   }
 
@@ -46,4 +46,5 @@ export class MyWorkplacesComponent implements OnInit {
       next => this.ngOnInit()
     );
   }
+
 }

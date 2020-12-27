@@ -34,7 +34,10 @@
 
   <ng-container matColumnDef="action">
     <th mat-header-cell *matHeaderCellDef> Action </th>
-    <td mat-cell *matCellDef="let element"> <button mat-raised-button color="accent" (click)="goToEdit(element.id)">Edit</button></td>
+    <td mat-cell *matCellDef="let element">
+      <button mat-raised-button color="accent" (click)="goToEdit(element.id)">Edit</button>
+      <button mat-raised-button color="accent" class="tab-button" *ngIf="check(element.roles)" (click)="goToWorkplaces(element.id)">Workplaces</button>
+    </td>
   </ng-container>
 
 
