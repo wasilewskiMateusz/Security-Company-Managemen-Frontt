@@ -20,6 +20,9 @@ import {JobEmployeesComponent} from './job/components/job-employees/job-employee
 import {AddJobComponent} from './job/components/add-job/add-job.component';
 import {EditJobComponent} from './job/components/edit-job/edit-job.component';
 import {UserWorkplacesComponent} from './workplace/components/user-workplaces/user-workplaces.component';
+import {NotFoundComponent} from './components/not-found/not-found.component';
+import {ForbiddenComponent} from './components/forbidden/forbidden.component';
+import {ServerErrorComponent} from './components/server-error/server-error.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -31,6 +34,18 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
+  },
+  {
+    path: 'not-found',
+    component: NotFoundComponent,
+  },
+  {
+    path: 'forbidden',
+    component: ForbiddenComponent,
+  },
+  {
+    path: 'server-error',
+    component: ServerErrorComponent,
   },
   {
     path: 'home', component: HomeComponent, canActivate: [HomeGuard],
@@ -50,9 +65,10 @@ const routes: Routes = [
       {path: 'jobs', component: JobListComponent},
       {path: 'my-jobs', component: MyJobsComponent},
       {path: 'workplaces/:id/add-job', component: AddJobComponent},
-
+      {path: '**', redirectTo: '/not-found', pathMatch: 'full'},
     ]
-  }
+  },
+  {path: '**', redirectTo: 'login', pathMatch: 'full'},
 ];
 
 @NgModule({

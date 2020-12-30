@@ -26,7 +26,16 @@ export class TokenInterceptor implements HttpInterceptor {
         catchError(error => {
           if (error instanceof HttpErrorResponse && error.status === 401) {
             return this.handle401Error(req, next);
-          } else {
+          }
+          if (error instanceof HttpErrorResponse && error.status === 404) {
+            this.router.navigateByUrl('/not-found', {replaceUrl: true});
+          }
+          if (error instanceof HttpErrorResponse && error.status === 403) {
+            this.router.navigateByUrl('/forbidden', {replaceUrl: true});
+          }
+          if (error instanceof HttpErrorResponse && error.status === 500) {
+            this.router.navigateByUrl('/server-error', {replaceUrl: true});
+          }else {
             return throwError(error);
           }
         })
@@ -63,7 +72,7 @@ export class TokenInterceptor implements HttpInterceptor {
             duration: 4000,
             verticalPosition: 'top',
             panelClass: ['error-snackbar']
-          });})
+          }); })
       );
     } else {
       return this.refreshTokenSubject.pipe(

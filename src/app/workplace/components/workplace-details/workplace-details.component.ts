@@ -38,7 +38,6 @@ export class WorkplaceDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getWorkplace();
-    this.getJobsInWorkplace();
     const token = localStorage.getItem('ACCESS_TOKEN');
     this.userId = JSON.parse(atob(token.split('.')[1])).id;
   }
@@ -47,6 +46,7 @@ export class WorkplaceDetailsComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.workplaceService.getWorkplace(id).subscribe(res => {
       this.workplace = res;
+      this.getJobsInWorkplace();
     });
   }
 
