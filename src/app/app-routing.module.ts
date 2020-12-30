@@ -50,6 +50,7 @@ const routes: Routes = [
   {
     path: 'home', component: HomeComponent, canActivate: [HomeGuard],
     children: [
+      {path: '', redirectTo: 'jobs', pathMatch: 'full'},
       {path: 'users', component: UserListComponent},
       {path: 'users/:id/workplaces', component: UserWorkplacesComponent},
       {path: 'users/user-edit/:id', component: UserEditComponent},
