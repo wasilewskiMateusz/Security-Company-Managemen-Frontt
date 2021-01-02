@@ -4,6 +4,7 @@ import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
 import {UserRegister} from '../../models/user-register';
 import {Location} from '@angular/common';
+import {SuccessHandler} from '../../../share/success-handler';
 
 
 @Component({
@@ -15,11 +16,11 @@ export class RegisterComponent implements OnInit {
 
 
   userRegister: UserRegister = new UserRegister('', '', '', '', '', '');
-  registerForm: FormGroup;
 
   constructor(private authService: AuthService,
               private router: Router,
-              private location: Location) {
+              private location: Location,
+              private successHandler: SuccessHandler) {
   }
 
   ngOnInit(): void {
@@ -34,6 +35,7 @@ export class RegisterComponent implements OnInit {
       this.authService.register(this.userRegister).subscribe( next => {
         if (next === true) {
         this.router.navigate(['login']);
+        this.successHandler.notifyUser('You have successfully registered account');
         }
       });
 
