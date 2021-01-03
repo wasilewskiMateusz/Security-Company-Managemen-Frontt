@@ -26,6 +26,7 @@ export class UserEditComponent implements OnInit {
   userRolesForm = new FormControl();
   roles: Role[] = [];
   userRolesStringList: string[] = [];
+  loading = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -74,13 +75,17 @@ export class UserEditComponent implements OnInit {
 
   changeAvailability(): void {
     const id = +this.route.snapshot.paramMap.get('id');
+    this.loading = true;
     this.userService.changeAvailability(
       new UserAvailability(this.user.enabled, this.user.version), id)
       .subscribe(
         res => this.user = res,
         () => {
         },
-        () => this.successHandler.notifyUser('User availability has been changed')
+        () => {
+          this.successHandler.notifyUser('User availability has been changed');
+          this.loading = false;
+        }
       );
   }
 

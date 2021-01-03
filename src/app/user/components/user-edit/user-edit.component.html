@@ -51,7 +51,7 @@
     <button mat-raised-button class="button-margin" color="primary" (click)="changeRoles()">Edit roles</button>
 
     <div class="row-container button-margin">
-      <mat-slide-toggle (change)="changeAvailability()" [(ngModel)]="user.enabled">Enable</mat-slide-toggle>
+      <mat-slide-toggle (change)="changeAvailability()" [disabled]="loading" [(ngModel)]="user.enabled">Enable</mat-slide-toggle>
       <button mat-raised-button (click)="openDialog()" color="accent">Edit password</button>
     </div>
 
