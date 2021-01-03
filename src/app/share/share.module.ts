@@ -30,6 +30,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule} from '@angular-material-components/datetime-picker';
 import {NgxMatMomentModule} from '@angular-material-components/moment-adapter';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {LoaderComponent} from './components/loader/loader.component';
+
 
 
 
@@ -41,7 +44,7 @@ import {NgxMatMomentModule} from '@angular-material-components/moment-adapter';
     ErrorHandlerService,
     SuccessHandler,
   ],
-  declarations: [IfRoleDirective, CheckPasswordDirective],
+  declarations: [IfRoleDirective, CheckPasswordDirective, LoaderComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -72,7 +75,8 @@ import {NgxMatMomentModule} from '@angular-material-components/moment-adapter';
     NgxMatDatetimePickerModule,
     NgxMatNativeDateModule,
     NgxMatTimepickerModule,
-    NgxMatMomentModule
+    NgxMatMomentModule,
+    MatProgressSpinnerModule
 
 
   ],
@@ -109,7 +113,9 @@ import {NgxMatMomentModule} from '@angular-material-components/moment-adapter';
     NgxMatDatetimePickerModule,
     NgxMatNativeDateModule,
     NgxMatTimepickerModule,
-    NgxMatMomentModule
+    NgxMatMomentModule,
+    MatProgressSpinnerModule,
+    LoaderComponent
 
   ],
 })

@@ -83,8 +83,8 @@ export class UserEditComponent implements OnInit {
         () => {
         },
         () => {
-          this.successHandler.notifyUser('User availability has been changed');
           this.loading = false;
+          this.successHandler.notifyUser('User availability has been changed');
         }
       );
   }

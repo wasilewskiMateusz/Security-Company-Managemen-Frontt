@@ -16,6 +16,7 @@ export class RegisterComponent implements OnInit {
 
 
   userRegister: UserRegister = new UserRegister('', '', '', '', '', '');
+  loading = false;
 
   constructor(private authService: AuthService,
               private router: Router,
@@ -31,11 +32,12 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-
+      this.loading = true;
       this.authService.register(this.userRegister).subscribe( next => {
         if (next === true) {
         this.router.navigate(['login']);
-        this.successHandler.notifyUser('You have successfully registered account');
+        this.loading = false;
+        this.successHandler.notifyUser('Your account has been registered. More information on e-mail.');
         }
       });
 
