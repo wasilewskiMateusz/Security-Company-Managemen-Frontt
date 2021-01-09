@@ -20,7 +20,7 @@ export class ForgotPasswordComponent{
   }
 
   onSubmit(): void {
-    this.authService.resetPassword(this.email).subscribe( next => {
+    this.authService.forgotPassword(this.email).subscribe(next => {
       if (next === true) {
         this.router.navigate(['login']);
         this.successHandler.notifyUser('Check your email for a link to reset your password.');

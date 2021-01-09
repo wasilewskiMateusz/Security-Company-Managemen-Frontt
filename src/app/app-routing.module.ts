@@ -24,6 +24,7 @@ import {NotFoundComponent} from './components/not-found/not-found.component';
 import {ForbiddenComponent} from './components/forbidden/forbidden.component';
 import {ServerErrorComponent} from './components/server-error/server-error.component';
 import {ForgotPasswordComponent} from './auth/components/forgot-password/forgot-password.component';
+import {ResetPasswordComponent} from './auth/components/reset-password/reset-password.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -39,6 +40,10 @@ const routes: Routes = [
   {
     path: 'forgot-password',
     component: ForgotPasswordComponent,
+  },
+  {
+    path: 'reset-password',
+    component: ResetPasswordComponent,
   },
   {
     path: 'not-found',

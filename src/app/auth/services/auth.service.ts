@@ -8,6 +8,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import {ErrorHandlerService} from '../../share/error-handler';
 import {RoleService} from '../../user/services/role.service';
 import {UserRegister} from '../models/user-register';
+import {UserResetPassword} from '../models/user-reset-password';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class AuthService {
 
   private loggedUser: string;
 
-  constructor(private http: HttpClient, private errorHandlerService: ErrorHandlerService, private roleService: RoleService) {
+  constructor(private http: HttpClient, private errorHandlerService: ErrorHandlerService) {
   }
 
   login(user: { email: string, password: string }): Observable<boolean> {
@@ -93,8 +94,15 @@ export class AuthService {
     localStorage.removeItem(this.REFRESH_TOKEN);
   }
 
-  resetPassword(email: string): Observable<boolean> {
+  forgotPassword(email: string): Observable<boolean> {
     return this.http.post<any>(`${config.apiUrl}/forgot_password/${email}`, null)
+      .pipe(
+        mapTo(true),
+        catchError((err) => this.errorHandlerService.handleError(err)));
+  }
+
+  resetPassword(userResetPassword: UserResetPassword): Observable<boolean> {
+    return this.http.post<any>(`${config.apiUrl}/reset_password`, userResetPassword)
       .pipe(
         mapTo(true),
         catchError((err) => this.errorHandlerService.handleError(err)));

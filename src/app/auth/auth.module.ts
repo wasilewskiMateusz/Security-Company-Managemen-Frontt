@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {LoginComponent} from './components/login/login.component';
 import {ShareModule} from '../share/share.module';
 import {AuthService} from './services/auth.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {TokenInterceptor} from './token-interceptor';
-import { RegisterComponent } from './components/register/register.component';
-import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
-
+import {RegisterComponent} from './components/register/register.component';
+import {ForgotPasswordComponent} from './components/forgot-password/forgot-password.component';
+import {ResetPasswordComponent} from './components/reset-password/reset-password.component';
 
 
 @NgModule({
@@ -22,11 +22,13 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
   declarations: [
     LoginComponent,
     RegisterComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     CommonModule,
     ShareModule,
   ]
 })
-export class AuthModule { }
+export class AuthModule {
+}
