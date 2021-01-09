@@ -26,9 +26,11 @@ mat-form-field{
   border-radius: 20px;
 }
 
+.link{
+  color: #909090;
+}
 .register-link{
   margin-top: 5em;
-  color: #909090;
 }
 
 

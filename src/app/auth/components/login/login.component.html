@@ -21,9 +21,12 @@
 
       <div class="buttons-container">
         <button mat-raised-button color="primary" (click)="onSubmit()">Login</button>
-        <a class="register-link" mat-button [routerLink]="'/register'">
-          <span>Create your Account</span>
+        <a class="link register-link" mat-button [routerLink]="'/register'">
+          <span>Create an account</span>
           <span class="material-icons">arrow_forward</span>
+        </a>
+        <a class="link" mat-button [routerLink]="'/forgot-password'">
+          <span>Forgot password?</span>
         </a>
       </div>
 

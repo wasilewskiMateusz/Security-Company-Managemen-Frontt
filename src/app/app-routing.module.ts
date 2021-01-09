@@ -23,6 +23,7 @@ import {UserWorkplacesComponent} from './workplace/components/user-workplaces/us
 import {NotFoundComponent} from './components/not-found/not-found.component';
 import {ForbiddenComponent} from './components/forbidden/forbidden.component';
 import {ServerErrorComponent} from './components/server-error/server-error.component';
+import {ForgotPasswordComponent} from './auth/components/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -34,6 +35,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
+  },
+  {
+    path: 'forgot-password',
+    component: ForgotPasswordComponent,
   },
   {
     path: 'not-found',

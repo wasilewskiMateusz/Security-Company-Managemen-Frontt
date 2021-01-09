@@ -93,4 +93,10 @@ export class AuthService {
     localStorage.removeItem(this.REFRESH_TOKEN);
   }
 
+  resetPassword(email: string): Observable<boolean> {
+    return this.http.post<any>(`${config.apiUrl}/forgot_password/${email}`, null)
+      .pipe(
+        mapTo(true),
+        catchError((err) => this.errorHandlerService.handleError(err)));
+  }
 }
