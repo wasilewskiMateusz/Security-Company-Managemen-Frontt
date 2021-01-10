@@ -25,6 +25,8 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
   }
 };
 
+const userLang = navigator.language;
+
 @NgModule({
   declarations: [
     JobListComponent,
@@ -44,6 +46,7 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
       useClass: NgxMatMomentAdapter,
       deps: [MAT_DATE_LOCALE, NGX_MAT_MOMENT_DATE_ADAPTER_OPTIONS]
     },
+    { provide: MAT_DATE_LOCALE, useValue: userLang },
     { provide: NGX_MAT_DATE_FORMATS, useValue: CUSTOM_DATE_FORMATS }
   ],
 })
