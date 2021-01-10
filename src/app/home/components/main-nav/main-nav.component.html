@@ -6,31 +6,31 @@
     <h1>SCManagement</h1>
 
     <div class="tool-bar-button">
-      <button mat-icon-button matTooltip="Workplaces" [routerLink]="'workplaces'">
+      <button mat-icon-button matTooltip="{{'main.nav.workplaces' | translate}}" [routerLink]="'workplaces'">
         <mat-icon>domain</mat-icon>
       </button>
-      <button mat-icon-button matTooltip="Jobs" [routerLink]="'jobs'">
+      <button mat-icon-button matTooltip="{{'main.nav.jobs' | translate}}" [routerLink]="'jobs'">
         <mat-icon>business_center</mat-icon>
       </button>
-      <button mat-icon-button matTooltip="Menu" [matMenuTriggerFor]="menu">
+      <button mat-icon-button matTooltip="{{'main.nav.menu' | translate}}" [matMenuTriggerFor]="menu">
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item (click)="openDialog()" [disabled]="roleService.loggedUserRoles.length<=1">
           <mat-icon>accessibility_new</mat-icon>
-          <span>Change role</span>
+          <span>{{'main.nav.change.role' | translate}}</span>
         </button>
         <button [routerLink]="'edit-own-password'" mat-menu-item>
           <mat-icon>vpn_key</mat-icon>
-          <span>Change password</span>
+          <span>{{'main.nav.change.password' | translate}}</span>
         </button>
         <button [routerLink]="'edit-own-data'" mat-menu-item>
           <mat-icon>account_circle</mat-icon>
-          <span>Change data</span>
+          <span>{{'main.nav.change.data' | translate}}</span>
         </button>
         <button mat-menu-item (click)="doLogout()" >
           <mat-icon>power_settings_new</mat-icon>
-          <span>Log out</span>
+          <span>{{'main.nav.log.out' | translate}}</span>
         </button>
       </mat-menu>
     </div>
@@ -42,15 +42,15 @@
     <mat-nav-list>
       <button mat-menu-item *appIfRole="['ROLE_ADMIN']" [routerLink]="'users'" (click)="sidenav.toggle()" >
         <mat-icon>perm_identity</mat-icon>
-        <span>Users</span>
+        <span>{{'main.nav.users' | translate}}</span>
       </button>
       <button mat-menu-item *appIfRole="['ROLE_EMPLOYER']" [routerLink]="'my-workplaces'" (click)="sidenav.toggle()" >
         <mat-icon>domain</mat-icon>
-        <span>My workplaces</span>
+        <span>{{'main.nav.my.workplaces' | translate}}</span>
       </button>
       <button mat-menu-item *appIfRole="['ROLE_EMPLOYEE']" [routerLink]="'my-jobs'" (click)="sidenav.toggle()" >
         <mat-icon>event_note</mat-icon>
-        <span>My jobs</span>
+        <span>{{'main.nav.my.jobs' | translate}}</span>
       </button>
       <span class="copy-rights-span">© 2020 Mateusz Wasilewski</span>
     </mat-nav-list>

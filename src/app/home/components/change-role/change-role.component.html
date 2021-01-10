@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Change your current role</h1>
+<h1 mat-dialog-title>{{'change.role.page.header' | translate}}</h1>
 <div mat-dialog-content>
   <mat-radio-group
     aria-labelledby="radio-group-label"
@@ -10,6 +10,6 @@
   </mat-radio-group>
 </div>
 <div class="buttons-container" mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-raised-button color="primary" (click)="changeCurrentRole()" >Change</button>
+  <button mat-button (click)="onNoClick()">{{'page.button.cancel' | translate}}</button>
+  <button mat-raised-button color="primary" (click)="changeCurrentRole()" >{{'change.role.page.button' | translate}}</button>
 </div>

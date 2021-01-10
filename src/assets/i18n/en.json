@@ -1,4 +1,8 @@
 {
+  "change.role.page.header": "Change role",
+  "change.role.page.button": "Change",
+
+
   "login.page.header": "Log in",
   "login.page.forgot.password.text": "Forgot password?",
   "login.page.create.account.text": "Create an account",
@@ -6,6 +10,18 @@
 
 
   "page.button.cancel": "Cancel",
+
+
+  "main.nav.change.role": "Change role",
+  "main.nav.change.password": "Change password",
+  "main.nav.change.data": "Change data",
+  "main.nav.log.out": "Log out",
+  "main.nav.users": "Users",
+  "main.nav.my.workplaces": "My workplaces",
+  "main.nav.my.jobs": "My jobs",
+  "main.nav.workplaces": "Workplaces",
+  "main.nav.menu": "Menu",
+  "main.nav.jobs": "Jobs",
 
 
   "register.page.header": "Register",
@@ -38,6 +54,10 @@
   "input.label.repassword": "Repeat hasło",
   "input.label.first.name": "Enter name",
   "input.label.last.name": "Enter last name",
-  "input.label.telephone": "Enter telephone"
+  "input.label.telephone": "Enter telephone",
 
+
+  "403.message": "This is forbidden area!",
+  "404.message": "Page not found!",
+  "500.message": "Something went wrong!"
 }

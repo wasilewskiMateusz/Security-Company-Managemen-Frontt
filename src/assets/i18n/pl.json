@@ -1,4 +1,8 @@
 {
+  "change.role.page.header": "Zmień role",
+  "change.role.page.button": "Zmień",
+
+
   "login.page.header": "Zaloguj się",
   "login.page.forgot.password.text": "Zapomniałeś hasła?",
   "login.page.create.account.text": "Stwórz konto",
@@ -6,6 +10,18 @@
 
 
   "page.button.cancel": "Anuluj",
+
+
+  "main.nav.change.role": "Zmień role",
+  "main.nav.change.password": "Zmień hasło",
+  "main.nav.change.data": "Zmień dane",
+  "main.nav.log.out": "Wyloguj",
+  "main.nav.users": "Użytkownicy",
+  "main.nav.my.workplaces": "Moje miejsca pracy",
+  "main.nav.my.jobs": "Moje zlecenia",
+  "main.nav.workplaces": "Miejsca pracy",
+  "main.nav.menu": "Menu",
+  "main.nav.jobs": "Zlecenia",
 
 
   "register.page.header": "Zarejestruj się",
@@ -33,13 +49,17 @@
   "form.error.password.not.match": "Hasła nie są takie same",
 
 
-
   "input.label.email": "Wprowadź e-mail",
   "input.label.password": "Wprowadź hasło",
   "input.label.repassword": "Powtórz hasło",
   "input.label.first.name": "Wprowadź imię",
   "input.label.last.name": "Wprowadź nazwisko",
-  "input.label.telephone": "Wprowadź telefon"
+  "input.label.telephone": "Wprowadź telefon",
+
+
+  "403.message": "Brak dostępu!",
+  "404.message": "Strona nie istnieje!",
+  "500.message": "Coś poszło nie tak!"
 
 
 }
