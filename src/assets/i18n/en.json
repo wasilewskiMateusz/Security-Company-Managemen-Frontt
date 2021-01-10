@@ -10,6 +10,17 @@
 
   "register.page.header": "Register",
   "register.page.register.button": "Register",
+  "register.page.email.notification": "Your account has been registered. More information on e-mail.",
+
+
+  "forgot.password.page.header": "Forgot password?",
+  "forgot.password.page.send.button": "Send",
+  "forgot.password.page.email.notification": "Your password has been successfully changed!",
+
+
+  "reset.password.page.header": "Reset password",
+  "reset.password.page.reset.button": "Reset",
+  "reset.password.email.notification": "Check your email for a link to reset your password",
 
 
   "form.error.required": "Field is required",

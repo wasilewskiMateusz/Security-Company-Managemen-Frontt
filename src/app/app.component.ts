@@ -13,7 +13,7 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.translate.setDefaultLang('en');
+    this.translate.setDefaultLang('pl');
     const userLang = navigator.language;
     this.translate.use(userLang);
   }

@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
       if (next === true) {
         this.router.navigate(['login']);
         this.loading = false;
-        this.successHandler.notifyUser('Your account has been registered. More information on e-mail.');
+        this.successHandler.notifyUser('register.page.email.notification');
       }
     });
 

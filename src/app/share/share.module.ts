@@ -32,7 +32,7 @@ import {NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModu
 import {NgxMatMomentModule} from '@angular-material-components/moment-adapter';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {LoaderComponent} from './components/loader/loader.component';
-import {TranslateModule} from '@ngx-translate/core';
+import {TranslateModule, TranslatePipe} from '@ngx-translate/core';
 
 
 
@@ -44,6 +44,7 @@ import {TranslateModule} from '@ngx-translate/core';
   providers: [
     ErrorHandlerService,
     SuccessHandler,
+    TranslatePipe,
   ],
   declarations: [IfRoleDirective, CheckPasswordDirective, LoaderComponent],
   imports: [

@@ -31,7 +31,7 @@ export class ResetPasswordComponent implements OnInit {
     this.authService.resetPassword(this.userResetPassword).subscribe(next => {
       if (next === true) {
         this.router.navigate(['login']);
-        this.successHandler.notifyUser('Your password has been successfully changed!');
+        this.successHandler.notifyUser('');
       }
     });
 

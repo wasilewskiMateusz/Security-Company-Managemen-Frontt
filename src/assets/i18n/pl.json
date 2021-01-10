@@ -10,6 +10,17 @@
 
   "register.page.header": "Zarejestruj się",
   "register.page.register.button": "Zarejestruj",
+  "register.page.email.notification": "Twoje konto zostało zarejestrowane. Wejdź na e-mail po więcej informacji.",
+
+
+  "forgot.password.page.header": "Zapomniałeś hasła?",
+  "forgot.password.page.send.button": "Wyślij",
+  "forgot.password.page.email.notification": "Twoje hasło zostało pomyślnie zmienione!",
+
+
+  "reset.password.page.header": "Zresetuj hasło",
+  "reset.password.page.reset.button": "Resetuj hasło",
+  "reset.password.email.notification": "Wejdź na e-mail, aby zresetować hasło",
 
 
   "form.error.required": "Pole jest wymagane",
