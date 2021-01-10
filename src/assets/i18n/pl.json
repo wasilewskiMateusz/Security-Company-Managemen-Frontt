@@ -1,0 +1,34 @@
+{
+  "login.page.header": "Zaloguj się",
+  "login.page.forgot.password.text": "Zapomniałeś hasła?",
+  "login.page.create.account.text": "Stwórz konto",
+  "login.page.login.button": "Zaloguj",
+
+
+  "page.button.cancel": "Anuluj",
+
+
+  "register.page.header": "Zarejestruj się",
+  "register.page.register.button": "Zarejestruj",
+
+
+  "form.error.required": "Pole jest wymagane",
+  "form.error.email": "Email nie jest poprawny",
+  "form.error.password.length": "Hasło musi składać się conajmniej z 8 znaków",
+  "form.error.phone.length": "Telefon musi składać się z 9 cyfr",
+  "form.error.phone.only.digits": "Telefon może zawierać wyłącznie cyfry",
+  "form.error.last.name.minlength": "Naziwsko musi składać się conajmniej z 3 znaków",
+  "form.error.name.minlength": "Imię musi składać się conajmniej z 3 znaków",
+  "form.error.password.not.match": "Hasła nie są takie same",
+
+
+
+  "input.label.email": "Wprowadź e-mail",
+  "input.label.password": "Wprowadź hasło",
+  "input.label.repassword": "Powtórz hasło",
+  "input.label.first.name": "Wprowadź imię",
+  "input.label.last.name": "Wprowadź nazwisko",
+  "input.label.telephone": "Wprowadź telefon"
+
+
+}

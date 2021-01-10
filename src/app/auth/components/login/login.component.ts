@@ -25,17 +25,17 @@ export class LoginComponent implements OnInit {
 
   getEmailErrorMessage(): string {
     if (this.loginForm.controls.email.hasError('required')) {
-      return 'You must enter a value';
+      return 'form.error.required';
     }
 
-    return this.loginForm.controls.email.hasError('email') ? 'Not a valid email' : '';
+    return this.loginForm.controls.email.hasError('email') ? 'form.error.email' : '';
   }
 
   getPasswordErrorMessage(): string {
     if (this.loginForm.controls.password.hasError('required')) {
-      return 'You must enter a value';
+      return 'form.error.required';
     }
-    return this.loginForm.controls.password.hasError('minlength') ? 'Password should contain 8 characters' : '';
+    return this.loginForm.controls.password.hasError('minlength') ? 'form.error.password.length' : '';
   }
 
   onSubmit(): void {

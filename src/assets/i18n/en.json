@@ -1,0 +1,32 @@
+{
+  "login.page.header": "Log in",
+  "login.page.forgot.password.text": "Forgot password?",
+  "login.page.create.account.text": "Create an account",
+  "login.page.login.button": "Log in",
+
+
+  "page.button.cancel": "Cancel",
+
+
+  "register.page.header": "Register",
+  "register.page.register.button": "Register",
+
+
+  "form.error.required": "Field is required",
+  "form.error.email": "Email is not valid",
+  "form.error.password.length": "Password must be at least 8 characters long",
+  "form.error.phone.length": "Phone must be 9 characters long",
+  "form.error.phone.only.digits": "Phone can contain only digits",
+  "form.error.last.name.minlength": "Last name must be at least 3 characters long",
+  "form.error.name.minlength": "Name must be at least 3 characters long",
+  "form.error.password.not.match": "Passwords do not match",
+
+
+  "input.label.email": "Enter e-mail",
+  "input.label.password": "Enter password",
+  "input.label.repassword": "Repeat hasło",
+  "input.label.first.name": "Enter name",
+  "input.label.last.name": "Enter last name",
+  "input.label.telephone": "Enter telephone"
+
+}

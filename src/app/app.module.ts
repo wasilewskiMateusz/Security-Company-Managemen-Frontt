@@ -11,7 +11,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 import { ServerErrorComponent } from './components/server-error/server-error.component';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core/';
+import {HttpClient} from '@angular/common/http';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
+
+
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -28,6 +36,13 @@ import { ServerErrorComponent } from './components/server-error/server-error.com
     ShareModule,
     MatSnackBarModule,
     NgbModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
   ],
@@ -35,3 +50,5 @@ import { ServerErrorComponent } from './components/server-error/server-error.com
 })
 export class AppModule {
 }
+
+

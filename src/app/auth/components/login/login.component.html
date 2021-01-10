@@ -1,32 +1,32 @@
 <mat-card>
   <mat-card-content>
     <form [formGroup]="loginForm">
-      <h2>Log in</h2>
+      <h2>{{'login.page.header' | translate}}</h2>
 
       <mat-form-field appearance="fill">
-        <mat-label>Enter your email</mat-label>
+        <mat-label>{{'input.label.email' | translate}}</mat-label>
         <input matInput placeholder="pat@example.com" formControlName="email" required>
-        <mat-error *ngIf="loginForm.controls.email.invalid">{{getEmailErrorMessage()}}</mat-error>
+        <mat-error *ngIf="loginForm.controls.email.invalid">{{getEmailErrorMessage() | translate}}</mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
-        <mat-label>Enter your password</mat-label>
+        <mat-label>{{'input.label.password' | translate}}</mat-label>
         <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                 [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
-        <mat-error *ngIf="loginForm.controls.password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+        <mat-error *ngIf="loginForm.controls.password.invalid">{{getPasswordErrorMessage() | translate}}</mat-error>
       </mat-form-field>
 
       <div class="buttons-container">
-        <button mat-raised-button color="primary" (click)="onSubmit()">Login</button>
+        <button mat-raised-button color="primary" (click)="onSubmit()">{{'login.page.login.button' | translate}}</button>
         <a class="link register-link" mat-button [routerLink]="'/register'">
-          <span>Create an account</span>
+          <span>{{'login.page.create.account.text' | translate}}</span>
           <span class="material-icons">arrow_forward</span>
         </a>
         <a class="link" mat-button [routerLink]="'/forgot-password'">
-          <span>Forgot password?</span>
+          <span>{{'login.page.forgot.password.text' | translate}}</span>
         </a>
       </div>
 

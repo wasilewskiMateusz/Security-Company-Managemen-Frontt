@@ -1,82 +1,82 @@
 <mat-card>
   <mat-card-content>
     <form #registerForm="ngForm" id="registerForm">
-      <h2>Register</h2>
+      <h2>{{'register.page.header' | translate}}</h2>
 
       <mat-form-field appearance="fill">
-        <mat-label>Enter your email</mat-label>
+        <mat-label>{{'input.label.email' | translate}}</mat-label>
         <input matInput placeholder="pat@example.com" name="email" [(ngModel)]="userRegister.email" #email="ngModel"
                required email>
         <mat-error *ngIf="email.invalid && (email.dirty || email.touched)">
-          <div *ngIf="email.errors.required">Field is required</div>
-          <div *ngIf="email.errors.email">Format emaila nie poprawny</div>
+          <div *ngIf="email.errors.required">{{'form.error.required' | translate}}</div>
+          <div *ngIf="email.errors.email">{{'form.error.email' | translate}}</div>
         </mat-error>
       </mat-form-field>
 
       <div ngModelGroup="passwords" #passwords="ngModelGroup" appCheckPassword>
       <mat-form-field appearance="fill">
-        <mat-label>Enter your password</mat-label>
+        <mat-label>{{'input.label.password' | translate}}</mat-label>
         <input matInput [type]="'password'" name="password" [(ngModel)]="userRegister.password" #password="ngModel"
                required minlength="8">
         <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">
-          <div *ngIf="password.errors.required">Field is required</div>
-          <div *ngIf="password.errors.minlength">Password must be at least 8 characters long.</div>
+          <div *ngIf="password.errors.required">{{'form.error.required' | translate}}</div>
+          <div *ngIf="password.errors.minlength">{{'form.error.password.length' | translate}}</div>
         </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
-        <mat-label>Repeat your password</mat-label>
+        <mat-label>{{'input.label.repassword' | translate}}</mat-label>
         <input matInput [type]="'password'" name="rePassword" [(ngModel)]="userRegister.rePassword"
                #rePassword="ngModel"
                required minlength="8">
         <mat-error *ngIf="rePassword.invalid && (rePassword.dirty || rePassword.touched)">
-          <div *ngIf="rePassword.errors.required">Field is required</div>
-          <div *ngIf="rePassword.errors.minlength">Password must be at least 8 characters long.</div>
+          <div *ngIf="rePassword.errors.required">{{'form.error.required' | translate}}</div>
+          <div *ngIf="rePassword.errors.minlength">{{'form.error.password.length' | translate}}</div>
         </mat-error>
       </mat-form-field>
       </div>
       <mat-error class="password-same-error" *ngIf="password.valid && rePassword.valid && (rePassword.dirty || rePassword.touched)">
-        <div *ngIf="passwords.errors?.passwordCheck">Passwords do not match.</div>
+        <div *ngIf="passwords.errors?.passwordCheck">{{'form.error.password.not.match' | translate}}</div>
       </mat-error>
 
       <div class="personal-data-input-container">
         <mat-form-field appearance="fill">
-          <mat-label>Enter your first name</mat-label>
+          <mat-label>{{'input.label.first.name' | translate}}</mat-label>
           <input matInput placeholder="John" name="firstName" [(ngModel)]="userRegister.firstName" #name="ngModel"
                  required minlength="3" maxlength="20">
           <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
-            <div *ngIf="name.errors.required">Field is required</div>
-            <div *ngIf="name.errors.minlength">Name must be at least 3 characters long.</div>
+            <div *ngIf="name.errors.required">{{'form.error.required' | translate}}</div>
+            <div *ngIf="name.errors.minlength">{{'form.error.name.minlength' | translate}}</div>
           </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
-          <mat-label>Enter your last name</mat-label>
+          <mat-label>{{'input.label.last.name' | translate}}</mat-label>
           <input matInput placeholder="Doe" name="lastName" [(ngModel)]="userRegister.lastName" #lastName="ngModel"
                  required minlength="3" maxlength="20">
           <mat-error *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
-            <div *ngIf="lastName.errors.required">Field is required</div>
-            <div *ngIf="lastName.errors.minlength">Last name must be at least 3 characters long.</div>
+            <div *ngIf="lastName.errors.required">{{'form.error.required' | translate}}</div>
+            <div *ngIf="lastName.errors.minlength">{{'form.error.last.name.minlength' | translate}}</div>
           </mat-error>
         </mat-form-field>
       </div>
 
       <mat-form-field appearance="fill">
-        <mat-label>Telephone</mat-label>
+        <mat-label>{{'input.label.telephone' | translate}}</mat-label>
         <input matInput placeholder="123456789" name="phoneNumber" [(ngModel)]="userRegister.phoneNumber"
                #phoneNumber="ngModel"
                required maxlength="9" pattern="[0-9]+">
         <mat-error *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)">
-          <div *ngIf="phoneNumber.errors.required">Field is required</div>
-          <div *ngIf="phoneNumber.errors.minlength">Phone must be 9 characters long.</div>
-          <div *ngIf="phoneNumber.errors.pattern">Phone can contain only digits.</div>
+          <div *ngIf="phoneNumber.errors.required">{{'form.error.required' | translate}}</div>
+          <div *ngIf="phoneNumber.errors.minlength">{{'form.error.phone.length' | translate}}</div>
+          <div *ngIf="phoneNumber.errors.pattern">{{'form.error.phone.only.digits' | translate}}</div>
         </mat-error>
       </mat-form-field>
 
-        <button mat-button (click)="backClicked()">No Thanks</button>
+        <button mat-button (click)="backClicked()">{{'page.button.cancel' | translate}}</button>
         <button mat-raised-button color="primary" form="registerForm" [disabled]="!registerForm.valid"
                 (click)="onSubmit()">
-          Register
+          {{'register.page.register.button' | translate}}
         </button>
     </form>
   </mat-card-content>
