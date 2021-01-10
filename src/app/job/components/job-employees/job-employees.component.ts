@@ -36,11 +36,11 @@ export class JobEmployeesComponent implements OnInit {
     });
   }
 
-  fire(id: number, name: string, lastName: string): void {
+  fire(id: number): void {
     this.contractService.deleteContract(id).subscribe(next => {
       if (next === true) {
         this.ngOnInit();
-        this.successHandler.notifyUser(`You have fired ${name} ${lastName}`);
+        this.successHandler.notifyUser(`job.employees.page.fire.notification`);
       }
     });
   }

@@ -9,7 +9,54 @@
   "login.page.login.button": "Log in",
 
 
+  "my.jobs.start.date": "Start date",
+  "my.jobs.finish.date": "Finish date",
+  "my.jobs.page.currency": "Zl",
+  "my.jobs.page.status": "Status",
+  "my.jobs.page.button.check.in": "Check in",
+  "my.jobs.page.button.resign": "Resign",
+  "my.jobs.resign.notification": "You have successfully resign from job",
+  "my.jobs.no.jobs.notification": "You have no jobs",
+
+
+  "job.employees.page.email": "Email",
+  "job.employees.page.name": "Name",
+  "job.employees.page.surname": "Last name",
+  "job.employees.page.phone": "Phone",
+  "job.employees.page.action": "Action",
+  "job.employees.page.button.fire": "Fire",
+  "job.employees.page.fire.notification": "User has been successfully fired",
+
+
+  "job.edit.page.header": "Edit job",
+  "job.edit.page.start.date": "Start date",
+  "job.edit.page.finish.date": "Finish date",
+  "job.edit.page.wage": "Wage",
+  "job.edit.page.vacancies": "Vacancies",
+  "job.edit.page.description": "Description",
+  "job.edit.edit.notification": "Job has been successfully edited",
+
+
+  "job.add.page.header": "Add job",
+  "job.add.page.start.date": "Start date",
+  "job.add.page.finish.date": "Finish date",
+  "job.add.page.wage": "Wage",
+  "job.add.page.vacancies": "Vacancies",
+  "job.add.page.description": "Description",
+  "job.add.page.add.notification": "Job has been successfully added",
+
+
+  "job.list.page.start.date": "Start date",
+  "job.list.page.finish.date": "Finish date",
+  "job.list.page.currency": "Zl",
+  "job.list.page.vacancies": "Vacancies",
+  "job.list.page.sign.up.button": "Sign up",
+  "job.list.page.sign.up.notification": "You have signed up to job",
+
+
   "page.button.cancel": "Cancel",
+  "page.button.edit": "Edit",
+  "page.button.add": "Add",
 
 
   "main.nav.change.role": "Change role",
@@ -47,6 +94,8 @@
   "form.error.last.name.minlength": "Last name must be at least 3 characters long",
   "form.error.name.minlength": "Name must be at least 3 characters long",
   "form.error.password.not.match": "Passwords do not match",
+  "form.error.wage.min": "Wage must be greater than 1",
+  "form.error.vacancies.min": "Number of vacancies must be greater than 1",
 
 
   "input.label.email": "Enter e-mail",

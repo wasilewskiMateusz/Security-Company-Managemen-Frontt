@@ -5,6 +5,7 @@ import {ContractService} from '../../services/contract.service';
 import {SuccessHandler} from '../../../share/success-handler';
 import {Contract} from '../../models/contract';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-my-jobs',
@@ -20,7 +21,8 @@ export class MyJobsComponent implements OnInit {
               private router: Router,
               private contractService: ContractService,
               private successHandler: SuccessHandler,
-              private snackBar: MatSnackBar) {
+              private snackBar: MatSnackBar,
+              private translate: TranslatePipe) {
   }
 
   ngOnInit(): void {
@@ -33,7 +35,7 @@ export class MyJobsComponent implements OnInit {
     this.jobService.getMyContracts(this.userId).subscribe(res => {
       this.contracts = res;
       if (this.contracts.length === 0) {
-        this.snackBar.open('You have no jobs', '', {
+        this.snackBar.open(this.translate.transform('my.jobs.no.jobs.notification') , '', {
           duration: 4000,
           verticalPosition: 'top',
           panelClass: ['warn-snackbar']
@@ -50,7 +52,7 @@ export class MyJobsComponent implements OnInit {
     this.contractService.deleteContract(id).subscribe(next => {
       if (next === true) {
         this.ngOnInit();
-        this.successHandler.notifyUser('You have resigned from job');
+        this.successHandler.notifyUser('my.jobs.resign.notification');
       }
     });
   }

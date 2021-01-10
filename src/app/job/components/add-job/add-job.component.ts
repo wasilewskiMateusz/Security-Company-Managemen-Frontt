@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {DatePipe, Location} from '@angular/common';
+import {Location} from '@angular/common';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SuccessHandler} from '../../../share/success-handler';
 import {CreateJob} from '../../models/create-job';
@@ -37,7 +37,7 @@ export class AddJobComponent{
     this.jobService.createJob(this.createJob).subscribe( next => {
       if (next === true) {
         this.location.back();
-        this.successHandler.notifyUser('Job has been added');
+        this.successHandler.notifyUser('job.add.page.add.notification');
       }
     });
 

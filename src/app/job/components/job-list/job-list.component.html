@@ -7,16 +7,16 @@
         </div>
       </a>
       <span class="address">{{job.workplace.city}}, {{job.workplace.street}}</span>
-      <span class="date">Start date: {{job.startDate | date: 'dd-MM-yyyy HH:mm'}}</span>
-      <span class="date">Finish date: {{job.completionDate | date: 'dd-MM-yyyy HH:mm'}}</span>
+      <span class="date">{{"job.list.page.start.date" | translate}}: {{job.startDate | date: 'dd-MM-yyyy HH:mm'}}</span>
+      <span class="date">{{"job.list.page.finish.date" | translate}}: {{job.completionDate | date: 'dd-MM-yyyy HH:mm'}}</span>
       <span class="description">{{job.description}}</span>
     </div>
     <div class="wage-container">
-      <span class="wage">{{job.wage}} Zl</span>
-      <span class="vacancy">Vacancy: {{job.vacancy}}</span>
+      <span class="wage">{{job.wage}} {{"job.list.page.currency" | translate}}</span>
+      <span class="vacancy">{{"job.list.page.vacancies" | translate}}: {{job.vacancy}}</span>
     </div>
   </mat-card-content>
   <mat-card-actions>
-    <button *appIfRole="['ROLE_EMPLOYEE']" mat-raised-button color="accent" (click)="signUpToJob(job.id)">Sign up</button>
+    <button *appIfRole="['ROLE_EMPLOYEE']" mat-raised-button color="accent" (click)="signUpToJob(job.id)">{{"job.list.page.sign.up.button" | translate}}</button>
   </mat-card-actions>
 </mat-card>

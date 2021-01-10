@@ -1,56 +1,56 @@
 <mat-card>
   <mat-card-content>
     <form #addWorkplaceForm="ngForm" id="addWorkplaceForm">
-      <h2>Edit job</h2>
+      <h2>{{"job.edit.page.header" | translate}}</h2>
 
       <mat-form-field appearance="fill">
-        <mat-label>Data of start</mat-label>
+        <mat-label>{{"job.edit.page.start.date" | translate}}</mat-label>
         <input readonly matInput name="start-date" [ngxMatDatetimePicker]="startPicker"
                placeholder="Data of start" [(ngModel)]="startMoment"
                #startDate="ngModel"  required [min]="minDate" [max]="completionMoment" >
         <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
         <ngx-mat-datetime-picker #startPicker></ngx-mat-datetime-picker>
         <mat-error *ngIf="startDate.invalid && (startDate.dirty || startDate.touched)">
-          <div *ngIf="startDate.errors.required">Field is required</div>
+          <div *ngIf="startDate.errors.required">{{'form.error.required' | translate}}</div>
         </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
-        <mat-label>Date of completion</mat-label>
+        <mat-label>{{"job.edit.page.finish.date" | translate}}</mat-label>
         <input matInput name="completion-date" [ngxMatDatetimePicker]="endPicker"
                placeholder="Date of completion" [min]="startMoment ? startMoment : minDate"
                [(ngModel)]="completionMoment" #endDate="ngModel" readonly required>
         <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
         <ngx-mat-datetime-picker #endPicker></ngx-mat-datetime-picker>
         <mat-error *ngIf="endDate.invalid && (endDate.dirty || endDate.touched)">
-          <div *ngIf="endDate.errors.required">Field is required</div>
+          <div *ngIf="endDate.errors.required">{{'form.error.required' | translate}}</div>
         </mat-error>
       </mat-form-field>
 
       <div class="localization-input-container">
         <mat-form-field appearance="fill">
-          <mat-label>Wage</mat-label>
+          <mat-label>{{"job.edit.page.wage" | translate}}</mat-label>
           <input type="number" matInput name="wage" [(ngModel)]="editJob.wage" #wage="ngModel"
                  required appCustomMin=1>
           <mat-error *ngIf="wage.invalid && (wage.dirty || wage.touched)">
-            <div *ngIf="wage.errors.required">Field is required</div>
-            <div *ngIf="wage.errors.appCustomMin">Min value is 1</div>
+            <div *ngIf="wage.errors.required">{{'form.error.required' | translate}}</div>
+            <div *ngIf="wage.errors.appCustomMin">{{'form.error.wage.min' | translate}}</div>
           </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
-          <mat-label>Vacancies</mat-label>
+          <mat-label>{{"job.edit.page.vacancies" | translate}}</mat-label>
           <input type="number" matInput name="vacancies" [(ngModel)]="editJob.vacancy" #vacancy="ngModel"
                  required appCustomMin=1>
           <mat-error *ngIf="vacancy.invalid && (vacancy.dirty || vacancy.touched)">
-            <div *ngIf="vacancy.errors.required">Field is required</div>
-            <div *ngIf="vacancy.errors.appCustomMin">Min value is 1</div>
+            <div *ngIf="vacancy.errors.required">{{'form.error.required' | translate}}</div>
+            <div *ngIf="vacancy.errors.appCustomMin">{{'form.error.vacancies.min' | translate}}</div>
           </mat-error>
         </mat-form-field>
       </div>
 
       <mat-form-field appearance="fill">
-        <mat-label>Description</mat-label>
+        <mat-label>{{"job.edit.page.description" | translate}}</mat-label>
         <textarea matInput
                   [(ngModel)]="editJob.description"
                   name="description"
@@ -61,14 +61,14 @@
                   maxlength="256"
                   required></textarea>
         <mat-error *ngIf="description.invalid && (description.dirty || description.touched)">
-          <div *ngIf="description.errors.required">Field is required</div>
+          <div *ngIf="description.errors.required">{{'form.error.required' | translate}}</div>
         </mat-error>
       </mat-form-field>
 
-      <button mat-button (click)="backClicked()">Cancel</button>
+      <button mat-button (click)="backClicked()">{{"page.button.cancel" | translate}}</button>
       <button mat-raised-button color="primary" form="addWorkplaceForm" [disabled]="!addWorkplaceForm.valid"
               (click)="onSubmit()">
-        Edit
+        {{"page.button.edit" | translate}}
       </button>
     </form>
   </mat-card-content>

@@ -9,7 +9,54 @@
   "login.page.login.button": "Zaloguj",
 
 
+  "my.jobs.start.date": "Data rozpoczęcia",
+  "my.jobs.finish.date": "Data zakończenia",
+  "my.jobs.page.currency": "Zł",
+  "my.jobs.page.status": "Status",
+  "my.jobs.page.button.check.in": "Zamelduj się",
+  "my.jobs.page.button.resign": "Zrezygnuj",
+  "my.jobs.resign.notification": "Pomyślnie zrezygnowałeś ze zlecenia",
+  "my.jobs.no.jobs.notification": "Aktualnie nie masz zleceń",
+
+
+  "job.employees.page.email": "Email",
+  "job.employees.page.name": "Imię",
+  "job.employees.page.surname": "Nazwisko",
+  "job.employees.page.phone": "Telefon",
+  "job.employees.page.action": "Akcja",
+  "job.employees.page.button.fire": "Zwolnij",
+  "job.employees.page.fire.notification": "Pomyślnie zwolniono użytkownika",
+
+
+  "job.edit.page.header": "Edytuj zlecenie",
+  "job.edit.page.start.date": "Data rozpoczęcia",
+  "job.edit.page.finish.date": "Data zakończenia",
+  "job.edit.page.wage": "Płaca",
+  "job.edit.page.vacancies": "Liczba etatów",
+  "job.edit.page.description": "Opis",
+  "job.edit.edit.notification": "Miejsce pracy zostało pomyślnie edytowane",
+
+
+  "job.add.page.header": "Dodaj zlecenie",
+  "job.add.page.start.date": "Data rozpoczęcia",
+  "job.add.page.finish.date": "Data zakończenia",
+  "job.add.page.wage": "Płaca",
+  "job.add.page.vacancies": "Liczba etatów",
+  "job.add.page.description": "Opis",
+  "job.add.page.add.notification": "Zlecenie zostało pomyślnie dodane",
+
+
+  "job.list.page.start.date": "Data rozpoczęcia",
+  "job.list.page.finish.date": "Data zakończenia",
+  "job.list.page.currency": "Zł",
+  "job.list.page.vacancies": "Etaty",
+  "job.list.page.sign.up.button": "Zapisz się",
+  "job.list.page.sign.up.notification": "Zostałeś zapisany do zlecenia",
+
+
   "page.button.cancel": "Anuluj",
+  "page.button.edit": "Edytuj",
+  "page.button.add": "Dodaj",
 
 
   "main.nav.change.role": "Zmień role",
@@ -47,6 +94,8 @@
   "form.error.last.name.minlength": "Naziwsko musi składać się conajmniej z 3 znaków",
   "form.error.name.minlength": "Imię musi składać się conajmniej z 3 znaków",
   "form.error.password.not.match": "Hasła nie są takie same",
+  "form.error.wage.min": "Wynagrodzenie może musi być większe od 1",
+  "form.error.vacancies.min": "Liczba etatów musi wynosić conajmniej 1",
 
 
   "input.label.email": "Wprowadź e-mail",

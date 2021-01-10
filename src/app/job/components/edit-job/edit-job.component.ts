@@ -54,7 +54,7 @@ export class EditJobComponent implements OnInit {
       res => this.editJob = res,
       () => {
       },
-      () => this.successHandler.notifyUser('Job has been edited')
+      () => this.successHandler.notifyUser('job.edit.edit.notification')
     );
   }
 

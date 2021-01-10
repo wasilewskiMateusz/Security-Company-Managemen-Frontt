@@ -39,7 +39,7 @@ export class JobListComponent implements OnInit {
     this.contractService.createContract(new CreateContract(id)).subscribe(next => {
       if (next === true) {
         this.ngOnInit();
-        this.successHandler.notifyUser('You have been signed up to job');
+        this.successHandler.notifyUser('job.list.page.sign.up.notification');
       }
     });
   }
