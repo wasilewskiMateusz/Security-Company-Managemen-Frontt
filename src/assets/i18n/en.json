@@ -3,6 +3,33 @@
   "change.role.page.button": "Change",
 
 
+  "change.user.data.page.edit.notification": "Data has been successfully changed",
+  "change.user.password.page.change.notification": "Password has been successfully changed",
+
+
+  "edit.user.password.page.change.notification": "Password has been successfully changed",
+  "edit.user.password.page.header": "Edit password",
+
+
+  "list.user.page.email": "Email",
+  "list.user.page.name": "Name",
+  "list.user.page.last.name": "Surname",
+  "list.user.page.phone": "Telephone",
+  "list.user.page.roles": "Role",
+  "list.user.page.enable": "Enable",
+  "list.user.page.action": "Action",
+  "list.user.page.workplaces": "Workplaces",
+
+
+  "edit.user.data.page.edit.notification": "User's data has been successfully changed",
+  "edit.user.data.page.edit.availability.notification": "User's availability has been successfully changed",
+  "edit.user.data.page.edit.roles.notification": "User's role has been successfully changed",
+  "edit.user.data.page.header": "User edit",
+  "edit.user.data.page.change.role.button": "Change role",
+  "edit.user.data.page.change.password.button": "Change password",
+  "edit.user.data.page.change.availability": "Enable",
+
+
   "login.page.header": "Log in",
   "login.page.forgot.password.text": "Forgot password?",
   "login.page.create.account.text": "Create an account",
@@ -57,6 +84,8 @@
   "page.button.cancel": "Cancel",
   "page.button.edit": "Edit",
   "page.button.add": "Add",
+  "page.button.change": "Change",
+
 
 
   "main.nav.change.role": "Change role",
@@ -100,10 +129,15 @@
 
   "input.label.email": "Enter e-mail",
   "input.label.password": "Enter password",
-  "input.label.repassword": "Repeat hasło",
+  "input.label.repassword": "Repeat password",
   "input.label.first.name": "Enter name",
   "input.label.last.name": "Enter last name",
   "input.label.telephone": "Enter telephone",
+  "input.label.roles": "Enter roles",
+  "input.label.current.password": "Enter current password",
+  "input.label.NewPassword": "Enter new password",
+  "input.label.reNewPassword": "Repeat new password",
+
 
 
   "403.message": "This is forbidden area!",

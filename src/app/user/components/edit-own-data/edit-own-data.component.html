@@ -4,45 +4,43 @@
     <form #changeDataForm="ngForm" id="changeDataForm">
       <div class="row-container">
         <mat-form-field appearance="fill">
-          <mat-label>First name</mat-label>
+          <mat-label>{{'input.label.first.name' | translate}}</mat-label>
           <input matInput placeholder="John" name="firstName" [(ngModel)]="user.name" #name="ngModel"
                  required minlength="3" maxlength="20">
           <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
-            <div *ngIf="name.errors.required">Field is required</div>
-            <div *ngIf="name.errors.minlength">Name must be at least 3 characters long.</div>
+            <div *ngIf="name.errors.required">{{'form.error.required' | translate}}</div>
+            <div *ngIf="name.errors.minlength">{{'form.error.name.minlength' | translate}}</div>
           </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
-          <mat-label>Last name</mat-label>
+          <mat-label>{{'input.label.last.name' | translate}}</mat-label>
           <input matInput placeholder="Doe" name="lastName" [(ngModel)]="user.lastName" #lastName="ngModel"
                  required minlength="3" maxlength="20">
           <mat-error *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
-            <div *ngIf="lastName.errors.required">Field is required</div>
-            <div *ngIf="lastName.errors.minlength">Last name must be at least 3 characters long.</div>
+            <div *ngIf="lastName.errors.required">{{'form.error.required' | translate}}</div>
+            <div *ngIf="lastName.errors.minlength">{{'form.error.last.name.minlength' | translate}}</div>
           </mat-error>
         </mat-form-field>
       </div>
 
       <mat-form-field appearance="fill">
-        <mat-label>Telephone</mat-label>
+        <mat-label>{{'input.label.telephone' | translate}}</mat-label>
         <input matInput placeholder="123456789" name="phoneNumber" [(ngModel)]="user.phoneNumber" #phoneNumber="ngModel"
                required maxlength="9" minlength="9" pattern="[0-9]+">
         <mat-error *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)">
-          <div *ngIf="phoneNumber.errors.required">Field is required</div>
-          <div *ngIf="phoneNumber.errors.minlength">Phone must be 9 characters long.</div>
-          <div *ngIf="phoneNumber.errors.pattern">Phone can contain only digits.</div>
+          <div *ngIf="phoneNumber.errors.required">{{'form.error.required' | translate}}</div>
+          <div *ngIf="phoneNumber.errors.minlength">{{'form.error.phone.length' | translate}}</div>
+          <div *ngIf="phoneNumber.errors.pattern">{{'form.error.phone.only.digits' | translate}}</div>
         </mat-error>
       </mat-form-field>
     </form>
 
     <div class="buttons-container">
-      <button mat-button color="primary" (click)="backClicked()">Back</button>
+      <button mat-button color="primary" (click)="backClicked()">{{"page.button.cancel" | translate}}</button>
       <button mat-raised-button form="changeDataForm" [disabled]="!changeDataForm.valid" class="button-margin"
-              color="primary" (click)="editUser()">Edit data
+              color="primary" (click)="editUser()">{{"page.button.edit" | translate}}
       </button>
     </div>
-
-
   </mat-card-content>
 </mat-card>

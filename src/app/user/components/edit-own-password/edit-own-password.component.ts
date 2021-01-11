@@ -45,7 +45,7 @@ export class EditOwnPasswordComponent implements OnInit {
         () => {
         },
         () => {
-          this.successHandler.notifyUser('User password has been changed');
+          this.successHandler.notifyUser('change.user.password.page.change.notification');
         }
       );
 

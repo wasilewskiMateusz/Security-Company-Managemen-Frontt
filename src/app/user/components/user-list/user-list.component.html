@@ -2,41 +2,41 @@
 
 
   <ng-container matColumnDef="email">
-    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <th mat-header-cell *matHeaderCellDef> {{'list.user.page.email' | translate}}</th>
     <td mat-cell *matCellDef="let element"> {{element.email}} </td>
   </ng-container>
 
   <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <th mat-header-cell *matHeaderCellDef> {{'list.user.page.name' | translate}} </th>
     <td mat-cell *matCellDef="let element"> {{element.name}} </td>
   </ng-container>
 
   <ng-container matColumnDef="surname">
-    <th mat-header-cell *matHeaderCellDef> Surname </th>
+    <th mat-header-cell *matHeaderCellDef> {{'list.user.page.last.name' | translate}} </th>
     <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
   </ng-container>
 
   <ng-container matColumnDef="phoneNumber">
-    <th mat-header-cell *matHeaderCellDef> Phone </th>
+    <th mat-header-cell *matHeaderCellDef> {{'list.user.page.phone' | translate}} </th>
     <td mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
   </ng-container>
 
   <ng-container matColumnDef="roles">
-    <th mat-header-cell *matHeaderCellDef> Roles </th>
+    <th mat-header-cell *matHeaderCellDef> {{'list.user.page.roles' | translate}} </th>
     <td mat-cell *matCellDef="let element"><span *ngFor="let role of element.roles">{{role.name.substring(5)+' '}}</span></td>
   </ng-container>
 
   <ng-container matColumnDef="enabled">
-    <th mat-header-cell *matHeaderCellDef> Enabled </th>
+    <th mat-header-cell *matHeaderCellDef> {{'list.user.page.enable' | translate}} </th>
     <td mat-cell *matCellDef="let element"> {{element.enabled}} </td>
   </ng-container>
 
 
   <ng-container matColumnDef="action">
-    <th mat-header-cell *matHeaderCellDef> Action </th>
+    <th mat-header-cell *matHeaderCellDef> {{'list.user.page.action' | translate}} </th>
     <td mat-cell *matCellDef="let element">
-      <button mat-raised-button color="accent" (click)="goToEdit(element.id)">Edit</button>
-      <button mat-raised-button color="accent" class="tab-button" *ngIf="check(element.roles)" (click)="goToWorkplaces(element.id)">Workplaces</button>
+      <button mat-raised-button color="accent" (click)="goToEdit(element.id)">{{"page.button.edit" | translate}}</button>
+      <button mat-raised-button color="accent" class="tab-button" *ngIf="check(element.roles)" (click)="goToWorkplaces(element.id)">{{'list.user.page.workplaces' | translate}}</button>
     </td>
   </ng-container>
 

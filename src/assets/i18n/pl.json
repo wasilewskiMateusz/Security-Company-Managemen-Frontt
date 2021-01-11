@@ -3,6 +3,33 @@
   "change.role.page.button": "Zmień",
 
 
+  "change.user.data.page.edit.notification": "Dane zostały pomyślnie zmienione",
+  "change.user.password.page.change.notification": "Hasło zostało pomyślnie zmienione",
+
+
+  "edit.user.password.page.change.notification": "Hasło zostało pomyślnie zmienione",
+  "edit.user.password.page.header": "Zmień hasło",
+
+
+  "list.user.page.email": "Email",
+  "list.user.page.name": "Imię",
+  "list.user.page.last.name": "Nazwisko",
+  "list.user.page.phone": "Telefon",
+  "list.user.page.roles": "Role",
+  "list.user.page.enable": "Aktywność",
+  "list.user.page.action": "Akcja",
+  "list.user.page.workplaces": "Miejsca pracy",
+
+
+  "edit.user.data.page.edit.notification": "Dane zostały pomyślnie zmienione",
+  "edit.user.data.page.edit.availability.notification": "Aktywność konta zostały pomyślnie zmienione",
+  "edit.user.data.page.edit.roles.notification": "Role konta zostały pomyślnie zmienione",
+  "edit.user.data.page.header": "Edycja użytkownika",
+  "edit.user.data.page.change.role.button": "Zmień role",
+  "edit.user.data.page.change.password.button": "Zmień hasło",
+  "edit.user.data.page.change.availability": "Aktywuj",
+
+
   "login.page.header": "Zaloguj się",
   "login.page.forgot.password.text": "Zapomniałeś hasła?",
   "login.page.create.account.text": "Stwórz konto",
@@ -57,6 +84,7 @@
   "page.button.cancel": "Anuluj",
   "page.button.edit": "Edytuj",
   "page.button.add": "Dodaj",
+  "page.button.change": "Zmień",
 
 
   "main.nav.change.role": "Zmień role",
@@ -99,11 +127,15 @@
 
 
   "input.label.email": "Wprowadź e-mail",
+  "input.label.newPassword": "Wprowadź nowe hasło",
   "input.label.password": "Wprowadź hasło",
+  "input.label.reNewPassword": "Powtórz nowe hasło",
   "input.label.repassword": "Powtórz hasło",
   "input.label.first.name": "Wprowadź imię",
   "input.label.last.name": "Wprowadź nazwisko",
   "input.label.telephone": "Wprowadź telefon",
+  "input.label.roles": "Wprowadź role",
+  "input.label.current.password": "Wprowadź aktualne hasło",
 
 
   "403.message": "Brak dostępu!",

@@ -69,7 +69,7 @@ export class UserEditComponent implements OnInit {
         res => this.user = res,
         () => {
         },
-        () => this.successHandler.notifyUser('User data have been changed')
+        () => this.successHandler.notifyUser('edit.user.data.page.edit.notification')
       );
   }
 
@@ -84,7 +84,7 @@ export class UserEditComponent implements OnInit {
         },
         () => {
           this.loading = false;
-          this.successHandler.notifyUser('User availability has been changed');
+          this.successHandler.notifyUser('edit.user.data.page.edit.availability.notification');
         }
       );
   }
@@ -119,7 +119,7 @@ export class UserEditComponent implements OnInit {
         res => this.user = res,
         () => {
         },
-        () => this.successHandler.notifyUser('User roles has been changed')
+        () => this.successHandler.notifyUser('edit.user.data.page.edit.roles.notification')
       );
   }
 }

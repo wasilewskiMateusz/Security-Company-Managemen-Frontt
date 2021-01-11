@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../../models/user';
-import {UserPasswordEdit} from '../../models/user-password-edit';
-import {FormControl} from '@angular/forms';
-import {Role} from '../../models/role';
 import {ActivatedRoute} from '@angular/router';
 import {SuccessHandler} from '../../../share/success-handler';
 import {UserService} from '../../services/user.service';
@@ -48,7 +45,7 @@ export class EditOwnDataComponent implements OnInit {
         res => this.user = res,
         () => {
         },
-        () => this.successHandler.notifyUser('User has been changed')
+        () => this.successHandler.notifyUser('change.user.data.page.edit.notification')
       );
   }
 
