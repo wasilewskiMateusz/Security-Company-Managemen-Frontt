@@ -1,4 +1,14 @@
-<mat-card *ngFor="let contract of contracts">
+<div class="filter-container">
+  <mat-form-field appearance="fill" class="filter">
+    <mat-label>{{"my.jobs.page.filter.status" | translate}}</mat-label>
+    <mat-select [(ngModel)]="selectedStatus" name="status">
+      <mat-option *ngFor="let status of allStatus" [value]="status" (click)="filterStatus()">
+        {{status}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<mat-card *ngFor="let contract of filteredContracts">
   <mat-card-content>
     <div class="job-info-container">
       <a class="link-to-workplace" (click)="goToWorkplaceDetails(contract.job.workplace.id)">
@@ -7,8 +17,10 @@
         </div>
       </a>
       <span class="address">{{contract.job.workplace.city}}, {{contract.job.workplace.street}}</span>
-      <span class="date">{{"my.jobs.start.date" | translate}}: {{contract.job.startDate | date: 'dd-MM-yyyy HH:mm'}}</span>
-      <span class="date">{{"my.jobs.finish.date" | translate}}: {{contract.job.completionDate | date: 'dd-MM-yyyy HH:mm'}}</span>
+      <span class="date">{{"my.jobs.start.date" | translate}}
+        : {{contract.job.startDate | date: 'dd-MM-yyyy HH:mm'}}</span>
+      <span class="date">{{"my.jobs.finish.date" | translate}}
+        : {{contract.job.completionDate | date: 'dd-MM-yyyy HH:mm'}}</span>
       <span class="description">{{contract.job.description}}</span>
     </div>
     <div class="wage-container">
@@ -22,6 +34,7 @@
             (click)="checkIn(contract.id, contract.version)">
       {{"my.jobs.page.button.check.in" | translate}}
     </button>
-    <button mat-raised-button color="accent" (click)="resign(contract.id)">{{"my.jobs.page.button.resign" | translate}}</button>
+    <button mat-raised-button color="accent"
+            (click)="resign(contract.id)">{{"my.jobs.page.button.resign" | translate}}</button>
   </mat-card-actions>
 </mat-card>

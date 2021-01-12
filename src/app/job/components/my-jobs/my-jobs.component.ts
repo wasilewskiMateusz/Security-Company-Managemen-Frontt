@@ -16,6 +16,10 @@ export class MyJobsComponent implements OnInit {
 
   contracts: Contract[] = [];
   userId: number;
+  selectedStatus = '';
+  filteredContracts: Contract[] = [];
+  allStatus: string[] = ['Claimed', 'Started', 'Finished'];
+
 
   constructor(private jobService: JobService,
               private router: Router,
@@ -34,6 +38,7 @@ export class MyJobsComponent implements OnInit {
     this.userId = JSON.parse(atob(token.split('.')[1])).id;
     this.jobService.getMyContracts(this.userId).subscribe(res => {
       this.contracts = res;
+      this.filteredContracts = this.contracts;
       if (this.contracts.length === 0) {
         this.snackBar.open(this.translate.transform('my.jobs.no.jobs.notification') , '', {
           duration: 4000,
@@ -63,5 +68,15 @@ export class MyJobsComponent implements OnInit {
         this.ngOnInit();
       },
     );
+  }
+
+  filterStatus(): void {
+    this.filteredContracts = this.contracts.filter(contract => this.matchStatus(this.selectedStatus, contract));
+  }
+
+  matchStatus(status: string, contract: Contract): boolean {
+    if (status === undefined) { return false; }
+    if (status === contract.status) { return true; }
+    return false;
   }
 }

@@ -1,55 +1,75 @@
-mat-card{
+mat-card {
   margin: 1em auto;
   width: 90%;
   align-self: center;
 }
-mat-card:last-child{
+
+mat-card:last-child {
   margin-bottom: 5em !important;
 }
 mat-card-actions {
   text-align: end;
 }
-mat-card-content{
+
+mat-card-content {
   display: flex;
 }
-.job-info-container{
+
+.job-info-container {
   display: flex;
   flex-direction: column;
   width: 85%;
 }
-.wage-container{
+
+.wage-container {
   width: 15%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
-.wage{
+
+.wage {
   font-size: 2rem;
   color: #790604;
   font-weight: bold;
 }
-.vacancy{
+
+.vacancy {
   font-weight: bold
 }
 
-.job-header{
+.job-header {
   font-size: 2rem;
   font-weight: bold;
 }
+
 .address {
   font-size: 1.2rem;
   margin-bottom: 1em;
 }
+
 .date {
   font-size: 1.2rem;
   font-weight: bold;
 }
-.description{
+
+.description {
   margin-top: 1em;
   font-size: 1.1rem;
 }
-.link-to-workplace{
+
+.link-to-workplace {
   cursor: pointer;
   color: inherit;
   text-decoration: none;
+}
+
+.filter-container{
+  width: 90%;
+  align-self: center;
+  margin: 1em auto;
+}
+
+.filter{
+  margin-bottom: -1em;
 }

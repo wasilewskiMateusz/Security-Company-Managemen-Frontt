@@ -70,6 +70,8 @@
   "my.jobs.page.button.resign": "Resign",
   "my.jobs.resign.notification": "You have successfully resign from job",
   "my.jobs.no.jobs.notification": "You have no jobs",
+  "my.jobs.page.filter.status": "Filter status",
+
 
 
   "job.employees.page.email": "Email",
