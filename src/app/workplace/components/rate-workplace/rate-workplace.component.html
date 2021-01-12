@@ -1,9 +1,9 @@
-<h1 mat-dialog-title>Rate us!</h1>
+<h1 mat-dialog-title>{{'rate.workplace.page.header' | translate}}</h1>
 <div mat-dialog-content>
-  <ngb-rating class="star" max="5" [(rate)]="ratedWorkplace.rate" [readonly]="false"></ngb-rating>
-  <span class="rate-span">{{ratedWorkplace.rate}} out of 5</span>
+  <ngb-rating class="star" max="{{maxRate}}" [(rate)]="ratedWorkplace.rate" [readonly]="false"></ngb-rating>
+  <span class="rate-span">{{ratedWorkplace.rate}} {{'details.workplace.page.rate.out.of' | translate}} {{maxRate}}</span>
   <div class="buttons-container">
-    <button mat-button (click)="onNoClick()">Cancel</button>
-    <button mat-raised-button color="accent" (click)="rate()">Rate</button>
+    <button mat-button (click)="onNoClick()">{{'page.button.cancel' | translate}}</button>
+    <button mat-raised-button color="accent" (click)="rate()">{{'rate.workplace.page.rate.button' | translate}}</button>
   </div>
 </div>

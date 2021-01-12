@@ -1,8 +1,5 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {UserPasswordEdit} from '../../../user/models/user-password-edit';
-import {User} from '../../../user/models/user';
+import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {UserService} from '../../../user/services/user.service';
 import {SuccessHandler} from '../../../share/success-handler';
 import {RateWorkplace} from '../../models/rate-workplace';
 import {RateService} from '../../services/rate.service';
@@ -15,6 +12,7 @@ import {RateService} from '../../services/rate.service';
 export class RateWorkplaceComponent {
 
   ratedWorkplace: RateWorkplace = new RateWorkplace(0, 0);
+  maxRate = 5;
 
   constructor(
     public dialogRef: MatDialogRef<RateWorkplaceComponent>,
@@ -29,7 +27,7 @@ export class RateWorkplaceComponent {
       .subscribe(
         res => {
           if (res === true) {
-            this.successHandler.notifyUser('Workplace has been rated');
+            this.successHandler.notifyUser('rate.workplace.page.rate.notification');
             this.dialogRef.close();
           }
         });

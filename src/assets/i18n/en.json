@@ -7,6 +7,32 @@
   "change.user.password.page.change.notification": "Password has been successfully changed",
 
 
+  "rate.workplace.page.rate.notification": "Workplace has been rated",
+  "rate.workplace.page.header": "Rate us!",
+  "rate.workplace.page.rate.button": "Rate",
+
+
+  "list.workplace.page.rate.out.of": "out of",
+  "list.workplace.page.employees.review": "Employees reviews",
+
+
+  "details.workplace.page.rate.out.of": "out of",
+  "details.workplace.page.rate.us.button": "Rate us!",
+  "details.workplace.page.contact": "Contact",
+  "details.workplace.page.address": "Address",
+  "details.workplace.page.add.job.button": "Add job",
+  "details.workplace.page.employees.button": "Employees",
+  "details.workplace.page.sign.up.notification": "You have successfully signed up to job",
+
+
+  "add.workplace.page.header": "Add workplace",
+  "add.workplace.page.add.notification": "Workplace has been successfully added",
+
+
+  "add.workplace.page.edit.notification": "Workplace has been successfully edited",
+  "add.workplace.page.header": "Edit workplace",
+
+
   "edit.user.password.page.change.notification": "Password has been successfully changed",
   "edit.user.password.page.header": "Edit password",
 
@@ -85,6 +111,8 @@
   "page.button.edit": "Edit",
   "page.button.add": "Add",
   "page.button.change": "Change",
+  "page.button.delete": "Delete",
+  "page.button.details": "Details",
 
 
 
@@ -138,6 +166,20 @@
   "input.label.NewPassword": "Enter new password",
   "input.label.reNewPassword": "Repeat new password",
 
+
+  "input.label.workplace.name": "Enter name",
+  "input.label.workplace.city": "Enter city",
+  "input.label.workplace.street": "Enter street",
+  "input.label.workplace.description": "Enter description",
+
+
+  "workplaces.table.header.name": "Name",
+  "workplaces.table.header.city": "City",
+  "workplaces.table.header.street": "Street",
+  "workplaces.table.header.description": "Description",
+  "workplaces.table.header.avg.rate": "Avg rate",
+  "workplaces.table.header.enabled": "Enable",
+  "workplaces.table.header.action": "Action",
 
 
   "403.message": "This is forbidden area!",

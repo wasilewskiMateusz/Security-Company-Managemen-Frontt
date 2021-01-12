@@ -29,7 +29,7 @@ export class AddWorkplaceComponent {
     this.workplaceService.createWorkplace(this.createWorkplace).subscribe( next => {
       if (next === true) {
         this.location.back();
-        this.successHandler.notifyUser('Workplace has been added');
+        this.successHandler.notifyUser('add.workplace.page.add.notification');
       }
     });
 

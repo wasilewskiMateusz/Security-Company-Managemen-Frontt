@@ -1,39 +1,39 @@
 <mat-card>
   <mat-card-content>
     <form #addWorkplaceForm="ngForm" id="addWorkplaceForm">
-      <h2>Add workplace</h2>
+      <h2>{{'add.workplace.page.header' | translate}}</h2>
 
       <mat-form-field appearance="fill">
-        <mat-label>Workplace name</mat-label>
+        <mat-label>{{'input.label.workplace.name' | translate}}</mat-label>
         <input matInput name="name" [(ngModel)]="createWorkplace.name" #name="ngModel"
                required maxlength="20">
         <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
-          <div *ngIf="name.errors.required">Field is required</div>
+          <div *ngIf="name.errors.required">{{'form.error.required' | translate}}</div>
         </mat-error>
       </mat-form-field>
 
       <div class="localization-input-container">
         <mat-form-field appearance="fill">
-          <mat-label>City</mat-label>
+          <mat-label>{{'input.label.workplace.city' | translate}}</mat-label>
           <input matInput placeholder="Warszawa" name="city" [(ngModel)]="createWorkplace.city" #city="ngModel"
                  required maxlength="20">
           <mat-error *ngIf="city.invalid && (city.dirty || city.touched)">
-            <div *ngIf="city.errors.required">Field is required</div>
+            <div *ngIf="city.errors.required">{{'form.error.required' | translate}}</div>
           </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
-          <mat-label>Street address</mat-label>
+          <mat-label>{{'input.label.workplace.street' | translate}}</mat-label>
           <input matInput placeholder="Stefana Żeromskiego 116" name="lastName" [(ngModel)]="createWorkplace.street" #street="ngModel"
                  required maxlength="30">
           <mat-error *ngIf="street.invalid && (street.dirty || street.touched)">
-            <div *ngIf="street.errors.required">Field is required</div>
+            <div *ngIf="street.errors.required">{{'form.error.required' | translate}}</div>
           </mat-error>
         </mat-form-field>
       </div>
 
       <mat-form-field appearance="fill">
-        <mat-label>Description</mat-label>
+        <mat-label>{{'input.label.workplace.description' | translate}}</mat-label>
         <textarea matInput
                   [(ngModel)]="createWorkplace.description"
                   name="description"
@@ -44,14 +44,14 @@
                   maxlength="256"
                   required></textarea>
         <mat-error *ngIf="description.invalid && (description.dirty || description.touched)">
-          <div *ngIf="description.errors.required">Field is required</div>
+          <div *ngIf="description.errors.required">{{'form.error.required' | translate}}</div>
         </mat-error>
       </mat-form-field>
 
-      <button mat-button (click)="backClicked()">Cancel</button>
+      <button mat-button (click)="backClicked()">{{"page.button.cancel" | translate}}</button>
       <button mat-raised-button color="primary" form="addWorkplaceForm" [disabled]="!addWorkplaceForm.valid"
               (click)="onSubmit()">
-        Add
+        {{"page.button.add" | translate}}
       </button>
     </form>
   </mat-card-content>

@@ -7,6 +7,32 @@
   "change.user.password.page.change.notification": "Hasło zostało pomyślnie zmienione",
 
 
+  "rate.workplace.page.rate.notification": "Miejsce pracy zostało ocenione",
+  "rate.workplace.page.header": "Oceń nas!",
+  "rate.workplace.page.rate.button": "Oceń",
+
+
+  "list.workplace.page.rate.out.of": "z",
+  "list.workplace.page.employees.review": "Opinie pracowników",
+
+
+  "details.workplace.page.rate.out.of": "z",
+  "details.workplace.page.rate.us.button": "Oceń nas!",
+  "details.workplace.page.contact": "Kontakt",
+  "details.workplace.page.address": "Adres",
+  "details.workplace.page.add.job.button": "Dodaj zlecenie",
+  "details.workplace.page.employees.button": "Pracownicy",
+  "details.workplace.page.sign.up.notification": "Pomyślnie zapisałeś się do zlecenia",
+
+
+  "add.workplace.page.header": "Dodaj miejsce pracy",
+  "add.workplace.page.add.notification": "Miejsce pracy zostało pomyślnie dodane",
+
+
+  "edit.workplace.page.edit.notification": "Miejsce pracy zostało pomyślnie zmienione",
+  "edit.workplace.page.header": "Edytuj miejsce pracy",
+
+
   "edit.user.password.page.change.notification": "Hasło zostało pomyślnie zmienione",
   "edit.user.password.page.header": "Zmień hasło",
 
@@ -76,6 +102,8 @@
   "job.list.page.start.date": "Data rozpoczęcia",
   "job.list.page.finish.date": "Data zakończenia",
   "job.list.page.currency": "Zł",
+  "job.list.page.wage": "Płaca",
+  "job.list.page.action": "Akcja",
   "job.list.page.vacancies": "Etaty",
   "job.list.page.sign.up.button": "Zapisz się",
   "job.list.page.sign.up.notification": "Zostałeś zapisany do zlecenia",
@@ -85,6 +113,8 @@
   "page.button.edit": "Edytuj",
   "page.button.add": "Dodaj",
   "page.button.change": "Zmień",
+  "page.button.delete": "Usuń",
+  "page.button.details": "Szczegóły",
 
 
   "main.nav.change.role": "Zmień role",
@@ -136,6 +166,20 @@
   "input.label.telephone": "Wprowadź telefon",
   "input.label.roles": "Wprowadź role",
   "input.label.current.password": "Wprowadź aktualne hasło",
+
+  "input.label.workplace.name": "Wprowadź nazwę",
+  "input.label.workplace.city": "Wprowadź miasto",
+  "input.label.workplace.street": "Wprowadź ulicę",
+  "input.label.workplace.description": "Wprowadź opis",
+
+
+  "workplaces.table.header.name": "Nazwa",
+  "workplaces.table.header.city": "Miasto",
+  "workplaces.table.header.street": "Ulica",
+  "workplaces.table.header.description": "Opis",
+  "workplaces.table.header.avg.rate": "Średnia ocen",
+  "workplaces.table.header.enabled": "Aktywność",
+  "workplaces.table.header.action": "Akcja",
 
 
   "403.message": "Brak dostępu!",

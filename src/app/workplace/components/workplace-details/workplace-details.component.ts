@@ -22,6 +22,7 @@ export class WorkplaceDetailsComponent implements OnInit {
   workplace: Workplace = new Workplace(0, '', '', '', '', false, 0, '', '', '', 0);
   jobs: Job[] = [];
   userId: number;
+  maxRate = 5;
   displayedColumns: string[] = ['startDate', 'completionDate', 'wage', 'vacancy', 'action'];
   @ViewChild('rateButton') private rateButton: ElementRef;
 
@@ -65,7 +66,7 @@ export class WorkplaceDetailsComponent implements OnInit {
     this.contractService.createContract(new CreateContract(id)).subscribe(next => {
       if (next === true) {
         this.ngOnInit();
-        this.successHandler.notifyUser('You have been signed up to job');
+        this.successHandler.notifyUser('details.workplace.page.sign.up.notification');
       }
     });
   }

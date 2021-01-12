@@ -3,15 +3,15 @@
     <mat-card class="name">
       <mat-card-content class="name-container">
         <span class="header">{{workplace.name}}</span>
-        <ngb-rating [max]="5" [(rate)]="workplace.averageRate" [readonly]="true">
+        <ngb-rating [max]="maxRate" [(rate)]="workplace.averageRate" [readonly]="true">
           <ng-template let-fill="fill">
               <span class="star" [class.full]="fill === 100">
                  <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
               </span>
           </ng-template>
         </ngb-rating>
-        <span class="rate-span">{{workplace.averageRate}} out of 5</span>
-        <button mat-button *appIfRole="['ROLE_EMPLOYEE']" (click)="openDialog()">Rate us!</button>
+        <span class="rate-span">{{workplace.averageRate}} {{'details.workplace.page.rate.out.of' | translate}} {{maxRate}}</span>
+        <button mat-button *appIfRole="['ROLE_EMPLOYEE']" (click)="openDialog()">{{'details.workplace.page.rate.us.button' | translate}}</button>
       </mat-card-content>
     </mat-card>
   </div>
@@ -19,7 +19,7 @@
     <div class="description-container">
       <mat-card class="description">
         <mat-card-content>
-          <h1>Description</h1>
+          <h1>{{'workplaces.table.header.description' | translate}}</h1>
           <span>{{workplace.description}}</span>
         </mat-card-content>
       </mat-card>
@@ -27,13 +27,13 @@
     <div class="container-column">
       <mat-card class="details">
         <mat-card-content>
-          <h1>Contact</h1>
+          <h1>{{'details.workplace.page.contact' | translate}}</h1>
           <span>{{workplace.employerData}} Phone: {{workplace.employerPhone}}</span>
         </mat-card-content>
       </mat-card>
       <mat-card class="address">
         <mat-card-content>
-          <h1>Address</h1>
+          <h1>{{'details.workplace.page.address' | translate}}</h1>
           <span>{{workplace.city}}, {{workplace.street}}</span>
         </mat-card-content>
       </mat-card>
@@ -41,45 +41,45 @@
   </div>
   <div class="table-container">
     <div *appIfRole="['ROLE_EMPLOYER']">
-      <button class="add-button" *ngIf="userId === workplace.employerId" mat-raised-button [routerLink]="'add-job'">Add job</button>
+      <button class="add-button" *ngIf="userId === workplace.employerId" mat-raised-button [routerLink]="'add-job'">{{'details.workplace.page.add.job.button' | translate}}</button>
     </div>
     <table mat-table [dataSource]="jobs" class="mat-elevation-z8">
 
       <ng-container matColumnDef="startDate">
-        <th mat-header-cell *matHeaderCellDef> Start date</th>
+        <th mat-header-cell *matHeaderCellDef> {{'job.list.page.start.date' | translate}}</th>
         <td mat-cell *matCellDef="let element"> {{element.startDate | date: 'dd-MM-yyyy HH:mm'}} </td>
       </ng-container>
 
       <ng-container matColumnDef="completionDate">
-        <th mat-header-cell *matHeaderCellDef> Completion date</th>
+        <th mat-header-cell *matHeaderCellDef> {{'job.list.page.finish.date' | translate}}</th>
         <td mat-cell *matCellDef="let element"> {{element.completionDate | date: 'dd-MM-yyyy HH:mm'}} </td>
       </ng-container>
 
       <ng-container matColumnDef="wage">
-        <th mat-header-cell *matHeaderCellDef> Wage</th>
-        <td mat-cell *matCellDef="let element"> {{element.wage}} </td>
+        <th mat-header-cell *matHeaderCellDef> {{'job.list.page.wage' | translate}}</th>
+        <td mat-cell *matCellDef="let element"> {{element.wage}} zł</td>
       </ng-container>
 
       <ng-container matColumnDef="vacancy">
-        <th mat-header-cell *matHeaderCellDef> Vacancy</th>
-        <td mat-cell *matCellDef="let element"> {{element.vacancy}} </td>
+        <th mat-header-cell *matHeaderCellDef> {{'job.list.page.vacancies' | translate}}</th>
+        <td mat-cell *matCellDef="let element"> {{element.vacancy}}</td>
       </ng-container>
 
       <ng-container matColumnDef="action">
-        <th mat-header-cell *matHeaderCellDef> Action</th>
+        <th mat-header-cell *matHeaderCellDef> {{'job.list.page.action' | translate}}</th>
         <td mat-cell *matCellDef="let element">
-          <button *appIfRole="['ROLE_EMPLOYEE']" mat-raised-button color="accent" (click)="signUpToJob(element.id)">Sign
-            Up
+          <button *appIfRole="['ROLE_EMPLOYEE']" mat-raised-button color="accent" (click)="signUpToJob(element.id)">
+            {{'job.list.page.sign.up.button' | translate}}
           </button>
           <ng-container *ngIf="userId === workplace.employerId || roleService.loggedUserCurrentRole.getValue() === 'ROLE_ADMIN'">
             <button *appIfRole="['ROLE_EMPLOYER', 'ROLE_ADMIN']" mat-raised-button color="accent" class="tab-button"
-                    (click)="goToAssignedUsers(element.id)">Employees
+                    (click)="goToAssignedUsers(element.id)">{{'details.workplace.page.employees.button' | translate}}
             </button>
             <button *appIfRole="['ROLE_EMPLOYER', 'ROLE_ADMIN']" mat-raised-button color="accent" class="tab-button"
-                    (click)="goToEdit(element.id)">Edit
+                    (click)="goToEdit(element.id)">{{'page.button.edit' | translate}}
             </button>
             <button *appIfRole="['ROLE_EMPLOYER', 'ROLE_ADMIN']" mat-raised-button color="warn" class="tab-button"
-                    (click)="disable(element.id, element.version)">Delete
+                    (click)="disable(element.id, element.version)">{{'page.button.delete' | translate}}
             </button>
           </ng-container>
         </td>

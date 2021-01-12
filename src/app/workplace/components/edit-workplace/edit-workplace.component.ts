@@ -4,7 +4,6 @@ import {Location} from '@angular/common';
 import {WorkplaceService} from '../../services/workplace.service';
 import {SuccessHandler} from '../../../share/success-handler';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Workplace} from '../../models/workplace';
 
 
 @Component({
@@ -44,7 +43,7 @@ export class EditWorkplaceComponent implements OnInit {
       res => this.editWorkplace = res,
       () => {
       },
-      () => this.successHandler.notifyUser('Workplace has been edited')
+      () => this.successHandler.notifyUser('edit.workplace.page.edit.notification')
     );
   }
 

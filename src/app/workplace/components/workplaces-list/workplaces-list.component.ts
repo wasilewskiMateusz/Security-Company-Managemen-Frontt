@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
 export class WorkplacesListComponent implements OnInit {
 
   workplaces: Workplace[] = [];
+  maxRate = 5;
 
   constructor(private workplaceService: WorkplaceService,
               private router: Router) { }

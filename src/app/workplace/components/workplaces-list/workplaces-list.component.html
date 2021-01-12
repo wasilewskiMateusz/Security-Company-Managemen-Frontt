@@ -7,27 +7,27 @@
         <span>{{workplace.city}}, {{workplace.street}}</span>
         </div>
       </mat-card-header>
-      <img mat-card-image src="https://faithdean.co.uk/wp-content/uploads/2017/04/Commercial-Icon-Gray-2.png">
+      <img mat-card-image src="assets/workplace.png">
       <mat-card-content>
         <p class="description">
           {{workplace.description}}
         </p>
         <div fxLayout="column">
-          <span class="rate-header-span">Employee reviews</span>
+          <span class="rate-header-span">{{'list.workplace.page.employees.review' | translate}}</span>
           <div>
-            <ngb-rating [max]="5" [(rate)]="workplace.averageRate" [readonly]="true">
+            <ngb-rating [max]="maxRate" [(rate)]="workplace.averageRate" [readonly]="true">
               <ng-template let-fill="fill">
               <span class="star" [class.full]="fill === 100">
                  <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
               </span>
               </ng-template>
             </ngb-rating>
-            <span class="rate-span">{{workplace.averageRate}} out of 5</span>
+            <span class="rate-span">{{workplace.averageRate}} {{'list.workplace.page.rate.out.of' | translate}} {{maxRate}}</span>
           </div>
         </div>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button (click)="goToDetails(workplace.id)">Details</button>
+        <button mat-button (click)="goToDetails(workplace.id)">{{'page.button.details' | translate}}</button>
       </mat-card-actions>
     </mat-card>
   </div>
